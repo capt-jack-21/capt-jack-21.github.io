@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adithya Venkatesh — Software &amp; Platform Architect | AV Connected</title>
+<meta name="description" content="Software and platform architect: web apps, APIs, identity and security, observability, cloud, IoT and data platforms. Node.js, React, AWS. Case studies and open projects.">
+<meta property="og:title" content="Adithya Venkatesh — Software & Platform Architect">
+<meta property="og:description" content="Secure web apps, APIs, observability and IoT data platforms.">
+<meta name="theme-color" content="#07090d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2307090d'/%3E%3Cpath d='M12 50 28 14l8 18' fill='none' stroke='%2338e8c6' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M30 50 46 14 54 32' fill='none' stroke='%23e6edf3' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' opacity='.0'/%3E%3Cpath d='M32 14l16 36' fill='none' stroke='%23e6edf3' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#07090d; --panel:#0d1219; --panel2:#111826; --line:#1c2635; --text:#e6edf3; --muted:#8b98a9;
+  --accent:#38e8c6; --accent2:#5aa9ff; --warn:#ffb454;
+  --mono:ui-monospace,"Cascadia Code","SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(7,9,13,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.mark{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--muted)}
+.mark b{display:inline-grid;place-items:center;width:28px;height:28px;border:1px solid var(--accent);color:var(--accent);border-radius:6px;font-size:12px;letter-spacing:0}
+nav ul{display:flex;gap:22px;list-style:none;font-family:var(--mono);font-size:12px;letter-spacing:.06em}
+nav ul a{color:var(--muted);transition:color .15s}
+nav ul a:hover{color:var(--accent)}
+@media(max-width:720px){nav ul li:not(:last-child){display:none}}
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+#sig{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 40%,rgba(7,9,13,.15),var(--bg) 78%)}
+.hero .wrap{position:relative;z-index:2;padding-top:110px;padding-bottom:110px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+h1{font-size:clamp(40px,7vw,76px);line-height:1.02;letter-spacing:-.03em;margin:22px 0 18px;font-weight:700}
+h1 span{color:var(--accent)}
+.lead{max-width:640px;color:#b7c2d0;font-size:clamp(16px,2vw,19px)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.btn{font-family:var(--mono);font-size:13px;letter-spacing:.04em;padding:12px 18px;border-radius:8px;border:1px solid var(--line);transition:all .15s}
+.btn.primary{background:var(--accent);color:#04201b;border-color:var(--accent);font-weight:700}
+.btn.primary:hover{box-shadow:0 0 22px rgba(56,232,198,.4)}
+.btn:not(.primary):hover{border-color:var(--accent);color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:64px}
+.stat{background:rgba(13,18,25,.92);padding:20px 22px}
+.stat strong{display:block;font-family:var(--mono);font-size:28px;color:var(--text);letter-spacing:-.02em}
+.stat span{font-size:12px;color:var(--muted);font-family:var(--mono);letter-spacing:.04em}
+/* sections */
+section{padding:84px 0;border-bottom:1px solid var(--line)}
+.sec-h{display:flex;align-items:baseline;gap:14px;margin-bottom:12px}
+.sec-h .n{font-family:var(--mono);color:var(--accent);font-size:13px}
+h2{font-size:clamp(26px,4vw,38px);letter-spacing:-.02em}
+.sec-sub{color:var(--muted);max-width:660px;margin-bottom:40px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px;transition:border-color .2s,transform .2s}
+.card:hover{border-color:#2a3a52;transform:translateY(-2px)}
+.pillar .w{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--accent);margin-bottom:10px}
+.pillar h3{font-size:20px;margin-bottom:8px}
+.pillar p{color:var(--muted);font-size:14.5px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font-family:var(--mono);font-size:11px;color:#a9b6c6;border:1px solid var(--line);background:var(--panel2);padding:3px 8px;border-radius:5px}
+/* case studies */
+.cases{display:grid;gap:14px}
+details.case{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:border-color .2s}
+details.case[open]{border-color:#2a3a52}
+details.case summary{list-style:none;cursor:pointer;padding:22px 24px;display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:center}
+details.case summary::-webkit-details-marker{display:none}
+.case .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;grid-column:1}
+.case h3{font-size:20px;grid-column:1;letter-spacing:-.01em}
+.case .tl{color:var(--muted);font-size:14.5px;grid-column:1}
+.case .plus{grid-row:1/4;grid-column:2;font-family:var(--mono);color:var(--muted);font-size:22px;transition:transform .2s}
+details[open] .plus{transform:rotate(45deg);color:var(--accent)}
+.body{padding:0 24px 26px;border-top:1px solid var(--line)}
+.body h4{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin:22px 0 8px}
+.body p,.body li{font-size:14.5px;color:#c3cddb}
+.body ul{padding-left:18px;display:grid;gap:5px}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:4px}
+.flow span{font-family:var(--mono);font-size:11.5px;background:var(--panel2);border:1px solid var(--line);padding:5px 9px;border-radius:6px;color:#cfe}
+.flow em{color:var(--accent);font-style:normal;font-family:var(--mono)}
+.note{margin-top:18px;font-size:12.5px;color:var(--muted);border-left:2px solid var(--line);padding-left:12px}
+/* projects */
+.proj{display:flex;flex-direction:column;gap:10px}
+.proj .top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.proj h3{font-size:18px}
+.status{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:3px 8px;border-radius:20px;border:1px solid;white-space:nowrap}
+.status.live,.status.built{color:var(--accent);border-color:rgba(56,232,198,.4)}
+.status.wip{color:var(--warn);border-color:rgba(255,180,84,.4)}
+.status.plan{color:var(--accent2);border-color:rgba(90,169,255,.4)}
+.proj p{color:var(--muted);font-size:14.5px;flex:1}
+.proj .lnk{font-family:var(--mono);font-size:12px;color:var(--accent);margin-top:4px}
+.proj .lnk:hover{text-decoration:underline}
+/* stack */
+.stackrow{display:grid;grid-template-columns:150px 1fr;gap:10px 20px;padding:16px 0;border-top:1px solid var(--line)}
+.stackrow:last-child{border-bottom:1px solid var(--line)}
+.stackrow h5{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;padding-top:4px}
+.stackrow .tags{margin:0}
+@media(max-width:620px){.stackrow{grid-template-columns:1fr}}
+/* contact */
+.contact{text-align:center}
+.contact h2{margin-bottom:14px}
+.contact p{color:var(--muted);max-width:520px;margin:0 auto 30px}
+.contact .cta{justify-content:center}
+footer{padding:30px 0;color:var(--muted);font-family:var(--mono);font-size:12px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.eyebrow i{animation:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="mark" href="#top"><b>AV</b>CONNECTED</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#cases">Case studies</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="sig" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="eyebrow"><i></i> Software &amp; Platform Architect</div>
+    <h1>Adithya<br><span>Venkatesh</span></h1>
+    <p class="lead">I architect and build secure, observable software end to end: web applications, APIs, identity and access, cloud platforms, and the IoT and data pipelines underneath them.</p>
+    <div class="cta">
+      <a class="btn primary" href="#cases">View case studies</a>
+      <a class="btn" href="#projects">Open projects</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>15+ yrs</strong><span>architecture &amp; engineering</span></div>
+      <div class="stat"><strong>Full stack</strong><span>Node.js · React · TypeScript</span></div>
+      <div class="stat"><strong>Identity</strong><span>Cognito · Okta · IAM</span></div>
+      <div class="stat"><strong>Observability</strong><span>Datadog · CloudWatch</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-h reveal"><span class="n">01</span><h2>What I do</h2></div>
+    <p class="sec-sub reveal">I take products from architecture to production: the application, the API, the identity and security model, the cloud it runs on and the telemetry that keeps it healthy. My home turf is IoT-heavy platforms: smart buildings, industrial systems, telematics and digital twins.</p>
+    <div class="grid3" style="margin-bottom:16px">
+      <div class="card pillar reveal">
+        <div class="w">WEB APPS</div><h3>Front end &amp; full stack</h3>
+        <p>Product UIs and dashboards backed by clean APIs, from multi-tenant SaaS to operator consoles.</p>
+        <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Node.js</span><span class="tag">Supabase</span></div>
+      </div>
+      <div class="card pillar reveal">
+        <div class="w">APIS &amp; BACKEND</div><h3>API design &amp; integration</h3>
+        <p>Contract-first services, vendor adapters and workflow orchestration with validation, idempotency and retries built in.</p>
+        <div class="tags"><span class="tag">Node.js</span><span class="tag">Fastify</span><span class="tag">REST</span><span class="tag">Webhooks</span><span class="tag">Lambda</span><span class="tag">n8n</span></div>
+      </div>
+      <div class="card pillar reveal">
+        <div class="w">SECURITY &amp; IDENTITY</div><h3>Secure by design</h3>
+        <p>Authentication, authorisation and tenant isolation designed in from day one, with least-privilege access across cloud and data layers.</p>
+        <div class="tags"><span class="tag">AWS Cognito</span><span class="tag">Okta</span><span class="tag">OAuth / JWT</span><span class="tag">IAM</span><span class="tag">Row-Level Security</span></div>
+      </div>
+      <div class="card pillar reveal">
+        <div class="w">OBSERVABILITY</div><h3>Know what's happening</h3>
+        <p>Metrics, logs, traces and alerting that make failures diagnosable before customers notice them.</p>
+        <div class="tags"><span class="tag">Datadog</span><span class="tag">CloudWatch</span><span class="tag">Structured logging</span><span class="tag">Alarms &amp; SLOs</span><span class="tag">OpenTelemetry</span></div>
+      </div>
+    </div>
+    <div class="grid3">
+      <div class="card pillar reveal">
+        <div class="w">IoT · SENSE</div><h3>Devices &amp; protocols</h3>
+        <p>Embedded firmware and field integration: sensors, controllers, meters and gateways across industrial and building protocols.</p>
+        <div class="tags"><span class="tag">ESP32 / FreeRTOS</span><span class="tag">Modbus</span><span class="tag">BACnet</span><span class="tag">Profibus</span><span class="tag">LoRa</span></div>
+      </div>
+      <div class="card pillar reveal">
+        <div class="w">IoT · CONNECT</div><h3>Ingestion &amp; integration</h3>
+        <p>Edge-to-cloud transport, brokers and APIs that survive bad networks, vendor quirks and scale.</p>
+        <div class="tags"><span class="tag">MQTT (EMQX, HiveMQ)</span><span class="tag">AWS IoT</span><span class="tag">Webhooks / SFTP</span><span class="tag">n8n</span></div>
+      </div>
+      <div class="card pillar reveal">
+        <div class="w">DATA · SOLVE</div><h3>Data &amp; applied AI</h3>
+        <p>Time-series modelling, lakehouse pipelines and LLM agents that work on validated building data instead of guesses.</p>
+        <div class="tags"><span class="tag">TimescaleDB</span><span class="tag">Project Haystack</span><span class="tag">Claude / Ollama</span><span class="tag">Text-to-SQL</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cases">
+  <div class="wrap">
+    <div class="sec-h reveal"><span class="n">02</span><h2>Case studies</h2></div>
+    <p class="sec-sub reveal">Professional work for client and employer platforms, presented as anonymised architecture patterns. Customer names and confidential details are omitted. Open a card for the detail.</p>
+    <div class="cases" id="caseList"></div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-h reveal"><span class="n">03</span><h2>Open projects</h2></div>
+    <p class="sec-sub reveal">Things I build on my own time: benchmarks, agents, robotics and embedded frameworks. Work in progress is labelled as such.</p>
+    <div class="grid3" id="projList"></div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-h reveal"><span class="n">04</span><h2>Toolbox</h2></div>
+    <p class="sec-sub reveal">What I reach for, grouped by layer.</p>
+    <div id="stackList"></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2 class="reveal">Let's build something that connects.</h2>
+    <p class="reveal">Open to software and platform architecture roles and engagements: secure web apps and APIs, identity and observability, cloud platforms, IoT and data pipelines.</p>
+    <div class="cta reveal">
+      <a class="btn primary" href="mailto:captjacksparrow1109@gmail.com">Email me</a>
+      <a class="btn" href="https://github.com/capt-jack-21" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" id="liBtn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Adithya Venkatesh</span>
+    <span>AV CONNECTED · Sense • Connect • Solve</span>
+  </div>
+</footer>
+
+<script>
+/* ====== EDIT ME ====== */
+const LINKEDIN_URL = "";   // e.g. "https://www.linkedin.com/in/your-handle"  (button hides if empty)
+const GITHUB = "https://github.com/capt-jack-21";
+
+const CASES = [
+ {k:"Security | Identity | Multi-Tenant SaaS", t:"Identity & Access Architecture for Multi-Tenant Platforms",
+  s:"Authentication, authorisation and tenant isolation across APIs, cloud services and the data layer.",
+  ch:"A multi-tenant platform has to authenticate people and services, enforce who can see which tenant's data, and integrate with customers' own identity providers, without turning access control into scattered, hard-to-audit code.",
+  ap:["User pools and federation with AWS Cognito, with enterprise SSO via Okta where customers bring their own identity provider.","Token-based API access (JWT / OAuth concepts) with claims carrying tenant and role context.","Authorisation enforced at more than one layer: API checks plus PostgreSQL Row-Level Security so one missed check can't expose another tenant.","Short-lived service credentials and least-privilege IAM roles; no long-lived secrets in workflows or code.","Audit-friendly logging of authentication and access decisions."],
+  fl:["Identity provider (Okta / Cognito)","tokens with tenant claims","API gateway & services","Row-Level Security","audit logs"],
+  tech:["AWS Cognito","Okta","AWS IAM","OAuth / JWT","API Gateway","PostgreSQL RLS"],
+  out:["One consistent identity and tenant model across services.","Defence in depth for customer data isolation.","Simpler SSO onboarding for enterprise customers."],
+  note:"Pattern-level summary of identity work; customer and system specifics omitted."},
+ {k:"Observability | Reliability | Cloud Operations", t:"Observability with Datadog & CloudWatch",
+  s:"Metrics, logs, traces and alerting that make distributed and IoT platforms diagnosable.",
+  ch:"Distributed platforms fail in quiet ways: lagging ingestion, partial syncs, throttled APIs and unhealthy devices. Without consistent telemetry about the platform itself, issues surface through customers instead of dashboards.",
+  ap:["Structured, correlated logs across Lambda, containers and workflow tools, searchable in Datadog and CloudWatch Logs.","Service and pipeline metrics: ingestion lag, error rates, queue depth, dead-letter counts and data freshness.","Dashboards by audience (engineering, operations) and alerts on symptoms rather than noise.","CloudWatch alarms and Datadog monitors routed to the right on-call channel with enough context to act.","Distributed tracing and OpenTelemetry-style instrumentation where request paths cross services."],
+  fl:["Services, Lambdas & devices","structured logs / metrics / traces","CloudWatch + Datadog","dashboards & monitors","alerts & runbooks"],
+  tech:["Datadog","AWS CloudWatch","OpenTelemetry","Structured logging","Alarms & SLOs","Dashboards"],
+  out:["Faster diagnosis of integration and ingestion failures.","Alerts tied to real symptoms, not raw infrastructure noise.","A shared picture of platform health for engineering and operations."],
+  note:"Pattern-level summary of observability work; environment specifics omitted."},
+ {k:"IoT → Cloud | SaaS Platform", t:"Multi-Tenant Smart Building IoT Platform",
+  s:"Cloud-native architecture for building assets, BMS integrations, telemetry and operational intelligence.",
+  ch:"Building data arrives from many vendors with inconsistent identifiers, point names and update patterns. The platform must normalise it, keep each customer's data isolated and preserve a reliable path for time-series queries.",
+  ap:["Unified entity model aligned with Project Haystack: portfolios, sites, buildings, floors, assets, sensors.","TimescaleDB for telemetry: hypertables, time-based chunking, indexing, compression and lifecycle policies.","Tenant configuration kept apart from telemetry; DynamoDB for metadata and PostgreSQL Row-Level Security for isolation.","Ingestion over MQTT, APIs, webhooks and SFTP with external-to-internal identity mapping.","AWS processing (S3, Lambda, ECS/EKS) with operational APIs and observability."],
+  fl:["BMS / IoT sources","protocol adapters","identity mapping","raw / curated storage","TimescaleDB serving","APIs & dashboards"],
+  tech:["AWS S3","Lambda","ECS/EKS","DynamoDB","PostgreSQL","TimescaleDB","MQTT","SFTP","Project Haystack","nHaystack"],
+  out:["Consistent semantic model across buildings, assets, sensors and telemetry.","Tenant-aware data access for a multi-customer SaaS.","Foundation for dashboards, asset-health views, alerting and analytics."],
+  note:"Customer names and confidential implementation details omitted."},
+ {k:"Data Engineering | Database Architecture", t:"High-Scale Time-Series Data Platform",
+  s:"PostgreSQL and TimescaleDB modelling, multi-tenant isolation and performance engineering.",
+  ch:"Time-series systems balance ingest throughput, time-window queries, storage efficiency, tenant isolation and lifecycle operations. Conventional table and index designs get expensive as data volumes grow.",
+  ap:["Stable entity identifiers, event timestamps, tenant identifiers and explicit data types.","Hypertables with time-based chunking and indexes matched to real query patterns.","Compression and segmenting strategies for older data and tenant-oriented access.","Tenant deletion and lifecycle operations tested at representative volume rather than assumed.","Continuous aggregates and native time-series functions where they fit the reporting workload.","Reproducible test datasets measuring ingestion, query latency, storage growth and compression."],
+  fl:["Telemetry producers","ingest & validate","hypertables","tenant-aware queries & aggregates","APIs / retention workflows"],
+  tech:["PostgreSQL","TimescaleDB","SQL","Compression","Continuous aggregates","Query analysis","Python test harnesses"],
+  out:["Performance-tested a multi-tenant telemetry workload at realistic volume.","Evaluated chunking, compression, tenant layout and lifecycle operations.","Evidence-driven database design instead of theoretical capacity estimates."],
+  note:"Detailed, reproducible benchmark results are being published openly in the tsdb-multitenant-bench project below."},
+ {k:"Cloud Architecture | IoT | Serverless", t:"AWS IoT Edge-to-Cloud Architecture",
+  s:"Reference architecture for secure device onboarding, telemetry processing and scalable storage.",
+  ch:"IoT workloads need reliable ingestion, device identity and configuration management, cost-aware storage, decoupled processing and clear failure handling. Tightly coupled pipelines get hard to scale and operate as device counts grow.",
+  ap:["Authenticated device or gateway connection with a defined message contract.","Raw ingestion decoupled from transformation so events can be reprocessed when mapping rules change.","Raw payloads in S3, curated into query-friendly formats such as Parquet.","Device mapping and tenant config in DynamoDB; stable internal identifiers downstream.","Lambda or containers depending on duration, concurrency and operating needs.","Retries, dead-letter handling, idempotent processing, alarms and least-privilege IAM."],
+  fl:["Devices / gateways","authenticated ingestion","raw S3","mapping & validation","transform","curated Parquet + DB","APIs & analytics"],
+  tech:["AWS","S3","Lambda","ECS/EKS","DynamoDB","API Gateway","Cognito","TimescaleDB","Terraform","Docker"],
+  out:["Clear raw-to-curated data boundaries and better reprocessing options.","Independent scaling of ingestion, transformation, storage and serving.","Adaptable to device telemetry, API polling and file-based ingestion."],
+  note:"A reusable reference design drawn from cloud and data-platform work, not a claim that every component shipped together in one environment."},
+ {k:"Data Engineering | Cloud Data Platform | ETL/ELT", t:"Cloud Data Lake & IoT Data Pipeline",
+  s:"Raw-to-curated ingestion for MQTT, API and SFTP sources using AWS data services.",
+  ch:"Source systems deliver different payload structures, identifiers, timestamps and delivery guarantees. A dependable platform needs traceability from raw input to curated records, safe reprocessing and a clean split between ingestion and business-facing queries.",
+  ap:["Source-specific ingestion for MQTT, API polling, webhooks and SFTP file drops.","Original records landed in an S3 raw zone for lineage and replay.","External device IDs resolved through a metadata mapping layer into canonical internal IDs.","Validation of timestamps, required fields, units and source metadata before promotion.","Columnar Parquet for analytics, a database suited to the access pattern for operational queries.","Monitoring of ingestion lag, malformed records, duplicates, errors and freshness."],
+  fl:["MQTT / API / SFTP","collectors","S3 raw zone","mapping & validation","processing","Parquet + time-series DB","analytics & APIs"],
+  tech:["AWS S3","Lambda","ECS/EKS","DynamoDB","TimescaleDB","Parquet","Python","Node.js","MQTT","SFTP"],
+  out:["Immutable raw data separated from validated, curated records.","Traceability and options for replaying or correcting transformations.","One ingestion pattern for both streaming and batch sources."],
+  note:"Final deployment details and performance figures depend on each environment's requirements and measured results."},
+ {k:"Industrial IoT | Distributed Data", t:"Industrial IoT Edge-to-Cloud Platform",
+  s:"Reliable ingestion and integration for industrial equipment, gateways and cloud analytics.",
+  ch:"Industrial sites mix legacy protocols, intermittent connectivity and equipment from many vendors, and can't always rely on continuous cloud access. Data must be buffered and normalised without losing the context needed for troubleshooting.",
+  ap:["Device and protocol adapters kept separate from application services so vendor payloads don't leak into business logic.","Edge buffering and retry-aware delivery for connectivity gaps and transient failures.","Normalised device identity, timestamps, units, quality flags and source metadata.","Raw retention separated from validated, query-ready data.","Structured logs, ingestion metrics, error queues and replayable processing."],
+  fl:["Equipment & sensors","edge gateway / adapters","buffered transport","cloud ingestion","validate & normalise","time-series / data lake","APIs & analytics"],
+  tech:["MQTT","Modbus","REST","AWS IoT","S3","Lambda","TimescaleDB","Docker","Observability"],
+  out:["Clear separation of device integration, ingestion, domain modelling and applications.","More resilient handling of unreliable networks and mixed equipment.","Reusable patterns for monitoring, maintenance analytics and connected operations."],
+  note:"Adapt to the actual devices, protocols, security requirements and operating environment of each engagement."},
+ {k:"Backend Engineering | API Integration | Workflow Automation", t:"CAFM / CMMS Integration & n8n Workflow Platform",
+  s:"Canonical integration services and workflow automation across building-operations systems.",
+  ch:"Facility-management systems describe sites, assets, work orders, planned jobs and maintenance events differently. Point-to-point integrations multiply complexity and are hard to test and change.",
+  ap:["Canonical internal entities and mappings for external sites, assets, work orders and planned maintenance.","Backend integration service with clear API contracts, validation, authentication and vendor-specific adapters.","n8n for orchestration where visual workflows help; core business rules stay in version-controlled services.","Idempotency, retries, rate limits, auditability and reconciliation of failed or partial syncs.","Token-based service auth, no long-lived credentials inside workflow definitions.","Structured execution logs and alerts so failures are diagnosable."],
+  fl:["CAFM / CMMS APIs","vendor adapters","canonical integration service","n8n workflows","core platform APIs"],
+  tech:["Node.js","Fastify","REST","n8n","Webhooks","JWT / OAuth","AWS Lambda","Cognito","Canonical data modelling"],
+  out:["Less coupling between vendor schemas and the core product model.","Repeatable patterns for sync, event handling and planned-job workflows.","Better visibility into workflow execution and integration failures."],
+  note:"Based on proof-of-concept integration work. Production outcomes are not claimed."}
+];
+
+const PROJECTS = [
+ {n:"TimescaleDB Multi-Tenant Benchmark", st:"live", d:"Reproducible benchmark of multi-tenant row-level-security designs on TimescaleDB: ingest, query latency, compression and tenant lifecycle at scale. Python generator.", tags:["TimescaleDB","PostgreSQL RLS","Python"], link:GITHUB+"/tsdb-multitenant-bench"},
+ {n:"Building Ops Copilot", st:"live", d:"Claude API agent for smart-building operations with a mission-control style web UI. Tool use over building data with governance in mind.", tags:["Claude API","TypeScript","Node.js"], link:GITHUB+"/building-ops-copilot"},
+ {n:"Live ADS-B + AgentCore", st:"wip", d:"Low-cost AWS project on public live aircraft data over South India: TimescaleDB on Tiger Cloud plus an Amazon Bedrock AgentCore agent, with a time-series text-to-SQL eval set.", tags:["AWS Mumbai","Bedrock AgentCore","TimescaleDB","Text-to-SQL"]},
+ {n:"Smart Building AI", st:"wip", d:"Local-LLM platform for buildings: Qwen via Ollama, RAG and tool calling over a Project Haystack ontology engine. The model never invents relationships; the backend resolves and validates entities deterministically.", tags:["Ollama / Qwen","Haystack","pgvector","Fastify","React"]},
+ {n:"ROS2 AI-Agent Robot", st:"wip", d:"Robotics lab project where an AI agent drives a ROS2 robot. The brain runs in the cloud or on a desktop; the robot only takes orders.", tags:["ROS2","AI agents","Robotics"]},
+ {n:"Pump Health Monitor", st:"built", d:"ESP32-S3 condition-monitoring node with an LVGL touchscreen HMI over ESP-NOW. Computes RMS current, crest factor, Z-score and an anomaly score on-device for early fault detection.", tags:["ESP32-S3","ESP-NOW","LVGL","Anomaly detection"]},
+ {n:"Haystack Ontology Engine (hsengine)", st:"wip", d:"Deterministic Python engine that parses Project Haystack records, classifies tags, resolves relationships and flags missing refs and cycles. Doubles as ground truth for scoring LLM hallucination rates.", tags:["Python","Project Haystack","LLM evals"]},
+ {n:"Haystack-Native Postgres Extension", st:"plan", d:"Open-source PostgreSQL extension for entity and tag storage with Haystack filter queries via CREATE EXTENSION. Existing Haystack tooling lives at the application layer, so this fills a gap.", tags:["PostgreSQL","C / SQL","Project Haystack"]},
+ {n:"Open IoT Platform & Generic Schema", st:"plan", d:"A generalised TimescaleDB schema for any IoT deployment, with a low-code device layer: sandboxed payload decoders, products and fields, rules and downlinks, built on MQTT ingest.", tags:["TimescaleDB","EMQX","Node.js","Schema design"]},
+ {n:"AI Agent Observability Plane", st:"plan", d:"Discovery, usage tracking and drift detection for AI agents across clouds, using a canonical model with per-platform adapters. Starts with AWS Bedrock AgentCore, with OpenTelemetry for agent-level traces.", tags:["AgentCore","OpenTelemetry","Canonical model"]},
+ {n:"Multi-Tenant Jewellery SaaS", st:"built", d:"Production-ready multi-tenant SaaS scaffold with Row-Level Security, live metal-rate pricing computed rather than stored, and a secure checkout Edge Function. Commercial, so the code is private.", tags:["Supabase","React","Tailwind","RLS","Edge Functions"]},
+ {n:"AgriBase OS", st:"plan", d:"Open-source peripheral framework on FreeRTOS for agricultural automation: driver contract and channel registry so integrators add sensors and actuators without touching core code. Targets an ESP32-S3 control board with LTE, LoRa nodes, CT motor monitoring and valve control.", tags:["ESP32-S3","FreeRTOS","LVGL","LoRa","LTE Cat-1"]}
+];
+const STATUS = {live:"LIVE", built:"BUILT", wip:"IN PROGRESS", plan:"PLANNED"};
+
+const STACK = [
+ ["Front end", ["React","TypeScript","Tailwind CSS","LVGL (embedded UI)"]],
+ ["Backend & APIs", ["Node.js","Fastify","Python","REST / webhooks","n8n","AWS Lambda"]],
+ ["Security & identity", ["AWS Cognito","Okta","AWS IAM","OAuth / JWT","Row-Level Security","Least-privilege design"]],
+ ["Observability", ["Datadog","AWS CloudWatch","OpenTelemetry","Structured logging","Alarms & dashboards"]],
+ ["Cloud", ["AWS (IoT, S3, Lambda, ECS/EKS, DynamoDB, API Gateway)","Azure (IoT Hub, Functions, Blob, Kafka)","Terraform","Docker"]],
+ ["Data", ["TimescaleDB","PostgreSQL","Supabase","Parquet","Data lake / medallion","pgvector"]],
+ ["IoT & edge", ["MQTT (EMQX, Mosquitto, HiveMQ)","Modbus","BACnet / Niagara","Profibus","Embedded Linux","ESP32 / FreeRTOS","LoRa","Device twins"]],
+ ["Applied AI", ["Claude API","Ollama / Qwen","RAG & tool calling","Bedrock AgentCore","Text-to-SQL evals"]],
+ ["Domain", ["Project Haystack","nHaystack","Smart buildings","Industrial IoT","Telematics","Digital twins"]]
+];
+
+/* render */
+const $ = s => document.querySelector(s);
+const esc = s => s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const tags = a => a.map(x=>`<span class="tag">${esc(x)}</span>`).join("");
+
+$("#caseList").innerHTML = CASES.map(c=>`
+<details class="case reveal">
+  <summary><div class="kicker">${esc(c.k)}</div><h3>${esc(c.t)}</h3><div class="tl">${esc(c.s)}</div><div class="plus">+</div></summary>
+  <div class="body">
+    <h4>The challenge</h4><p>${esc(c.ch)}</p>
+    <h4>Approach</h4><ul>${c.ap.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+    <h4>Reference architecture</h4><div class="flow">${c.fl.map(x=>`<span>${esc(x)}</span>`).join("<em>→</em>")}</div>
+    <h4>Technology</h4><div class="tags" style="margin-top:0">${tags(c.tech)}</div>
+    <h4>Design outcomes</h4><ul>${c.out.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+    <p class="note">${esc(c.note)}</p>
+  </div>
+</details>`).join("");
+
+$("#projList").innerHTML = PROJECTS.map(p=>`
+<article class="card proj reveal">
+  <div class="top"><h3>${esc(p.n)}</h3><span class="status ${p.st}">${STATUS[p.st]}</span></div>
+  <p>${esc(p.d)}</p>
+  <div class="tags">${tags(p.tags)}</div>
+  ${p.link?`<a class="lnk" href="${p.link}" target="_blank" rel="noopener">View on GitHub →</a>`:""}
+</article>`).join("");
+
+$("#stackList").innerHTML = STACK.map(r=>`<div class="stackrow reveal"><h5>${esc(r[0])}</h5><div class="tags">${tags(r[1])}</div></div>`).join("");
+
+if (LINKEDIN_URL) $("#liBtn").href = LINKEDIN_URL; else $("#liBtn").style.display = "none";
+$("#yr").textContent = new Date().getFullYear();
+
+/* reveal on scroll */
+const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+/* hero telemetry traces */
+(function(){
+  const cv = $("#sig"), ctx = cv.getContext("2d");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let W,H,t=0;
+  function size(){const r=cv.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0)}
+  size(); addEventListener("resize",size);
+  const traces=[{a:26,f:.012,s:.8,y:.30,c:"56,232,198"},{a:18,f:.02,s:1.3,y:.52,c:"90,169,255"},{a:34,f:.008,s:.5,y:.72,c:"56,232,198"},{a:12,f:.035,s:1.8,y:.88,c:"255,180,84"}];
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    ctx.strokeStyle="rgba(255,255,255,.035)";ctx.lineWidth=1;
+    for(let x=0;x<W;x+=48){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke()}
+    for(let y=0;y<H;y+=48){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke()}
+    traces.forEach((tr,i)=>{
+      ctx.beginPath();ctx.lineWidth=1.5;ctx.strokeStyle=`rgba(${tr.c},.8)`;
+      for(let x=0;x<=W;x+=3){
+        const v=Math.sin(x*tr.f+t*tr.s)*tr.a+Math.sin(x*tr.f*2.7+t*tr.s*1.6+i)*tr.a*.35+(((x*7+i*13)%11)-5)*.35;
+        const y=H*tr.y+v; x?ctx.lineTo(x,y):ctx.moveTo(x,y);
+      }
+      ctx.stroke();
+    });
+    if(!reduce){t+=.02;requestAnimationFrame(draw)}
+  }
+  draw();
+})();
+</script>
+</body>
+</html>
