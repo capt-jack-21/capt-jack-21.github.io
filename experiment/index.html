@@ -173,20 +173,12 @@ p.sm{font-size:15px;color:#222}.dk p.sm{color:#ddd}
 .filters button{font:700 12px var(--mono);border:3px solid var(--k);border-radius:999px;padding:5px 14px;background:#fff;cursor:pointer}
 .filters button.on,.filters button:hover{background:var(--y)}
 .proj.hide{display:none}
-/* punch line */
-.zone.z-punch{box-shadow:8px 8px 0 var(--y);background:var(--k);margin-bottom:10px}
-.tape{background:var(--y);border-bottom:3px solid var(--k);overflow:hidden;white-space:nowrap;padding:10px 0}
-.tt{display:inline-flex;gap:26px;animation:tape 38s linear infinite;font:400 28px/1 var(--disp);letter-spacing:.06em;color:var(--k)}
-.tt span,.tt i{display:inline-block;font-style:normal}
-@keyframes tape{to{transform:translateX(-50%)}}
-.pb{text-align:center;padding:46px 22px 40px;color:#fff;background-image:radial-gradient(rgba(255,212,0,.2) 1.2px,transparent 1.4px);background-size:16px 16px}
-.pb .lab{justify-content:center;margin-bottom:12px;color:var(--y)}
-.pb h3{font:400 clamp(40px,7.4vw,96px)/1.02 var(--disp);text-transform:uppercase;color:#fff;margin:0}
-.pb mark{background:var(--y);color:var(--k);padding:0 .14em;border-radius:8px;display:inline-block;transform:rotate(-2deg)}
-.loop{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:10px 14px;margin-top:26px;font:700 13px var(--mono);letter-spacing:.16em}
-.loop b{border:2px solid var(--y);color:var(--y);border-radius:999px;padding:5px 16px}
-.loop em{color:var(--y);font-style:normal}
-@media(prefers-reduced-motion:reduce){.tt{animation:none}}
+/* quip */
+.quip{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border:2px solid var(--k);border-radius:16px;background:rgba(255,255,255,.7);padding:12px 20px;margin:16px 0 26px}
+.qd{width:10px;height:10px;border-radius:50%;background:var(--y);border:2px solid var(--k);flex:none}
+.quip p{font:600 clamp(15px,1.7vw,19px)/1.3 Inter,system-ui,sans-serif;margin:0;flex:1;min-width:220px}
+.quip u{text-decoration:none;background:linear-gradient(transparent 62%,var(--y) 62%)}
+.ql{font:700 10.5px var(--mono);letter-spacing:.16em;color:#6b6b6b}
 /* project zones */
 .zone{border:3px solid var(--k);border-radius:26px;overflow:hidden;margin-bottom:28px;background:#fff}
 .zh{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 26px;border-bottom:3px solid var(--k)}
@@ -323,6 +315,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
  </div></section>
 
 <div class="sec" id="builds"><h2>Projects &amp; builds</h2><p>Three zones, by how far along each build is. Tap a card for the detail.</p></div>
+<div class="quip"><span class="qd"></span><p>Building is <u>addictive</u>. I'm not looking for a cure.</p><span class="ql">BUILD → SHIP → LEARN → REPEAT</span></div>
 <div id="zones"></div>
 
 <div class="sec" id="stack"><h2>Tech stack</h2><p>A building of floors. I work on all of them, from the plant room up to the roof.</p></div>
@@ -476,7 +469,7 @@ const ZONES=[
  ["wip","Under construction","Being built right now",["wip"],"⚙"],
  ["plan","On the blueprint","Designed, not yet started",["plan"],"✎"]];
 document.getElementById("zones").innerHTML=ZONES.map(z=>{const items=PROJECTS.map((p,i)=>[p,i]).filter(x=>z[3].includes(x[0].st));
- return `<section class="zone z-${z[0]}"><div class="zh" role="button" tabindex="0" aria-expanded="false"><div class="zt"><span class="zi">${z[4]}</span><div><h3>${z[1]}</h3><p>${z[2]}</p></div></div><div class="zr"><div class="zn">${String(items.length).padStart(2,"0")}</div><span class="zc" aria-hidden="true">▾</span></div></div><div class="zw"><div class="zwi"><div class="zb">${items.map(([p,i])=>`<article class="c proj st-${p.st}" tabindex="0" role="button" data-proj="${i}" data-st="${p.st}"><div class="lab"><span class="pill ${p.st==="live"?"lv":""}">${STATUS[p.st]}</span></div><h3>${E(p.n)}</h3><p class="sm">${E(p.d)}</p><div class="chips">${chips(p.tags.slice(0,3))}</div>${p.st==="wip"?'<div class="bar"></div>':""}<span class="go">Details →</span></article>`).join("")}</div></div></div></section>`}).join("")+`<section class="zone z-punch"><div class="tape"><div class="tt"><span>ONE MORE BUILD</span><i>✦</i><span>ONE MORE BUILD</span><i>✦</i><span>ONE MORE BUILD</span><i>✦</i><span>ONE MORE BUILD</span><i>✦</i><span>ONE MORE BUILD</span><i>✦</i><span>ONE MORE BUILD</span><i>✦</i><span>ONE MORE BUILD</span><i>✦</i><span>ONE MORE BUILD</span><i>✦</i><span>ONE MORE BUILD</span><i>✦</i><span>ONE MORE BUILD</span><i>✦</i><span>ONE MORE BUILD</span><i>✦</i><span>ONE MORE BUILD</span><i>✦</i><span>ONE MORE BUILD</span><i>✦</i><span>ONE MORE BUILD</span><i>✦</i><span>ONE MORE BUILD</span><i>✦</i><span>ONE MORE BUILD</span><i>✦</i></div></div><div class="pb"><div class="lab"><span>NOTE TO SELF</span></div><h3>Building is <mark>addictive</mark>.<br>I'm not looking for a cure.</h3><div class="loop"><b>BUILD</b><em>→</em><b>SHIP</b><em>→</em><b>LEARN</b><em>→</em><b>REPEAT</b></div></div></section>`;
+ return `<section class="zone z-${z[0]}"><div class="zh" role="button" tabindex="0" aria-expanded="false"><div class="zt"><span class="zi">${z[4]}</span><div><h3>${z[1]}</h3><p>${z[2]}</p></div></div><div class="zr"><div class="zn">${String(items.length).padStart(2,"0")}</div><span class="zc" aria-hidden="true">▾</span></div></div><div class="zw"><div class="zwi"><div class="zb">${items.map(([p,i])=>`<article class="c proj st-${p.st}" tabindex="0" role="button" data-proj="${i}" data-st="${p.st}"><div class="lab"><span class="pill ${p.st==="live"?"lv":""}">${STATUS[p.st]}</span></div><h3>${E(p.n)}</h3><p class="sm">${E(p.d)}</p><div class="chips">${chips(p.tags.slice(0,3))}</div>${p.st==="wip"?'<div class="bar"></div>':""}<span class="go">Details →</span></article>`).join("")}</div></div></div></section>`}).join("");
 document.getElementById("zones").addEventListener("click",e=>{const h=e.target.closest(".zh");if(!h)return;const z=h.parentElement,o=z.classList.toggle("open");h.setAttribute("aria-expanded",o)});
 document.getElementById("zones").addEventListener("keydown",e=>{const h=e.target.closest(".zh");if(h&&(e.key==="Enter"||e.key===" ")){e.preventDefault();h.click()}});
 function openProj(i){const p=PROJECTS[i];D(`<div class="mh"><div class="k">${STATUS[p.st]}</div><h3>${E(p.n)}</h3><button class="x" aria-label="Close">×</button></div><div class="mb"><p style="margin-top:16px">${E(p.d)}</p>${p.facts?`<h4>At a glance</h4><div class="fx">${p.facts.map(f=>`<b>${E(f[0])}</b><span>${E(f[1])}</span>`).join("")}</div>`:""}<h4>Built with</h4><div class="chips">${chips(p.tags)}</div>${p.link?`<p style="margin-top:18px"><a class="btn p" href="${E(p.link)}">GitHub repo →</a></p>`:""}</div>`)}
