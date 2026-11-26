@@ -188,10 +188,24 @@ footer a:hover{text-decoration:underline}
 # ---------- original telemetry-flavoured motifs (all drawn here) ----------
 SW = 'fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"'
 MOTIFS = {
-    # sensors -> gateway -> database
-    "iiot": f'<svg viewBox="0 0 400 220" aria-hidden="true"><g {SW}><rect x="18" y="26" width="46" height="34"/><rect x="18" y="93" width="46" height="34"/><rect x="18" y="160" width="46" height="34"/>'
-            f'<path d="M64 43H120L170 110M64 110H170M64 177H120L170 110"/><path d="M170 82L214 110L170 138L126 110Z" transform="translate(44 0)"/>'
-            f'<path d="M258 110H292"/><ellipse cx="332" cy="60" rx="42" ry="14"/><path d="M290 60V160C290 176 374 176 374 160V60"/><path d="M290 110C290 126 374 126 374 110"/></g></svg>',
+    # factory + connected building
+    "iiot": (f'<svg viewBox="0 0 400 220" aria-hidden="true"><g {SW}>'
+             # ground
+             '<path d="M10 202H390"/>'
+             # factory body, sawtooth roof, chimney, door
+             '<path d="M24 202V120H194V202"/><path d="M24 120V88L68 120V88L112 120V88L156 120V88L194 120"/>'
+             '<path d="M30 90V44H50V98"/><rect x="92" y="160" width="36" height="42"/>'
+             # building, antenna, signal waves
+             '<rect x="252" y="68" width="92" height="134"/><path d="M298 68V38"/>'
+             '<path d="M276 26Q298 6 320 26"/><path d="M262 18Q298 -14 334 18" />'
+             # dotted data line between them
+             '<path d="M200 176H246" stroke-dasharray="1 13"/></g>'
+             '<g fill="currentColor"><circle cx="298" cy="34" r="6"/>'
+             '<rect x="42" y="138" width="30" height="12"/><rect x="138" y="138" width="30" height="12"/><rect x="42" y="168" width="30" height="12"/><rect x="146" y="168" width="22" height="12"/>'
+             '<rect x="266" y="86" width="16" height="14"/><rect x="292" y="86" width="16" height="14"/><rect x="318" y="86" width="16" height="14"/>'
+             '<rect x="266" y="114" width="16" height="14"/><rect x="292" y="114" width="16" height="14"/><rect x="318" y="114" width="16" height="14"/>'
+             '<rect x="266" y="142" width="16" height="14"/><rect x="292" y="142" width="16" height="14"/><rect x="318" y="142" width="16" height="14"/>'
+             '<rect x="266" y="170" width="16" height="14"/><rect x="318" y="170" width="16" height="14"/></g></svg>'),
     # agent node graph
     "ai": f'<svg viewBox="0 0 400 220" aria-hidden="true"><g {SW}><circle cx="200" cy="110" r="34"/><circle cx="200" cy="110" r="8" fill="currentColor"/>'
           f'<path d="M172 90L110 50M228 90L290 50M168 120L90 150M232 120L310 150M200 144V190"/>'
