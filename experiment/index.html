@@ -146,6 +146,8 @@ p.sm{font-size:15px;color:#222}.dk p.sm{color:#ddd}
 .mot{display:flex;flex-direction:column;justify-content:flex-start;padding:26px 26px 22px}
 .mot h3{font-size:clamp(40px,5.2vw,68px);line-height:.95;margin:10px 0 18px}
 .mks{border-bottom:3px solid var(--k)}
+.mot .note{color:var(--k);font:700 10px var(--mono);letter-spacing:.14em;border:2px solid var(--k);border-radius:999px;padding:3px 10px;background:#fff}
+.mk{cursor:pointer}
 .mk{display:grid;grid-template-columns:1fr auto;grid-template-areas:"t i" "d i";gap:2px 14px;align-items:center;padding:13px 10px;border-top:3px solid var(--k);color:var(--k);text-decoration:none;transition:background .25s,color .25s,padding .25s}
 .mk b{grid-area:t;font:400 clamp(26px,2.9vw,36px)/1 var(--disp);text-transform:uppercase;letter-spacing:.01em}
 .mk span{grid-area:d;font:700 12px/1.4 var(--mono);letter-spacing:.04em}
@@ -242,7 +244,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 
 <section class="bento" style="padding-top:2px">
- <div class="c y mot s8"><div class="lab"><span>WHAT I MAKE</span></div><h3>Make dope stuff every day.</h3><div class="mks"><a class="mk" href="#cases"><b>Platforms that scale</b><span>2 → 100+ buildings on one multi-tenant platform</span><i>→</i></a><a class="mk" href="#cases"><b>Pipelines that never drop a reading</b><span>1 Million+ sensor points, edge to cloud</span><i>→</i></a><a class="mk" href="#builds"><b>Agents that act on validated data</b><span>Building Ops Copilot, a Claude agent for operations</span><i>→</i></a><a class="mk" href="#builds"><b>Devices that talk</b><span>Telematics units, pump monitors, ship transponders</span><i>→</i></a><a class="mk" href="#cases"><b>Twins that mirror the plant</b><span>ISA-95 factory digital twin, robots and work cells</span><i>→</i></a></div><div class="now"><em>NOW BUILDING</em><span class="nb"><i></i>Live ADS-B + AgentCore</span><span class="nb"><i></i>Smart Building AI</span><span class="nb"><i></i>ROS2 AI-Agent Robot</span><span class="nb"><i></i>Haystack Ontology Engine</span></div></div>
+ <div class="c y mot s8" id="cases"><div class="lab"><span>WHAT I MAKE</span><span class="note">CASE STUDIES · TAP A ROW TO READ THE STORY</span></div><h3>Make dope stuff every day.</h3><div class="mks" id="mks"></div><div class="now"><em>NOW BUILDING</em><span class="nb"><i></i>Live ADS-B + AgentCore</span><span class="nb"><i></i>Smart Building AI</span><span class="nb"><i></i>ROS2 AI-Agent Robot</span><span class="nb"><i></i>Haystack Ontology Engine</span></div></div>
  <div class="c vid s4"><video id="walk" muted loop playsinline autoplay preload="metadata" poster="assets/walk-poster.jpg" aria-label="Short clip of Adithya walking toward the camera outdoors"><source src="assets/walk.mp4" type="video/mp4"></video><span class="tag"><span class="live"></span>OFF THE CLOCK</span><button class="pp" id="pp" aria-label="Pause video">❚❚</button></div>
 </section>
 
@@ -252,24 +254,21 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <ul class="wl2" id="rows"></ul>
  </div></section>
 
-<div class="sec" id="cases"><span class="n">02</span><h2>Case studies</h2><p>Real platforms, anonymised. Tap a card for the problem, the decisions and the trade-offs.</p></div>
-<section class="bento" id="caseGrid"></section>
-
-<div class="sec" id="builds"><span class="n">03</span><h2>Projects &amp; builds</h2><p>Grouped by how far along they are. Tap a card for the detail.</p></div>
+<div class="sec" id="builds"><span class="n">02</span><h2>Projects &amp; builds</h2><p>Grouped by how far along they are. Tap a card for the detail.</p></div>
 <div class="filters" id="filters"></div>
 <section class="bento" id="projGrid"></section>
 
-<div class="sec" id="stack"><span class="n">04</span><h2>Tech stack</h2><p>A building of floors. I work on all of them, from the plant room up to the roof.</p></div>
+<div class="sec" id="stack"><span class="n">03</span><h2>Tech stack</h2><p>A building of floors. I work on all of them, from the plant room up to the roof.</p></div>
 <section class="bento" id="floorGrid"></section>
 
-<div class="sec" id="pipeline"><span class="n">05</span><h2>How data travels</h2><p>The same path from field to application, whatever the source.</p></div>
+<div class="sec" id="pipeline"><span class="n">04</span><h2>How data travels</h2><p>The same path from field to application, whatever the source.</p></div>
 <section class="bento" id="stageGrid"></section>
 <section class="bento" style="padding-top:0"><div class="c dk s12"><div class="lab"><span class="live">PICK A SOURCE</span><span>what happens to a reading</span></div><div class="pick" id="pick"></div><div class="hops" id="hops"></div><div class="track"></div></div></section>
 
-<div class="sec" id="writing"><span class="n">06</span><h2>Blog</h2><p>Problems solved, decisions made and notes from the bench.</p></div>
+<div class="sec" id="writing"><span class="n">05</span><h2>Blog</h2><p>Problems solved, decisions made and notes from the bench.</p></div>
 <section class="bento" id="blogGrid"></section>
 
-<div class="sec" id="contact"><span class="n">07</span><h2>Let's talk</h2></div>
+<div class="sec" id="contact"><span class="n">06</span><h2>Let's talk</h2></div>
 <section class="bento"><div class="c y s12" style="text-align:center"><h3 style="font-size:clamp(30px,5vw,48px)">Looking for a platform architect?</h3><p class="sm" style="max-width:520px;margin:0 auto">Open to architecture roles and engagements: secure web apps and APIs, identity and observability, cloud platforms, IoT and data pipelines, agentic AI.</p><div class="btns" style="justify-content:center;margin-top:16px"><button class="btn p" data-copy>Copy email</button><a class="btn" href="https://github.com/capt-jack-21">GitHub</a></div></div></section>
 </main>
 <footer><div class="wrap"><span>© 2026 Adithya Venkatesh</span><span>AV CONNECTED · Sense • Connect • Solve</span></div></footer>
@@ -388,9 +387,19 @@ const chips=a=>a.map(t=>`<span class="chip">${E(t)}</span>`).join("");
 document.querySelectorAll("[data-copy]").forEach(b=>b.onclick=async()=>{try{await navigator.clipboard.writeText(EM);b.textContent="Copied!"}catch(e){b.textContent=EM}setTimeout(()=>b.textContent="Copy email",2200)});
 
 /* case studies */
-const cg=document.getElementById("caseGrid");
-const CSPAN=["s8","s4","s4","s4","s4"],CVAR=["y","dk","","y","dk"];
-cg.innerHTML=CASES.map((c,i)=>`<article class="c case ${CSPAN[i]||"s4"} ${CVAR[i]||""}" tabindex="0" role="button" data-case="${i}"><div class="lab"><span>${E(c.k.split("|")[0].trim()).toUpperCase()}</span><span class="id">A-${101+i}</span></div><h3>${E(c.t)}</h3><p class="sm">${E(c.s)}</p><div class="chips">${chips(c.tech.slice(0,4))}</div><span class="go">Open case study →</span></article>`).join("");
+CASES.push({m:"agent", k:"Agentic AI | Own project | Claude API", t:"Building Ops Copilot",
+ s:"A Claude-based agent for building operations that answers from structured building data, through tools it is allowed to call.",
+ pr:"Building operators juggle alarms, trends and tickets spread across systems. A chat model that guesses is a risk: a wrong answer about a chiller or a fire panel costs more than no answer. The agent had to be useful without being trusted blindly.",
+ co:["Answers come from the building's own data, not from the model's general knowledge","Everything the agent can do is explicit and bounded","Operators see the work as it happens, not one block of text at the end","Runs as an ordinary Node.js service, cheap to operate","Built in public, so the design has to be readable by someone else"],
+ fl:["Operator question","Agent loop (Claude API)","Controlled tools","Structured building data","Streamed answer in the web console"],
+ de:["Give the model tools instead of context dumps: it asks for the data it needs through a controlled interface.","Keep the data structured (equipment, points, readings), so an answer can point to the source instead of a guess.","Stream the answer and the tool steps to a mission-control style web interface.","Keep the agent loop small and explicit in TypeScript, so its behaviour is easy to read, test and change.","Put the limits in the tool layer, not in the prompt: the code decides what is permitted."],
+ tr:[{q:"Why tools over putting the data in the prompt?",a:"A prompt that carries the data is simpler, but it goes stale, grows large and invites guessing. Tools take more design effort and make every answer traceable to a call."},
+     {q:"Why a hand-written agent loop over an agent framework?",a:"A framework saves time at the start. A small loop is easier to reason about when you have to explain exactly what the agent can and cannot do."},
+     {q:"Why limits in the tool layer and not in the prompt?",a:"A prompt instruction can be argued around. A tool that does not exist, or that refuses a request, cannot."}],
+ out:["A working agent with a streaming operator console, public on GitHub.","A pattern for tool-based agents that can be reused on other building and IoT data.","A concrete base for discussing agent governance: scope, tool permissions and traceability."],
+ tech:["Claude API","TypeScript","Node.js","Tool use","Streaming responses","Structured building data"],rel:[]});
+const HEADS=[["Platforms that scale","2 → 100+ buildings on one multi-tenant platform",0],["Pipelines that never drop a reading","1 Million+ sensor points, edge to cloud",1],["Agents that act on validated data","Building Ops Copilot, a Claude agent for operations",5],["Devices that talk","Telematics units, pump monitors, ship transponders",4],["Twins that mirror the plant","ISA-95 factory digital twin, robots and work cells",3],["Many shops, one engine","A multi-tenant super app for jewellery",2]];
+document.getElementById("mks").innerHTML=HEADS.map(h=>`<div class="mk" role="button" tabindex="0" data-case="${h[2]}"><b>${E(h[0])}</b><span>${E(h[1])}</span><i>→</i></div>`).join("");
 const li=a=>a.map(x=>`<li>${E(x)}</li>`).join("");
 function openCase(i){const c=CASES[i];D(`<div class="mh"><div class="k">${E(c.k)}</div><h3>${E(c.t)}</h3><button class="x" aria-label="Close">×</button></div><div class="mb"><h4>The problem</h4><p>${E(c.pr)}</p><h4>Constraints</h4><ul>${li(c.co)}</ul><h4>Flow</h4><div class="flow">${c.fl.map(x=>`<span>${E(x)}</span>`).join("<em>→</em>")}</div><h4>Decisions</h4><ul>${li(c.de)}</ul><h4>Trade-offs</h4>${c.tr.map(t=>`<div class="tr"><b>${E(t.q)}</b><span>${E(t.a)}</span></div>`).join("")}<h4>Outcomes</h4><ul>${li(c.out)}</ul><h4>Tech</h4><div class="chips">${chips(c.tech)}</div></div>`)}
 
