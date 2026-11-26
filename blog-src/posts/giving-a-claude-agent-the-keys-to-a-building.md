@@ -2,7 +2,7 @@
 title: Giving a Claude agent the keys to a building, safely
 theme: ai
 type: teardown
-date: 2025-12-25
+date: 2026-03-25
 summary: How to let an AI agent answer real questions about a building without letting it guess, break things or make numbers up.
 tags: Claude, tool use, MCP, building automation, Haystack, agents, evals
 ---
