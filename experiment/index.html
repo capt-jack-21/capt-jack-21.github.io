@@ -183,7 +183,7 @@ p.sm{font-size:15px;color:#222}.dk p.sm{color:#ddd}
 .zn{font:400 clamp(60px,8vw,96px)/1 var(--disp);opacity:.9}
 .zb{padding:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 @media(max-width:980px){.zb{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:620px){.zb{grid-template-columns:1fr}.zh{padding:12px 12px;gap:8px}.zi{width:38px;height:38px;font-size:17px}.zt{gap:10px;min-width:0}.zh h3{font-size:28px}.zh p{font-size:10px;letter-spacing:.08em}.zn{font-size:44px!important}.z-wip .zt{padding:6px 12px 6px 6px}}
+@media(max-width:620px){.zb{grid-template-columns:1fr}.zh{padding:12px 12px;gap:8px}.zi{width:38px;height:38px;font-size:17px}.zt{gap:10px;min-width:0}.zh h3{font-size:28px}.zh p{font-size:10px;letter-spacing:.08em}.zn{font-size:44px!important}}
 .zb .c{padding:20px}
 .zb .c h3{font:400 28px/1.02 var(--disp);text-transform:uppercase;margin:12px 0 8px}
 /* shipped: green */
@@ -195,11 +195,11 @@ p.sm{font-size:15px;color:#222}.dk p.sm{color:#ddd}
 .pill.lv:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--k);margin-right:6px;animation:nbp 1.4s ease-in-out infinite}
 /* under construction: hazard tape */
 .z-wip{box-shadow:8px 8px 0 var(--k)}
-.z-wip .zh{background:repeating-linear-gradient(-45deg,#ffd400 0 16px,#0a0a0a 16px 32px)}
-.z-wip .zt,.z-wip .zn{background:#0a0a0a;color:var(--y);padding:6px 18px 6px 8px;border-radius:14px}.z-wip .zn{opacity:1;padding:2px 16px}
-.z-wip .zi{background:var(--y);border-color:var(--y)}
-.z-wip .zh p{color:#fff}
+.z-wip .zh{background:var(--y)}
+.z-wip .zi{background:var(--k);color:var(--y)}
+.z-wip .zn{color:var(--k)}
 .z-wip .zb{background:#fff4b8}
+.z-wip .c{border-color:var(--k)}
 .z-wip .c{background:var(--y)}.z-wip .pill{background:#fff}
 .bar{height:9px;border:2px solid var(--k);border-radius:6px;margin-top:12px;background:repeating-linear-gradient(-45deg,var(--k) 0 7px,var(--y) 7px 14px);background-size:20px 20px;animation:barmove 1s linear infinite}
 @keyframes barmove{to{background-position:20px 0}}
