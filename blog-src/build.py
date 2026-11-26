@@ -361,7 +361,7 @@ def parse(path):
 
 
 def main():
-    posts = sorted((parse(p) for p in SRC.glob("*.md")), key=lambda p: (p["date"], p["title"]), reverse=True)
+    posts = sorted((parse(p) for p in SRC.glob("*.md")), key=lambda p: (not p["placeholder"], p["date"], p["title"]), reverse=True)
     if OUT.exists():
         shutil.rmtree(OUT)
     (OUT / "og").mkdir(parents=True)
