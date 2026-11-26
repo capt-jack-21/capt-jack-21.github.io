@@ -234,6 +234,25 @@ p.sm{font-size:15px;color:#222}.dk p.sm{color:#ddd}
 .z-plan .go{color:#fff}
 
 /* stack floors */
+/* periodic stack */
+.pl{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 16px}
+.pl button{display:inline-flex;align-items:center;gap:8px;font:700 12px var(--mono);border:3px solid var(--k);border-radius:999px;padding:5px 14px;background:#fff;color:var(--k);cursor:pointer;transition:transform .2s,background .2s}
+.pl button s{width:12px;height:12px;border-radius:4px;background:var(--bg);border:2px solid var(--k);display:inline-block}
+.pl button em{font-style:normal;opacity:.55}
+.pl button:hover{transform:translateY(-2px)}
+.pl button.on{background:var(--k);color:var(--y)}
+.pl button.on s{border-color:#fff}
+.pg2{display:grid;grid-template-columns:repeat(auto-fill,minmax(124px,1fr));gap:12px}
+.el{position:relative;aspect-ratio:1/1.08;border:3px solid var(--k);border-radius:16px;background:var(--bg);color:var(--fg);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8px 6px;opacity:0;transform:translateY(18px) scale(.94);transition:opacity .5s,transform .5s cubic-bezier(.2,.8,.2,1),filter .3s,box-shadow .25s}
+.pg2.go .el{opacity:1;transform:none;transition-delay:var(--d),var(--d),0s,0s}
+.pg2.go .el:hover{transform:translate(-3px,-4px) rotate(-1.5deg);box-shadow:6px 6px 0 var(--k);z-index:2;transition-delay:0s}
+.el i{position:absolute;top:7px;left:10px;font:700 10px var(--mono);font-style:normal;opacity:.7}
+.el b{font:400 clamp(40px,4.4vw,52px)/1 var(--disp);letter-spacing:.01em}
+.el span{font:700 10.5px/1.25 var(--mono);margin-top:6px;letter-spacing:.02em}
+.pg2.f .el{filter:grayscale(1) opacity(.22)}
+.pg2.f .el.hit{filter:none}
+@media(max-width:600px){.pl{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;margin-right:-4px;scrollbar-width:none}.pl::-webkit-scrollbar{display:none}.pl button{flex:none}.pg2{grid-template-columns:repeat(3,1fr);gap:8px}.el b{font-size:36px}.el span{font-size:9px}.el i{font-size:8px;top:5px;left:7px}}
+@media(prefers-reduced-motion:reduce){.el{opacity:1;transform:none;transition:filter .3s}}
 .floor{display:grid;grid-template-columns:90px 1fr;gap:20px;align-items:start}
 .floor .no{font:400 64px/1 var(--disp)}
 .floor .no small{display:block;font:700 10px var(--mono);letter-spacing:.16em}
@@ -318,8 +337,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <div class="quip"><span class="qd"></span><p>Building is <u>addictive</u>. I'm not looking for a cure.</p><span class="ql">BUILD → SHIP → LEARN → REPEAT</span></div>
 <div id="zones"></div>
 
-<div class="sec" id="stack"><h2>Tech stack</h2><p>A building of floors. I work on all of them, from the plant room up to the roof.</p></div>
-<section class="bento" id="floorGrid"></section>
+<div class="sec" id="stack"><h2>Tech stack</h2></div>
+<div class="pt"><div class="pl" id="ptLegend"></div><div class="pg2" id="ptGrid"></div></div>
 
 <div class="sec" id="pipeline"><h2>How data travels</h2><p>The same path from field to application, whatever the source.</p></div>
 <section class="bento" id="stageGrid"></section>
@@ -475,7 +494,19 @@ document.getElementById("zones").addEventListener("keydown",e=>{const h=e.target
 function openProj(i){const p=PROJECTS[i];D(`<div class="mh"><div class="k">${STATUS[p.st]}</div><h3>${E(p.n)}</h3><button class="x" aria-label="Close">×</button></div><div class="mb"><p style="margin-top:16px">${E(p.d)}</p>${p.facts?`<h4>At a glance</h4><div class="fx">${p.facts.map(f=>`<b>${E(f[0])}</b><span>${E(f[1])}</span>`).join("")}</div>`:""}<h4>Built with</h4><div class="chips">${chips(p.tags)}</div>${p.link?`<p style="margin-top:18px"><a class="btn p" href="${E(p.link)}">GitHub repo →</a></p>`:""}</div>`)}
 
 /* stack floors */
-document.getElementById("floorGrid").innerHTML=FLOORS.map(f=>`<article class="c s12 floor ${f.base?"dk":""}" style="${["R","3"].includes(f.id)?"background:var(--y)":""}"><div class="no">${E(f.id)}<small>${E(f.nm)}</small></div><div><h3>${E(f.t)}</h3><p class="sm">${E(f.d)}</p><div class="chips" style="margin-top:12px">${chips(f.tags)}</div></div></article>`).join("").replace(/(<article class="c s12 floor dk")/,'<div class="ground"><span>GROUND LEVEL</span></div>$1');
+const PCAT=[["Agentic AI & cloud","#0a0a0a","#ffd400"],["Web & front end","#ffd400","#0a0a0a"],["APIs & integration","#ffffff","#0a0a0a"],["Identity & access","#ff7a3d","#0a0a0a"],["Observability","#2552f5","#ffffff"],["Data & time-series","#22d17f","#0a0a0a"],["Edge & protocols","#c9b8ff","#0a0a0a"]];
+const PT=[[0,"Cl","Claude"],[0,"Ol","Ollama / Qwen"],[0,"Ag","AgentCore"],[0,"Rg","RAG & tools"],[0,"Aw","AWS"],[0,"Az","Azure"],[0,"Op","On-prem"],
+[1,"Re","React"],[1,"Ts","TypeScript"],[1,"Tw","Tailwind"],[1,"Sb","Supabase"],
+[2,"No","Node.js"],[2,"Py","Python"],[2,"Fa","Fastify"],[2,"Rs","REST"],[2,"Wh","Webhooks"],[2,"La","Lambda"],[2,"n8","n8n"],
+[3,"Cg","Cognito"],[3,"Ok","Okta"],[3,"Im","IAM"],[3,"Oa","OAuth / JWT"],[3,"Rl","Row-Level Security"],
+[4,"Dd","Datadog"],[4,"Cw","CloudWatch"],[4,"Ot","OpenTelemetry"],[4,"Al","Alarms & dashboards"],
+[5,"Tm","TimescaleDB"],[5,"Pg","PostgreSQL"],[5,"Pq","Parquet"],[5,"Dl","Data lake"],[5,"Pv","pgvector"],
+[6,"Mb","Modbus"],[6,"Bn","BACnet"],[6,"Pn","Profinet"],[6,"Pf","Profibus"],[6,"Mq","MQTT"],[6,"Es","ESP32 / FreeRTOS"],[6,"Lo","LoRa"],[6,"El","Embedded Linux"]];
+const ptg=document.getElementById("ptGrid"),ptl=document.getElementById("ptLegend");
+ptg.innerHTML=PT.map((t,i)=>{const c=PCAT[t[0]];return `<div class="el" data-c="${t[0]}" style="--bg:${c[1]};--fg:${c[2]};--d:${i*28}ms"><i>${String(i+1).padStart(2,"0")}</i><b>${E(t[1])}</b><span>${E(t[2])}</span></div>`}).join("");
+ptl.innerHTML='<button class="on" data-c="all">All <em>'+PT.length+'</em></button>'+PCAT.map((c,i)=>`<button data-c="${i}" style="--bg:${c[1]};--fg:${c[2]}"><s></s>${E(c[0])} <em>${PT.filter(t=>t[0]===i).length}</em></button>`).join("");
+ptl.onclick=e=>{const b=e.target.closest("button");if(!b)return;const v=b.dataset.c;ptl.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));ptg.classList.toggle("f",v!=="all");ptg.querySelectorAll(".el").forEach(el=>el.classList.toggle("hit",v==="all"||el.dataset.c===v))};
+new IntersectionObserver((en,o)=>en.forEach(x=>{if(x.isIntersecting){ptg.classList.add("go");o.disconnect()}}),{threshold:.08}).observe(ptg);
 
 /* pipeline stages */
 document.getElementById("stageGrid").innerHTML=STAGES.map((s,i)=>`<article class="c stg ${i<4?"s3":"s4"} ${i===0||i===6?"y":""}"><div class="no">0${i+1}</div><h3>${E(s[0])}</h3><div class="chips">${chips(s[1].slice(0,5))}</div></article>`).join("");
