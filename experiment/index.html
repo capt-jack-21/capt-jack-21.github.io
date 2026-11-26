@@ -53,6 +53,18 @@ h1{font:400 clamp(50px,7vw,88px)/.95 var(--disp);text-transform:uppercase;margin
 .feed div{white-space:nowrap;animation:slide .4s ease-out}
 .feed b{color:var(--y);font-weight:600}.feed i{color:#777;font-style:normal}
 @keyframes slide{from{opacity:0;transform:translateX(-12px)}}
+.jr{display:flex;flex-direction:column}
+.jt{position:relative;flex:1;margin-top:14px;padding-left:46px;display:flex;flex-direction:column;justify-content:space-between;min-height:340px}
+.jt:before{content:"";position:absolute;left:15px;top:14px;bottom:14px;width:4px;border-radius:4px;background:#2b2b2b}
+.pk{position:absolute;left:8px;top:0;width:18px;height:18px;border-radius:50%;background:var(--y);box-shadow:0 0 0 5px rgba(255,212,0,.25),0 0 26px 6px rgba(255,212,0,.8);z-index:2}
+.jn{position:relative;opacity:.38;transition:opacity .35s,transform .35s}
+.jn:before{content:"";position:absolute;left:-39px;top:4px;width:20px;height:20px;border-radius:7px;border:3px solid #555;background:#0b0b0b;transition:all .3s}
+.jn i{font:700 10px var(--mono);letter-spacing:.16em;color:#999;font-style:normal;display:block}
+.jn b{font:400 38px/1 var(--disp);text-transform:uppercase;display:block;color:#fff}
+.jn em{font-style:normal;font-size:13.5px;color:#cfcfcf;display:block;margin-top:2px}
+.jn.on{opacity:1;transform:translateX(4px)}
+.jn.on:before{border-color:var(--y);background:var(--y);box-shadow:0 0 18px rgba(255,212,0,.8)}
+.jn.on b{color:var(--y)}
 .big{font:400 clamp(60px,8vw,96px)/1 var(--disp)}.big small{font-size:.45em}
 .cap{font:700 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
 .gauge{width:100%;max-width:230px;display:block;margin:10px auto 0}
@@ -154,9 +166,16 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <div class="meta"><span>Coimbatore, India</span><span id="clk">--:--</span></div>
  </div>
  <div class="c ph s3"><img src="assets/me.jpg" alt="Adithya Venkatesh outdoors in sunglasses, with palm groves and hills behind" width="900" height="1927" fetchpriority="high"><span class="tag">COIMBATORE · 2026</span></div>
- <div class="c dk s4">
-  <div class="lab"><span class="live">LIVE FEED · SIMULATED</span><span>mqtt://demo</span></div>
-  <div class="feed" id="feed"></div>
+ <div class="c dk s4 jr">
+  <div class="lab"><span class="live">ONE READING · FIELD TO DECISION</span></div>
+  <div class="jt" id="jt">
+   <span class="pk" id="pk2"></span>
+   <div class="jn" data-j="0"><i>01</i><b>Sense</b><em>A reading is born at the edge.</em></div>
+   <div class="jn" data-j="1"><i>02</i><b>Connect</b><em>It travels over MQTT, secured and in order.</em></div>
+   <div class="jn" data-j="2"><i>03</i><b>Keep</b><em>Checked, de-duplicated, stored as time-series.</em></div>
+   <div class="jn" data-j="3"><i>04</i><b>Solve</b><em>An agent acts on it, or a person does.</em></div>
+  </div>
+ </div>
  </div>
  <div class="c s3"><div class="big" data-n="15">0<small>+</small></div><div class="cap">Years connecting things</div></div>
  <div class="c y s3"><div class="big" data-n="450">0<small>k</small></div><div class="cap">Sensor points on one platform</div></div>
@@ -354,11 +373,16 @@ obs();
 function count(n){const t=+n.dataset.n,s=n.querySelector("small").outerHTML,st=performance.now();(function f(now){const p=Math.min(1,(now-st)/1100);n.innerHTML=Math.round(t*(1-Math.pow(1-p,3)))+s;if(p<1)requestAnimationFrame(f)})(st)}
 function tick(){document.getElementById("clk").textContent=new Date().toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit",timeZone:"Asia/Kolkata"})+" IST"}tick();setInterval(tick,20000);
 
-/* simulated feed + gauge */
-const feed=document.getElementById("feed");let seq=10420;
-const T=[["bldg-07/ahu-2/supply_temp",()=>(17+Math.random()*3).toFixed(1)+" °C"],["plant-3/autoclave/pressure",()=>(6.5+Math.random()*.4).toFixed(2)+" bar"],["veh-418/gps/speed",()=>Math.round(30+Math.random()*40)+" km/h"],["pump-1/motor/current",()=>(5.6+Math.random()*.5).toFixed(2)+" A"],["bldg-12/meter-4/power",()=>(40+Math.random()*9).toFixed(1)+" kW"]];
-function line(){const [k,f]=T[Math.floor(Math.random()*T.length)];const d=document.createElement("div");d.innerHTML=`<b>${k}</b> ${f()} <i>#${++seq}</i>`;feed.appendChild(d);while(feed.children.length>9)feed.removeChild(feed.firstChild)}
-for(let i=0;i<7;i++)line();setInterval(line,1100);
+/* journey + gauge */
+(function(){const jt=document.getElementById("jt"),pk=document.getElementById("pk2"),ns=[...jt.querySelectorAll(".jn")];
+if(matchMedia("(prefers-reduced-motion:reduce)").matches){ns.forEach(n=>n.classList.add("on"));pk.style.display="none";return}
+let t0=performance.now(),manual=-1;
+ns.forEach((n,i)=>n.addEventListener("click",()=>{manual=i;t0=performance.now()-i*1500}));
+function pos(){const h=jt.clientHeight,y=n=>n.offsetTop+14;return ns.map(y)}
+function f(now){const P=pos(),T=6000,ph=((now-t0)%T)/T,seg=ph*3,i=Math.min(2,Math.floor(seg)),k=seg-i;
+ const ease=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;const y=P[i]+(P[i+1]-P[i])*ease;pk.style.top=(y-9)+"px";
+ const act=Math.round(i+ease);ns.forEach((n,j)=>n.classList.toggle("on",j===act));requestAnimationFrame(f)}
+requestAnimationFrame(f)})();
 const arc=document.getElementById("arc"),gv=document.getElementById("gv"),gs=document.getElementById("gs");let ph=0;
 setInterval(()=>{ph+=.18;const s=Math.max(.05,Math.min(.98,.2+.18*Math.sin(ph)+(Math.sin(ph/7)>.8?.55:0)));gv.textContent=s.toFixed(2);arc.style.strokeDashoffset=251*(1-s);const bad=s>.6;gs.textContent=bad?"ANOMALY":s>.4?"WARNING":"HEALTHY";gs.style.color=bad?"#ff6b6b":"#ffd400"},700);
 </script></body></html>
