@@ -6,40 +6,46 @@
 <style>
 :root{--y:#ffd400;--k:#0a0a0a;--disp:"Anton",Impact,"Arial Narrow Bold",sans-serif;--mono:ui-monospace,"Cascadia Code",Consolas,monospace;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:74px}
 body{font-family:var(--sans);color:var(--k);background:linear-gradient(rgba(10,10,10,.06) 1px,transparent 1px) 0 0/44px 44px,linear-gradient(90deg,rgba(10,10,10,.06) 1px,transparent 1px) 0 0/44px 44px,#ececec;line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
 .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.note{font:700 12px var(--mono);background:var(--k);color:var(--y);padding:8px 10px;text-align:center;letter-spacing:.06em}
+.note a{border-bottom:2px solid var(--y)}
 nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:3px solid var(--k)}
 nav .wrap{display:flex;justify-content:space-between;align-items:center;height:58px}
 .logo{display:flex;align-items:center;gap:10px;font:700 13px var(--mono);letter-spacing:.14em}
 .logo i{font:400 15px var(--disp);font-style:normal;background:var(--y);border:3px solid var(--k);border-radius:10px;width:32px;height:32px;display:grid;place-items:center;letter-spacing:0}
-nav ul{display:flex;gap:20px;list-style:none;font:700 12px var(--mono);letter-spacing:.06em;align-items:center}
+nav ul{display:flex;gap:18px;list-style:none;font:700 12px var(--mono);letter-spacing:.06em;align-items:center}
+nav ul a:not(.bl):hover{background:var(--y);border-radius:6px;padding:2px 6px;margin:-2px -6px}
 nav .bl{background:var(--y);border:3px solid var(--k);border-radius:999px;padding:3px 14px}
-@media(max-width:700px){nav li:not(:last-child){display:none}}
-/* bento */
-.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:34px 0 20px}
+@media(max-width:820px){nav li:not(.keep){display:none}}
+/* cards */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:18px 0 10px}
 .c{position:relative;border:3px solid var(--k);border-radius:22px;padding:22px;background:#fff;overflow:hidden;opacity:0;transform:translateY(26px) scale(.97);transition:opacity .6s,transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
-.c.in{opacity:1;transform:none;animation:halo 1.6s ease-out .15s 1}
-.c:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--k)}
-.c.dk:hover{box-shadow:0 0 0 2px var(--y),0 0 34px rgba(255,212,0,.55)}
+.c.in{opacity:1;transform:none;animation:halo 1.6s ease-out .1s 1}
+.c.in:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--k)}
+.c.dk.in:hover{box-shadow:0 0 0 2px var(--y),0 0 34px rgba(255,212,0,.55)}
 @keyframes halo{0%{box-shadow:0 0 0 0 rgba(255,212,0,0)}30%{box-shadow:0 0 0 8px rgba(255,212,0,.55),0 0 44px 10px rgba(255,212,0,.5)}100%{box-shadow:0 0 0 0 rgba(255,212,0,0)}}
-.c.dk.in{animation:haloDk 1.8s ease-out .15s 1}
+.c.dk.in{animation:haloDk 1.8s ease-out .1s 1}
 @keyframes haloDk{0%{box-shadow:0 0 0 0 rgba(255,212,0,0)}30%{box-shadow:0 0 0 2px var(--y),0 0 60px 8px rgba(255,212,0,.65)}100%{box-shadow:0 0 0 0 rgba(255,212,0,0)}}
 .y{background:var(--y)}.dk{background:#0b0b0b;color:#f2f2f2}
-.s5{grid-column:span 5}.s7{grid-column:span 7}.s4{grid-column:span 4}.s3{grid-column:span 3}.s6{grid-column:span 6}.s12{grid-column:span 12}
-@media(max-width:900px){.s5,.s7,.s4,.s3,.s6{grid-column:span 12}.s3{grid-column:span 6}}
+.s3{grid-column:span 3}.s4{grid-column:span 4}.s5{grid-column:span 5}.s6{grid-column:span 6}.s7{grid-column:span 7}.s8{grid-column:span 8}.s12{grid-column:span 12}
+@media(max-width:900px){.s3,.s4,.s5,.s6,.s7,.s8{grid-column:span 12}.s3{grid-column:span 6}}
 .hi{font:700 12px var(--mono);letter-spacing:.18em}
 h1{font:400 clamp(50px,7vw,88px)/.95 var(--disp);text-transform:uppercase;margin:10px 0 12px}
 .role{font-size:17px;max-width:420px}
-.chips{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}
-.chip{font:700 11.5px var(--mono);border:2px solid var(--k);border-radius:999px;padding:3px 11px;background:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}
+.chip{font:700 11.5px var(--mono);border:2px solid var(--k);border-radius:999px;padding:3px 11px;background:#fff;color:var(--k)}
+.dk .chip{background:transparent;color:var(--y);border-color:var(--y)}
 .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-.btn{font:700 13px var(--mono);border:3px solid var(--k);border-radius:999px;padding:9px 18px;background:#fff;cursor:pointer;color:var(--k);transition:transform .15s,box-shadow .15s}
+.btn{font:700 13px var(--mono);border:3px solid var(--k);border-radius:999px;padding:9px 18px;background:#fff;cursor:pointer;color:var(--k);transition:transform .15s,box-shadow .15s;display:inline-block}
 .btn.p{background:var(--k);color:var(--y)}
 .btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--k)}
 .meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px;font:700 12px var(--mono)}
 .meta span:before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:#16a34a;border:2px solid var(--k);margin-right:7px;vertical-align:-1px}
-.lab{font:700 11px var(--mono);letter-spacing:.18em;display:flex;justify-content:space-between;align-items:center}
+.lab{font:700 11px var(--mono);letter-spacing:.18em;display:flex;justify-content:space-between;align-items:center;gap:8px}
 .dk .lab{color:var(--y)}
 .live{display:inline-flex;gap:6px;align-items:center}.live:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--y);animation:blink 1.2s infinite}
 @keyframes blink{50%{opacity:.25}}
@@ -47,79 +53,292 @@ h1{font:400 clamp(50px,7vw,88px)/.95 var(--disp);text-transform:uppercase;margin
 .feed div{white-space:nowrap;animation:slide .4s ease-out}
 .feed b{color:var(--y);font-weight:600}.feed i{color:#777;font-style:normal}
 @keyframes slide{from{opacity:0;transform:translateX(-12px)}}
-.big{font:400 clamp(60px,8vw,96px)/1 var(--disp)}
-.big small{font-size:.45em}
+.big{font:400 clamp(60px,8vw,96px)/1 var(--disp)}.big small{font-size:.45em}
 .cap{font:700 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
 .gauge{width:100%;max-width:230px;display:block;margin:10px auto 0}
 .gv{font:400 54px var(--disp);text-align:center;color:var(--y);line-height:1}
 .st{text-align:center;font:700 11px var(--mono);letter-spacing:.14em;margin-top:6px}
-h3{font:400 28px/1 var(--disp);text-transform:uppercase;margin:10px 0 10px}
-.post{display:block;border:2px solid var(--k);border-radius:12px;padding:9px 12px;margin-top:8px;background:#fff;font-size:14px;font-weight:600;transition:transform .15s,box-shadow .15s}
+h3{font:400 28px/1.02 var(--disp);text-transform:uppercase;margin:10px 0 8px}
+p.sm{font-size:15px;color:#222}.dk p.sm{color:#ddd}
+.post{display:block;border:2px solid var(--k);border-radius:12px;padding:9px 12px;margin-top:8px;background:#fff;font-size:14px;font-weight:600;transition:transform .15s,box-shadow .15s;color:var(--k)}
 .post:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--k)}
 .post small{display:block;font:700 10px var(--mono);letter-spacing:.14em;color:#555}
-.work h3{font-size:30px}.work p{font-size:15px;max-width:34ch}
-.work .go{display:inline-block;margin-top:14px;font:700 12px var(--mono);border-bottom:3px solid var(--k)}
+.go{display:inline-block;margin-top:14px;font:700 12px var(--mono);border-bottom:3px solid var(--k)}
 .dk .go{border-color:var(--y);color:var(--y)}
-.sec{font:400 clamp(34px,5vw,52px)/1 var(--disp);text-transform:uppercase;display:inline-block;background:var(--y);border:3px solid var(--k);border-radius:6px;box-shadow:5px 5px 0 var(--k);padding:0 12px;margin:36px 0 6px}
-footer{margin-top:40px;background:var(--y);border-top:3px solid var(--k);padding:22px 0;font:700 12px var(--mono)}
+.sec{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:46px 0 4px}
+.sec h2{font:400 clamp(34px,5vw,54px)/1 var(--disp);text-transform:uppercase;background:var(--y);border:3px solid var(--k);border-radius:6px;box-shadow:5px 5px 0 var(--k);padding:0 12px}
+.sec .n{font:700 12px var(--mono);background:var(--k);color:var(--y);border-radius:999px;padding:3px 12px}
+.sec p{font:700 13px var(--mono);color:#333;width:100%}
+/* case + project cards */
+.case,.proj{cursor:pointer;display:flex;flex-direction:column}
+.case .id{font:400 40px/1 var(--disp);opacity:.9}
+.case p.sm,.proj p.sm{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.case .chips,.proj .chips{margin-top:auto;padding-top:12px;margin-bottom:0}
+.case .go,.proj .go{align-self:flex-start}
+.pill{font:700 10.5px var(--mono);letter-spacing:.08em;border:2px solid var(--k);border-radius:999px;padding:2px 10px;background:var(--y);color:var(--k);white-space:nowrap}
+.dk .pill{border-color:var(--y)}
+.proj.st-plan{border-style:dashed}.proj.st-plan .pill{background:#fff}
+.proj.st-wip .pill{background:#ffe97a}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px}
+.filters button{font:700 12px var(--mono);border:3px solid var(--k);border-radius:999px;padding:5px 14px;background:#fff;cursor:pointer}
+.filters button.on,.filters button:hover{background:var(--y)}
+.proj.hide{display:none}
+/* stack floors */
+.floor{display:grid;grid-template-columns:90px 1fr;gap:20px;align-items:start}
+.floor .no{font:400 64px/1 var(--disp)}
+.floor .no small{display:block;font:700 10px var(--mono);letter-spacing:.16em}
+.floor h3{margin-top:2px}
+.floor .chips{margin-bottom:0}
+.ground{grid-column:span 12;height:34px;border:3px solid var(--k);border-radius:12px;background:repeating-linear-gradient(135deg,var(--y) 0 10px,var(--k) 10px 20px);display:grid;place-items:center}
+.ground span{background:#fff;border:2px solid var(--k);border-radius:999px;padding:0 12px;font:700 11px var(--mono);letter-spacing:.3em}
+@media(max-width:600px){.floor{grid-template-columns:56px 1fr;gap:12px}.floor .no{font-size:42px}}
+/* pipeline */
+.stg .no{font:400 44px/1 var(--disp)}
+.stg:not(:last-child):after{content:"→";position:absolute;right:14px;top:14px;font:700 22px var(--mono);opacity:.5}
+.pick{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.pick button{font:700 12px var(--mono);border:2px solid var(--y);background:transparent;color:var(--y);border-radius:999px;padding:5px 14px;cursor:pointer}
+.pick button.on,.pick button:hover{background:var(--y);color:var(--k)}
+.hops{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;position:relative}
+@media(max-width:700px){.hops{grid-template-columns:1fr}}
+.hop{border:2px solid var(--y);border-radius:16px;padding:14px;animation:slide .4s ease-out both}
+.hop:nth-child(2){animation-delay:.12s}.hop:nth-child(3){animation-delay:.24s}
+.hop b{font:400 24px var(--disp);text-transform:uppercase;color:var(--y);display:block}
+.hop em{font:700 12px var(--mono);font-style:normal;color:#fff;display:block;margin:2px 0 8px}
+.track{height:6px;border-radius:6px;background:#2a2a2a;margin:16px 0 4px;position:relative;overflow:hidden}
+.track:after{content:"";position:absolute;top:0;bottom:0;width:60px;border-radius:6px;background:var(--y);box-shadow:0 0 16px var(--y);animation:run 2.2s linear infinite}
+@keyframes run{from{left:-60px}to{left:100%}}
+/* modal */
+dialog{border:3px solid var(--k);border-radius:24px;padding:0;max-width:880px;width:calc(100% - 28px);max-height:calc(100vh - 40px);margin:auto;background:#fff;color:var(--k);overflow:auto;box-shadow:10px 10px 0 var(--k)}
+dialog::backdrop{background:rgba(10,10,10,.55);backdrop-filter:blur(2px)}
+dialog[open]{animation:pop .3s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes pop{from{opacity:0;transform:scale(.94) translateY(16px)}}
+.mh{background:var(--y);border-bottom:3px solid var(--k);padding:22px 26px;position:sticky;top:0}
+.mh .k{font:700 11px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.mh h3{font-size:clamp(28px,4vw,40px);margin:6px 40px 0 0}
+.x{position:absolute;right:16px;top:16px;width:38px;height:38px;border-radius:50%;border:3px solid var(--k);background:#fff;font:700 18px var(--mono);cursor:pointer}
+.x:hover{background:var(--k);color:var(--y)}
+.mb{padding:8px 26px 28px}
+.mb h4{font:700 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;margin:22px 0 8px;display:inline-block;background:var(--y);border:2px solid var(--k);border-radius:6px;padding:1px 8px}
+.mb p,.mb li{font-size:15px;color:#222}
+.mb ul{padding-left:20px;display:grid;gap:5px}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.flow span{font:700 11.5px var(--mono);border:2px solid var(--k);border-radius:8px;padding:5px 9px;background:#fffbe0}
+.flow em{font-style:normal;font-weight:700}
+.tr{border:2px solid var(--k);border-radius:14px;padding:10px 14px;margin-top:8px}
+.tr b{display:block;font-size:14.5px}.tr span{font-size:14px;color:#333}
+.fx{display:grid;grid-template-columns:110px 1fr;gap:6px 14px;font-size:14px}.fx b{font:700 11px var(--mono);letter-spacing:.1em}
+footer{margin-top:50px;background:var(--y);border-top:3px solid var(--k);padding:22px 0;font:700 12px var(--mono)}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.note{font:700 12px var(--mono);background:var(--k);color:var(--y);padding:8px 0;text-align:center;letter-spacing:.06em}
-@media(prefers-reduced-motion:reduce){.c{opacity:1;transform:none;transition:none;animation:none!important}.feed div,.live:before{animation:none}}
+@media(prefers-reduced-motion:reduce){.c{opacity:1;transform:none;transition:none;animation:none!important}.feed div,.live:before,.track:after,.hop{animation:none}dialog[open]{animation:none}}
 </style></head><body>
-<div class="note">EXPERIMENT · fewer words, more motion · <a href="../" style="border-bottom:2px solid var(--y)">back to the main site</a></div>
-<nav><div class="wrap"><a class="logo" href="../"><i>AV</i>CONNECTED</a><ul><li><a href="#work">Work</a></li><li><a href="#proof">Proof</a></li><li><a href="../blog/" class="bl">Blog</a></li><li><a href="#contact">Contact</a></li></ul></div></nav>
-<main class="wrap">
-<section class="bento">
- <div class="c y s5" style="--d:0">
+<div class="note">EXPERIMENT · card after card · <a href="../">back to the main site</a></div>
+<nav><div class="wrap"><a class="logo" href="#top"><i>AV</i>CONNECTED</a><ul><li><a href="#cases">Cases</a></li><li><a href="#builds">Builds</a></li><li><a href="#stack">Stack</a></li><li><a href="#pipeline">Pipeline</a></li><li class="keep"><a href="../blog/" class="bl">Blog</a></li><li class="keep"><a href="#contact">Contact</a></li></ul></div></nav>
+<main class="wrap" id="top">
+
+<section class="bento" style="padding-top:34px">
+ <div class="c y s5">
   <div class="hi">HI, I'M</div><h1>Adithya<br>Venkatesh</h1>
   <p class="role">I connect things that sense to software that decides.</p>
   <div class="chips"><span class="chip">IoT &amp; data platform architect</span><span class="chip">Embedded</span><span class="chip">Applied AI</span></div>
-  <div class="btns"><button class="btn p" id="cp">Copy email</button><a class="btn" href="https://github.com/capt-jack-21">GitHub</a><a class="btn" href="../blog/">Read the blog</a></div>
+  <div class="btns"><button class="btn p" data-copy>Copy email</button><a class="btn" href="https://github.com/capt-jack-21">GitHub</a><a class="btn" href="../blog/">Read the blog</a></div>
   <div class="meta"><span>Coimbatore, India</span><span id="clk">--:--</span></div>
  </div>
- <div class="c dk s7" style="--d:1">
+ <div class="c dk s7">
   <div class="lab"><span class="live">LIVE FEED · SIMULATED</span><span>mqtt://demo</span></div>
   <div class="feed" id="feed"></div>
  </div>
-
- <div class="c s3" id="proof"><div class="big" data-n="15">0<small>+</small></div><div class="cap">Years connecting things</div></div>
+ <div class="c s3"><div class="big" data-n="15">0<small>+</small></div><div class="cap">Years connecting things</div></div>
  <div class="c y s3"><div class="big" data-n="450">0<small>k</small></div><div class="cap">Sensor points on one platform</div></div>
  <div class="c s3"><div class="big">2<small>→</small>100<small>+</small></div><div class="cap">Buildings, as the platform grew</div></div>
  <div class="c dk s3"><div class="lab"><span class="live">PUMP · DEMO</span></div>
   <svg class="gauge" viewBox="0 0 200 120"><path d="M20 105A80 80 0 0 1 180 105" fill="none" stroke="#333" stroke-width="14" stroke-linecap="round"/><path id="arc" d="M20 105A80 80 0 0 1 180 105" fill="none" stroke="#ffd400" stroke-width="14" stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="220"/></svg>
   <div class="gv" id="gv">0.12</div><div class="st" id="gs">HEALTHY</div></div>
-
- <div class="c y s4"><div class="lab"><span>LATEST WRITING</span></div><h3>From the blog</h3><div id="posts"></div></div>
- <div class="c s4"><div class="lab"><span>STACK</span></div><h3>What I build with</h3><div class="chips"><span class="chip">MQTT</span><span class="chip">BACnet</span><span class="chip">Modbus</span><span class="chip">TimescaleDB</span><span class="chip">AWS</span><span class="chip">Azure</span><span class="chip">Node.js</span><span class="chip">Python</span><span class="chip">ESP32</span><span class="chip">Claude</span><span class="chip">ROS2</span></div></div>
- <div class="c dk s4"><div class="lab"><span>BUILDING NOW</span></div><h3 style="color:var(--y)">PumpSentinel</h3><p style="font-size:15px;color:#ddd">An ESP32 that listens to a motor, names the fault and raises its own work order.</p><a class="go work" href="../blog/posts/lab-notes-esp32-pump-health-monitor/" style="display:inline-block;margin-top:14px;font:700 12px var(--mono);border-bottom:3px solid var(--y);color:var(--y)">Read the build →</a></div>
 </section>
 
-<span class="sec" id="work">Selected work</span>
-<section class="bento work" style="padding-top:18px">
- <a class="c s6" href="../#cases"><div class="lab"><span>A-101</span></div><h3>Smart building platform</h3><p>One platform, many buildings, many vendors.</p><span class="go">Open case study →</span></a>
- <a class="c y s6" href="../#cases"><div class="lab"><span>A-102</span></div><h3>Telemetry at scale</h3><p>Event streaming for connected vehicles.</p><span class="go">Open case study →</span></a>
- <a class="c s6" href="../#cases"><div class="lab"><span>A-104</span></div><h3>Industry 4.0 + digital twin</h3><p>From plant floor to a twin you can trust.</p><span class="go">Open case study →</span></a>
- <a class="c dk s6" href="../#projects"><div class="lab"><span>PROJECTS</span></div><h3 style="color:var(--y)">Agents, edge and ops</h3><p style="color:#ddd">Building Ops Copilot, Smart Building AI, PumpSentinel.</p><span class="go">See all builds →</span></a>
-</section>
-<span class="sec" id="contact">Let's talk</span>
-<section class="bento" style="padding-top:18px"><div class="c y s12" style="text-align:center"><h3 style="font-size:40px">Looking for a platform or IoT architect?</h3><div class="btns" style="justify-content:center;margin-top:14px"><button class="btn p" id="cp2">Copy email</button><a class="btn" href="https://github.com/capt-jack-21">GitHub</a></div></div></section>
+<div class="sec" id="cases"><span class="n">01</span><h2>Case studies</h2><p>Real platforms, anonymised. Tap a card for the problem, the decisions and the trade-offs.</p></div>
+<section class="bento" id="caseGrid"></section>
+
+<div class="sec" id="builds"><span class="n">02</span><h2>Projects &amp; builds</h2><p>Grouped by how far along they are. Tap a card for the detail.</p></div>
+<div class="filters" id="filters"></div>
+<section class="bento" id="projGrid"></section>
+
+<div class="sec" id="stack"><span class="n">03</span><h2>Tech stack</h2><p>A building of floors. I work on all of them, from the plant room up to the roof.</p></div>
+<section class="bento" id="floorGrid"></section>
+
+<div class="sec" id="pipeline"><span class="n">04</span><h2>How data travels</h2><p>The same path from field to application, whatever the source.</p></div>
+<section class="bento" id="stageGrid"></section>
+<section class="bento" style="padding-top:0"><div class="c dk s12"><div class="lab"><span class="live">PICK A SOURCE</span><span>what happens to a reading</span></div><div class="pick" id="pick"></div><div class="hops" id="hops"></div><div class="track"></div></div></section>
+
+<div class="sec" id="writing"><span class="n">05</span><h2>Blog</h2><p>Problems solved, decisions made and notes from the bench.</p></div>
+<section class="bento" id="blogGrid"></section>
+
+<div class="sec" id="contact"><span class="n">06</span><h2>Let's talk</h2></div>
+<section class="bento"><div class="c y s12" style="text-align:center"><h3 style="font-size:clamp(30px,5vw,48px)">Looking for a platform or IoT architect?</h3><p class="sm" style="max-width:520px;margin:0 auto">Open to architecture roles and engagements: secure web apps and APIs, identity and observability, cloud platforms, IoT and data pipelines.</p><div class="btns" style="justify-content:center;margin-top:16px"><button class="btn p" data-copy>Copy email</button><a class="btn" href="https://github.com/capt-jack-21">GitHub</a></div></div></section>
 </main>
 <footer><div class="wrap"><span>© 2026 Adithya Venkatesh</span><span>AV CONNECTED · Sense • Connect • Solve</span></div></footer>
+<dialog id="dlg"><div id="dbody"></div></dialog>
 <script>
+const GITHUB="https://github.com/capt-jack-21";
+const CASES = [
+{m:"building", k:"Platform | Multi-Tenancy | Building Systems", t:"Smart Building Platform Architecture",
+s:"One tenant-safe platform over many buildings, vendors and protocols, modelled with Project Haystack.",
+pr:"Every building arrives with its own BMS vendor, point names and quirks. Treated one by one, each site becomes a custom integration. The platform had to turn them into one consistent, tenant-safe product that apps and analytics can rely on.",
+co:["Many customers share one platform and none may ever see another's data","Mixed BMS and field protocols (BACnet through supervisors, Modbus, MQTT)","Point names that only mean something to the person who commissioned the site","A small team, so operations must stay simple and cost-aware","Observability expected from day one, not bolted on later"],
+fl:["Buildings & BMS","Supervisor / edge integration","Ingestion & mapping","Haystack-tagged model","Tenant-scoped APIs","Apps & dashboards"],
+de:["Model every point with Project Haystack tags, so apps ask for \"zone air temperature sensors\" instead of a vendor's point name.","Make the tenant a first-class concept in every table and API, not a deployment detail.","Integrate BACnet through the building's supervisor (Niagara with nHaystack) where one exists, instead of talking to controllers directly.","Keep tenant configuration and metadata apart from telemetry storage.","Identity and access: AWS Cognito with federation to customers' identity providers such as Okta, tenant and role carried as JWT claims, least-privilege IAM roles and short-lived credentials.","Authorise at the API and again in PostgreSQL with Row-Level Security.","Run on AWS with Datadog and CloudWatch watching ingestion lag, API errors, per-tenant behaviour and access decisions."],
+tr:[{q:"Why Haystack tags over a bespoke schema?",a:"A custom schema is quicker on day one, but every new site reopens the naming argument. Tags cost mapping effort up front and pay it back in queries and apps that work across sites."},
+{q:"Why one shared platform over a stack per customer?",a:"A stack per customer isolates more strongly but multiplies the operations work. Shared infrastructure keeps cost and effort down, at the price of having to get isolation exactly right (see the identity case)."},
+{q:"Why tenant claims in tokens and Row-Level Security as well as API checks?",a:"Claims keep requests fast and stateless, and the database rule means one missed API check cannot expose another tenant. The trade-off is that rules exist twice and claims stay valid until the token expires, so lifetimes stay short."},
+{q:"Why integrate through supervisors over direct controller access?",a:"Supervisors already absorb device quirks and access control. The trade-off is depending on their data quality and polling behaviour."}],
+out:["New buildings onboard through mapping work rather than new code paths.","Apps and analytics written once against the model work across sites.","One operational view of the platform's own health."],
+tech:["Project Haystack","nHaystack / Niagara","BACnet","Modbus","MQTT","AWS","DynamoDB","PostgreSQL","AWS Cognito","Okta","AWS IAM","OAuth / JWT","Row-Level Security","Datadog","CloudWatch"],
+rel:[["Telemetry data platform","case-1"],["Industry 4.0 digital twin","case-3"]]},
+{m:"bus", k:"Automotive | Enterprise Data Platform", t:"Telemetry Data Platform at Scale",
+s:"Distributed, event-streaming telemetry infrastructure for connected automotive systems, built on Apache Kafka.",
+pr:"Processing large volumes of telemetry from connected automotive systems needed a scalable, distributed data platform: high-throughput ingestion, streaming workloads, data processing and downstream analytics, all working together.",
+co:["High-throughput ingestion from connected vehicle systems","Streaming workloads that must keep flowing under load","Pipelines that stay reliable as volume and consumers grow","Data has to reach downstream analytics in a usable shape","Many interconnected services sharing the same data flow"],
+fl:["Connected automotive systems","Ingestion services","Event streaming (Apache Kafka)","Processing pipelines","Scalable data infrastructure","Downstream analytics"],
+de:["Apache Kafka and distributed event streaming as the backbone between producers and consumers.","An event-driven architecture, so services react to data instead of polling for it.","Distributed processing pipelines for transformation and integration of telemetry.","Scalable data infrastructure to hold and serve the processed data.","Continuous attention to pipeline reliability and performance optimisation, with focus on throughput, scalability and resilience."],
+tr:[{q:"Why event streaming over batch or point-to-point transfers?",a:"Streaming keeps data flowing continuously and lets many consumers read the same events independently. The trade-off is running and operating a distributed streaming platform."},
+{q:"Why an event-driven architecture?",a:"Producers and consumers are decoupled, so each side can scale and change on its own. The trade-off is that ordering, retries and failure handling must be designed in."},
+{q:"Why separate ingestion, processing and storage?",a:"Each stage scales and fails independently, and one slow consumer does not stall the rest. The cost is more components and interfaces to manage."}],
+out:["Contributed to enterprise-scale telemetry infrastructure within the automotive ecosystem.","Reliable movement and processing of telemetry across interconnected services.","A platform able to handle distributed ingestion, streaming, processing and scalable data operations."],
+tech:["Apache Kafka","Distributed systems","Streaming data","Telemetry pipelines","Data engineering","Cloud infrastructure"],
+rel:[["Platform architecture","case-0"],["See the data pipeline","#pipeline"]]},
+{m:"gem", k:"SaaS | Multi-Tenancy | Commerce", t:"Multi-Tenant Super App for Jewellery",
+s:"One SaaS platform serving many jewellers, with live metal-rate pricing, row-level isolation and secure checkout.",
+pr:"Jewellery businesses want their own storefront and catalogue, but a separate application per jeweller is expensive to build and run. And a piece's price is not a fixed number: it moves with the metal rate. The platform had to serve many jewellers from one codebase, keep each one's data private, and always price from the current rate.",
+co:["Many jewellers on one platform, none able to see another's data","Prices follow the live metal rate, so a stored price goes stale","Checkout must be secure and cannot trust the browser","Small team and low running cost, with no unnecessary paid services","A scaffold that new tenants can be added to without new code"],
+fl:["React + Tailwind storefront","Tenant-aware API","Supabase (PostgreSQL + RLS)","Live metal-rate pricing","Edge Function checkout"],
+de:["Supabase (PostgreSQL) as the backend, with every tenant-owned table protected by Row-Level Security.","Never store a final price. Store weight, purity and making charge, and compute the price from the live metal rate when it is shown or sold.","Do checkout in a Supabase Edge Function, so the total is calculated and verified on the server.","React and Tailwind frontend, with the tenant resolved once and carried through every request.","Keep the whole thing a reusable scaffold, so adding a jeweller is configuration."],
+tr:[{q:"Why Row-Level Security over filtering by tenant in the frontend or API?",a:"The database enforces the boundary, so one forgotten filter cannot leak another jeweller's data. The trade-off is policies that must be written and tested carefully."},
+{q:"Why compute prices on demand over storing them?",a:"Prices are always correct for the current rate. The trade-off is a little compute on every read and a dependency on the rate source, so checkout re-calculates at purchase time."},
+{q:"Why a shared multi-tenant app over one deployment per jeweller?",a:"Far less to build and operate. The trade-off is that isolation and fair resource use become your responsibility."},
+{q:"Why Supabase over a hand-built backend?",a:"Auth, Postgres, RLS and edge functions come together and keep cost low. The trade-off is some platform coupling."}],
+out:["A production-ready multi-tenant scaffold: one codebase, many jewellers.","Prices that always reflect the live metal rate.","Tenant data isolated by the database.","Server-side checkout that does not trust client-supplied totals."],
+tech:["Supabase","PostgreSQL","Row-Level Security","Edge Functions","React","Tailwind CSS","TypeScript"],
+rel:[["Platform architecture & identity","case-0"],["Telemetry data platform","case-1"]]},
+{m:"robot", k:"Aerospace | Discrete Manufacturing | Industry 4.0", t:"Industry 4.0: Connected Manufacturing & Digital Twin Enablement",
+s:"IoT-enabled robot navigation between work cells and an ISA-95-aligned digital twin for a discrete manufacturing environment.",
+pr:"Discrete manufacturing needs seamless coordination between production work cells, industrial assets and material movement. Letting robotic systems navigate efficiently between work cells, while building a connected digital representation of the operation, meant integrating industrial assets, IoT technologies and manufacturing architecture.",
+co:["Production work cells, industrial assets and material movement must stay coordinated","Robots navigate between work cells, so the connectivity underneath them has to be dependable","Shop-floor (OT) systems and enterprise (IT) systems have to be integrated without disturbing production","Assets from different vendors and generations must be networked","The digital twin must follow a recognised structure, not an ad hoc model"],
+fl:["Work cells & industrial assets","Industrial networking","IoT enablement (robot navigation)","ISA-95 layers (OT to IT)","Digital twin"],
+de:["Use IoT technologies and industrial networking to enable robot navigation between work cells.","Connect the industrial assets so their state is visible, not trapped in isolated machines.","Structure the digital twin on an ISA-95 layered architecture, so each layer has a clear role and interface.","Integrate OT and IT through defined interfaces between the layers.","Treat the connected industrial infrastructure as an architecture, not a set of one-off connections."],
+tr:[{q:"Why ISA-95 layering over a flat, direct model?",a:"A layered model gives clear boundaries between shop floor and enterprise systems and a common vocabulary. The trade-off is more interfaces to define up front."},
+{q:"Why connect existing assets through networking and gateways rather than replace them?",a:"It protects production and existing investment. The trade-off is working around the limits and quirks of older equipment."},
+{q:"Why build the digital twin on the connected assets rather than separately?",a:"The twin then reflects real operation instead of a static drawing. The trade-off is that it depends on the quality and availability of asset data."}],
+out:["Connected manufacturing capabilities supporting efficient robot navigation across work cells.","Contributed to ISA-95-based digital twin enablement.","Networked industrial assets, advancing the integration of IoT, industrial infrastructure and digital manufacturing systems."],
+tech:["Industry 4.0","Industrial IoT","ISA-95","Digital twin","Industrial networking","Robotics","OT / IT integration"],
+rel:[["Platform architecture & identity","case-0"],["Telemetry data platform","case-1"]]},
+{m:"chart", k:"Smart Cities | IoT | Urban Infrastructure", t:"Smart City: Connected Infrastructure & Intelligent Urban Systems",
+s:"City-scale monitoring across energy, building automation, comfort, video analytics and fire safety, with Niagara and LoRa.",
+pr:"Large-scale urban infrastructure needs integrated monitoring and management of distributed systems spanning buildings, energy consumption, occupant comfort, safety, surveillance and connected assets. City-scale visibility depends on interoperable infrastructure, reliable connectivity, real-time data acquisition and intelligent monitoring.",
+co:["Heterogeneous systems from different vendors have to be seen as one ecosystem","Distributed assets spread across a city, so connectivity must be dependable","Real-time data acquisition and real-time video inferencing","Safety systems such as fire alarms are integrated alongside comfort and energy","Building and industrial systems must interoperate"],
+fl:["Buildings, energy & comfort","Fire alarm & CCTV systems","Niagara BMS integration / LoRa connectivity","Real-time data acquisition","AI inferencing","Centralised monitoring"],
+de:["Integrate building systems through Tridium Niagara, so many BMS appear through one integration layer.","Use LoRa-based connectivity for distributed IoT devices spread across the infrastructure.","Bring building energy monitoring, occupant comfort and building automation data into one centralised view.","Integrate real-time CCTV feeds with AI inferencing for intelligent monitoring.","Integrate fire alarm and safety systems into the same monitoring ecosystem."],
+tr:[{q:"Why integrate through Niagara over each building's native protocol?",a:"One integration layer scales better than many one-off connections. The trade-off is depending on how each Niagara station is configured and what it exposes."},
+{q:"Why LoRa over Wi-Fi or cellular for distributed sensors?",a:"It suits low-power devices spread over a wide area. The trade-off is low bandwidth, so it carries small readings and not rich data."},
+{q:"Why run video inferencing in real time?",a:"Monitoring becomes proactive instead of reviewing footage afterwards. The trade-off is compute and network capacity needed to keep up with the feeds."},
+{q:"Why centralise all systems into one view?",a:"Energy, comfort, security and safety can be understood together. The trade-off is a larger integration effort across very different systems."}],
+out:["Integrated monitoring across large-scale urban infrastructure.","Energy management, building automation, occupant comfort, surveillance intelligence, fire safety and distributed IoT connectivity in one smart city ecosystem."],
+tech:["Smart City","Tridium Niagara","BMS","LoRa","Energy monitoring","Occupant comfort","CCTV analytics","AI inferencing","Fire alarm integration"],
+rel:[["Platform architecture & identity","case-0"],["Telemetry data platform","case-1"]]}
+];
+const PROJECTS = [
+{n:"TimescaleDB Multi-Tenant Benchmark", m:"db", st:"live", d:"A reproducible engineering lab investigating how PostgreSQL and TimescaleDB behave under multi-tenant telemetry workloads: tenant isolation, ingestion, query patterns, compression and tenant lifecycle operations, using generated datasets at scale.", tags:["TimescaleDB","PostgreSQL RLS","Python"], link:GITHUB+"/tsdb-multitenant-bench",facts:[["QUESTION", "What do row-level-security designs cost, and what do chunking and compression buy back?"], ["METHOD", "Python generator, scripted and repeatable runs on generated tenant data"], ["MEASURES", "Ingest rate · query latency · storage growth · compression · tenant deletion"], ["RESULTS", "Charts and write-up to be published in the repo"]],demo:"bench"},
+{n:"Building Ops Copilot", m:"agent", st:"live", d:"An AI agent for smart-building operations that combines an LLM with controlled tools and structured building data. Exploring agent orchestration, tool execution, streaming interfaces, contextual retrieval and operational workflows.", tags:["Claude API","TypeScript","Node.js"], link:GITHUB+"/building-ops-copilot",facts:[["MODEL", "Claude API, tools exposed through a controlled interface"], ["DATA", "Structured building data, not free-form guessing"], ["UI", "Mission-control web interface with streaming responses"]],demo:"copilot"},
+{n:"Live ADS-B + AgentCore", m:"plane", st:"wip", d:"Low-cost AWS project on public live aircraft data over South India: TimescaleDB on Tiger Cloud plus an Amazon Bedrock AgentCore agent, with a time-series text-to-SQL eval set.", tags:["AWS Mumbai","Bedrock AgentCore","TimescaleDB","Text-to-SQL"]},
+{n:"Smart Building AI", m:"building", st:"wip", d:"A local-first assistant for buildings. A local LLM never answers alone: a Haystack ontology engine turns the question into validated building context, tools fetch what is needed, and only then does the model respond.", tags:["Ollama / Qwen","Haystack","pgvector","Fastify","React"],facts:[["CHAIN", "Local LLM → Ontology engine → Validated building context → Tools → Response"], ["RUNS ON", "Qwen via Ollama, on local hardware"], ["WHY", "Answers grounded in building structure, not in plausible-sounding guesses"]],demo:"sbai"},
+{n:"ROS2 AI-Agent Robot", m:"robot", st:"wip", d:"Robotics lab project where an AI agent drives a ROS2 robot. The brain runs in the cloud or on a desktop; the robot only takes orders.", tags:["ROS2","AI agents","Robotics"]},
+{n:"Pump Health Monitor", m:"gauge", st:"built", d:"ESP32-S3 condition-monitoring node with an LVGL touchscreen HMI over ESP-NOW. Computes RMS current, crest factor, Z-score and an anomaly score on-device for early fault detection.", tags:["ESP32-S3","ESP-NOW","LVGL","Anomaly detection"]},
+{n:"Haystack Ontology Engine (hsengine)", m:"tags", st:"wip", d:"Deterministic Python engine that parses Project Haystack records, classifies tags, resolves relationships and flags missing refs and cycles. Doubles as ground truth for scoring LLM hallucination rates.", tags:["Python","Project Haystack","LLM evals"]},
+{n:"Haystack-Native Postgres Extension", m:"db", st:"plan", d:"Open-source PostgreSQL extension for entity and tag storage with Haystack filter queries via CREATE EXTENSION. Existing Haystack tooling lives at the application layer, so this fills a gap.", tags:["PostgreSQL","C / SQL","Project Haystack"]},
+{n:"Open IoT Platform & Generic Schema", m:"pipeline", st:"plan", d:"A generalised TimescaleDB schema for any IoT deployment, with a low-code device layer: sandboxed payload decoders, products and fields, rules and downlinks, built on MQTT ingest.", tags:["TimescaleDB","EMQX","Node.js","Schema design"]},
+{n:"AI Agent Observability Plane", m:"chart", st:"plan", d:"Discovery, usage tracking and drift detection for AI agents across clouds, using a canonical model with per-platform adapters. Starts with AWS Bedrock AgentCore, with OpenTelemetry for agent-level traces.", tags:["AgentCore","OpenTelemetry","Canonical model"]},
+{n:"Multi-Tenant Jewellery SaaS", m:"gem", st:"built", d:"Production-ready multi-tenant SaaS scaffold with Row-Level Security, live metal-rate pricing computed rather than stored, and a secure checkout Edge Function. Commercial, so the code is private.", tags:["Supabase","React","Tailwind","RLS","Edge Functions"]},
+{n:"AgriBase OS", m:"plant", st:"plan", d:"Open-source peripheral framework on FreeRTOS for agricultural automation: driver contract and channel registry so integrators add sensors and actuators without touching core code. Targets an ESP32-S3 control board with LTE, LoRa nodes, CT motor monitoring and valve control.", tags:["ESP32-S3","FreeRTOS","LVGL","LoRa","LTE Cat-1"]},
+{n:"Enterprise Integration & Canonical Layer (CAFM / CMMS)", m:"workflow", st:"built", d:"Workflow automation and an enterprise integration layer between facility-management systems and a core platform. Vendor schemas for sites, assets, work orders and planned jobs are mapped to one canonical model, so each new system needs one adapter instead of new point-to-point integrations.", tags:["Node.js", "Fastify", "n8n", "Canonical data model", "Webhooks", "JWT / OAuth"], facts:[["CONTEXT", "Professional work, anonymised"], ["PATTERN", "Canonical model with a vendor adapter per system"], ["AUTOMATION", "n8n for orchestration; business rules kept in version-controlled services"], ["RELIABILITY", "Idempotency, retries, rate limits, reconciliation of partial syncs"]]}
+];
+const STATUS={live:"LIVE",built:"BUILT",wip:"IN PROGRESS",plan:"PLANNED"};
+const FLOORS = [
+{id:"R", nm:"ROOF", c:"#0a0a0a", t:"Agentic AI & hybrid cloud", d:"Agents that reason over validated data and call real tools, running across AWS, Azure and on-prem.", tags:["Claude","Ollama / Qwen","Bedrock AgentCore","RAG & tool calling","AWS","Azure","On-prem"]},
+{id:"5", nm:"LEVEL", c:"#0a0a0a", t:"Web apps & front end", d:"Product UIs and operator consoles on clean APIs, from multi-tenant SaaS to mission-control dashboards.", tags:["React","TypeScript","Tailwind","Supabase"]},
+{id:"4", nm:"LEVEL", c:"#0a0a0a", t:"APIs & integration", d:"Contract-first services, vendor adapters and workflow orchestration with validation, idempotency and retries.", tags:["Node.js","Python","Fastify","REST","Webhooks","Lambda","n8n"]},
+{id:"3", nm:"LEVEL", c:"#a87a00", t:"Identity & access management", d:"Authentication, SSO, roles and least-privilege access designed in from day one, across cloud and data layers.", tags:["AWS Cognito","Okta","AWS IAM","OAuth / JWT","Row-Level Security"]},
+{id:"2", nm:"LEVEL", c:"#0a0a0a", t:"Observability", d:"Metrics, logs, traces and alerts that make failures diagnosable before customers notice them.", tags:["Datadog","CloudWatch","OpenTelemetry","Alarms & dashboards"]},
+{id:"1", nm:"LEVEL", c:"#0a0a0a", t:"Data & time-series", d:"Time-series modelling, lakehouse pipelines and the schema decisions that keep queries fast and tenants apart.", tags:["TimescaleDB","PostgreSQL","Parquet","Data lake","pgvector"]},
+{id:"B1", nm:"PLANT ROOM", c:"#a87a00", base:true, t:"Edge, protocols & devices", d:"Where the building meets the software: field protocols, brokers and gateways that survive bad networks.", tags:["Modbus","BACnet","Profinet","Profibus","MQTT","ESP32 / FreeRTOS","LoRa","Embedded Linux"]}
+];
+const STAGES=[
+["Sources",["REST APIs","Webhooks","MQTT brokers","OPC UA servers","BMS / Niagara (nHaystack)","SFTP / batch files","LoRaWAN gateways","Industrial devices & sensors"]],
+["Connectivity",["Scheduled workers","Incremental sync","Pagination","Event-driven HTTP","Broker subscriptions","Topic routing","SFTP polling"]],
+["Identity & access",["API credentials","OAuth 2.0 / JWT","AWS IAM","Cognito","Service-to-service identity","Tenant identification","Device identity","Secrets management"]],
+["Messaging & orchestration",["Kafka","AWS SQS","Dead-letter queues","Apache Airflow","Scheduled workflows","Retries"]],
+["Processing",["Validation","Schema enforcement","Device / entity mapping","Unit & timestamp normalisation","Deduplication","Idempotency","Late-arriving data","Enrichment","Quarantine & replay"]],
+["Storage",["S3 (raw)","Parquet (curated)","PostgreSQL","TimescaleDB","DynamoDB (metadata & mappings)"]],
+["APIs, apps & AI",["REST APIs","Dashboards","Analytics","Data science","AI agents","RAG / knowledge systems"]]];
+const SRC=[
+{k:"REST API",i:"🌐",a:["We ask, page by page",["Scheduler","Pagination"]],v:["API key / OAuth",["OAuth 2.0","Secrets"]],b:["Queue + retry",["SQS","Airflow"]]},
+{k:"Webhook",i:"🔔",a:["They call us",["HTTPS","API Gateway"]],v:["Signed request",["Signature","Tenant ID"]],b:["Queue, safe to repeat",["SQS","Idempotency"]]},
+{k:"MQTT",i:"📡",a:["Devices publish",["MQTT","EMQX / HiveMQ"]],v:["Per-device identity",["Certificates","Topic ACLs"]],b:["Streamed",["Kafka","SQS"]]},
+{k:"OPC UA",i:"🏭",a:["We subscribe",["OPC UA client"]],v:["Certificates",["Security policy"]],b:["Event stream",["Kafka / SQS"]]},
+{k:"Niagara",i:"🏢",a:["We read the BMS",["Niagara","nHaystack"]],v:["Read-only account",["IAM","Tenant ID"]],b:["Queued per site",["SQS","Airflow"]]},
+{k:"SFTP files",i:"📁",a:["Files dropped",["SFTP polling"]],v:["Own key, own folder",["SSH keys"]],b:["A job per file",["Airflow","SQS"]]},
+{k:"LoRaWAN",i:"📶",a:["Via gateways",["LoRaWAN","Network server"]],v:["Registered DevEUI",["Device registry"]],b:["Streamed",["Kafka / SQS"]]}];
 const EM="captjacksparrow1109@gmail.com";
-["cp","cp2"].forEach(id=>{const b=document.getElementById(id);b.onclick=async()=>{try{await navigator.clipboard.writeText(EM);b.textContent="Copied!"}catch(e){b.textContent=EM}setTimeout(()=>b.textContent="Copy email",2200)}});
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const el=e.target;setTimeout(()=>{el.classList.add("in");const n=el.querySelector("[data-n]");if(n)count(n)},(+el.dataset.i||0)*110);io.unobserve(el)}}),{threshold:.15});
-document.querySelectorAll(".c").forEach((c,i)=>{c.dataset.i=i%4;io.observe(c)});
-function count(n){const t=+n.dataset.n,s=n.querySelector("small").outerHTML;let v=0;const st=performance.now();(function f(now){const p=Math.min(1,(now-st)/1100);v=Math.round(t*(1-Math.pow(1-p,3)));n.innerHTML=v+s;if(p<1)requestAnimationFrame(f)})(st)}
+const E=x=>String(x==null?"":x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const chips=a=>a.map(t=>`<span class="chip">${E(t)}</span>`).join("");
+document.querySelectorAll("[data-copy]").forEach(b=>b.onclick=async()=>{try{await navigator.clipboard.writeText(EM);b.textContent="Copied!"}catch(e){b.textContent=EM}setTimeout(()=>b.textContent="Copy email",2200)});
+
+/* case studies */
+const cg=document.getElementById("caseGrid");
+const CSPAN=["s8","s4","s4","s4","s4"],CVAR=["y","dk","","y","dk"];
+cg.innerHTML=CASES.map((c,i)=>`<article class="c case ${CSPAN[i]||"s4"} ${CVAR[i]||""}" tabindex="0" role="button" data-case="${i}"><div class="lab"><span>${E(c.k.split("|")[0].trim()).toUpperCase()}</span><span class="id">A-${101+i}</span></div><h3>${E(c.t)}</h3><p class="sm">${E(c.s)}</p><div class="chips">${chips(c.tech.slice(0,4))}</div><span class="go">Open case study →</span></article>`).join("");
+const li=a=>a.map(x=>`<li>${E(x)}</li>`).join("");
+function openCase(i){const c=CASES[i];D(`<div class="mh"><div class="k">${E(c.k)}</div><h3>${E(c.t)}</h3><button class="x" aria-label="Close">×</button></div><div class="mb"><h4>The problem</h4><p>${E(c.pr)}</p><h4>Constraints</h4><ul>${li(c.co)}</ul><h4>Flow</h4><div class="flow">${c.fl.map(x=>`<span>${E(x)}</span>`).join("<em>→</em>")}</div><h4>Decisions</h4><ul>${li(c.de)}</ul><h4>Trade-offs</h4>${c.tr.map(t=>`<div class="tr"><b>${E(t.q)}</b><span>${E(t.a)}</span></div>`).join("")}<h4>Outcomes</h4><ul>${li(c.out)}</ul><h4>Tech</h4><div class="chips">${chips(c.tech)}</div></div>`)}
+
+/* projects */
+const GROUPS=[["all","All",["live","built","wip","plan"]],["live","Live & built",["live","built"]],["wip","In progress",["wip"]],["plan","Planned",["plan"]]];
+const PV={live:"y",built:"",wip:"dk",plan:""};
+const pg=document.getElementById("projGrid");
+pg.innerHTML=PROJECTS.map((p,i)=>`<article class="c proj s4 st-${p.st} ${PV[p.st]}" tabindex="0" role="button" data-proj="${i}" data-st="${p.st}"><div class="lab"><span class="pill">${STATUS[p.st]}</span></div><h3>${E(p.n)}</h3><p class="sm">${E(p.d)}</p><div class="chips">${chips(p.tags.slice(0,3))}</div><span class="go">Details →</span></article>`).join("");
+document.getElementById("filters").innerHTML=GROUPS.map((g,i)=>`<button class="${i?"":"on"}" data-g="${g[0]}">${g[1]}</button>`).join("");
+document.getElementById("filters").onclick=e=>{const b=e.target.closest("button");if(!b)return;const g=GROUPS.find(x=>x[0]===b.dataset.g);document.querySelectorAll("#filters button").forEach(x=>x.classList.toggle("on",x===b));document.querySelectorAll(".proj").forEach(c=>c.classList.toggle("hide",!g[2].includes(c.dataset.st)))};
+function openProj(i){const p=PROJECTS[i];D(`<div class="mh"><div class="k">${STATUS[p.st]}</div><h3>${E(p.n)}</h3><button class="x" aria-label="Close">×</button></div><div class="mb"><p style="margin-top:16px">${E(p.d)}</p>${p.facts?`<h4>At a glance</h4><div class="fx">${p.facts.map(f=>`<b>${E(f[0])}</b><span>${E(f[1])}</span>`).join("")}</div>`:""}<h4>Built with</h4><div class="chips">${chips(p.tags)}</div>${p.link?`<p style="margin-top:18px"><a class="btn p" href="${E(p.link)}">GitHub repo →</a></p>`:""}</div>`)}
+
+/* stack floors */
+document.getElementById("floorGrid").innerHTML=FLOORS.map(f=>`<article class="c s12 floor ${f.base?"dk":""}" style="${["R","3"].includes(f.id)?"background:var(--y)":""}"><div class="no">${E(f.id)}<small>${E(f.nm)}</small></div><div><h3>${E(f.t)}</h3><p class="sm">${E(f.d)}</p><div class="chips" style="margin-top:12px">${chips(f.tags)}</div></div></article>`).join("").replace(/(<article class="c s12 floor dk")/,'<div class="ground"><span>GROUND LEVEL</span></div>$1');
+
+/* pipeline stages */
+document.getElementById("stageGrid").innerHTML=STAGES.map((s,i)=>`<article class="c stg ${i<4?"s3":"s4"} ${i===0||i===6?"y":""}"><div class="no">0${i+1}</div><h3>${E(s[0])}</h3><div class="chips">${chips(s[1].slice(0,5))}</div></article>`).join("");
+const pk=document.getElementById("pick"),hp=document.getElementById("hops");
+pk.innerHTML=SRC.map((s,i)=>`<button data-s="${i}" class="${i===0?"on":""}">${s.i} ${E(s.k)}</button>`).join("");
+function hops(i){const s=SRC[i];hp.innerHTML=[["Arrives",s.a],["Checked",s.v],["Queued",s.b]].map(h=>`<div class="hop"><b>${h[0]}</b><em>${E(h[1][0])}</em><div class="chips" style="margin:0">${chips(h[1][1])}</div></div>`).join("")}
+hops(0);pk.onclick=e=>{const b=e.target.closest("button");if(!b)return;pk.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));hops(+b.dataset.s)};
+
+/* blog */
+const bg=document.getElementById("blogGrid");
+fetch("../blog/posts.json").then(r=>r.json()).then(d=>{const a=(Array.isArray(d)?d:d.posts||[]).filter(p=>!p.placeholder).slice(0,3);const V=["y","","dk"];
+ bg.innerHTML=a.map((p,i)=>`<a class="c s4 ${V[i%3]}" href="../blog/posts/${p.slug}/"><div class="lab"><span>${E((p.themeName||"").toUpperCase())}</span></div><h3>${E(p.title)}</h3><span class="go">Read post →</span></a>`).join("")+`<a class="c s12" href="../blog/" style="text-align:center"><h3 style="margin:0">Open the whole blog →</h3></a>`;obs()}).catch(()=>{bg.innerHTML=`<a class="c s12" href="../blog/"><h3>Open the blog →</h3></a>`;obs()});
+
+/* modal */
+const dlg=document.getElementById("dlg");
+function D(h){document.getElementById("dbody").innerHTML=h;dlg.showModal();dlg.scrollTop=0}
+dlg.addEventListener("click",e=>{if(e.target===dlg||e.target.closest(".x"))dlg.close()});
+document.addEventListener("click",e=>{const c=e.target.closest("[data-case]"),p=e.target.closest("[data-proj]");if(c)openCase(+c.dataset.case);else if(p)openProj(+p.dataset.proj)});
+document.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){const t=document.activeElement;if(t&&t.dataset&&(t.dataset.case!=null||t.dataset.proj!=null)){e.preventDefault();t.click()}}});
+
+/* entrance */
+let io;function obs(){if(!io)io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const el=e.target;setTimeout(()=>{el.classList.add("in");const n=el.querySelector("[data-n]");if(n)count(n)},(+el.dataset.i||0)*110);io.unobserve(el)}}),{threshold:.12});document.querySelectorAll(".c:not([data-o])").forEach((c,i)=>{c.dataset.o=1;c.dataset.i=i%4;io.observe(c)})}
+obs();
+function count(n){const t=+n.dataset.n,s=n.querySelector("small").outerHTML,st=performance.now();(function f(now){const p=Math.min(1,(now-st)/1100);n.innerHTML=Math.round(t*(1-Math.pow(1-p,3)))+s;if(p<1)requestAnimationFrame(f)})(st)}
 function tick(){document.getElementById("clk").textContent=new Date().toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit",timeZone:"Asia/Kolkata"})+" IST"}tick();setInterval(tick,20000);
-/* simulated feed */
+
+/* simulated feed + gauge */
 const feed=document.getElementById("feed");let seq=10420;
 const T=[["bldg-07/ahu-2/supply_temp",()=>(17+Math.random()*3).toFixed(1)+" °C"],["plant-3/autoclave/pressure",()=>(6.5+Math.random()*.4).toFixed(2)+" bar"],["veh-418/gps/speed",()=>Math.round(30+Math.random()*40)+" km/h"],["pump-1/motor/current",()=>(5.6+Math.random()*.5).toFixed(2)+" A"],["bldg-12/meter-4/power",()=>(40+Math.random()*9).toFixed(1)+" kW"]];
 function line(){const [k,f]=T[Math.floor(Math.random()*T.length)];const d=document.createElement("div");d.innerHTML=`<i>${new Date().toLocaleTimeString("en-GB")}</i> <b>${k}</b> ${f()} <i>seq=${++seq}</i>`;feed.appendChild(d);while(feed.children.length>9)feed.removeChild(feed.firstChild)}
 for(let i=0;i<7;i++)line();setInterval(line,1100);
-/* gauge demo */
 const arc=document.getElementById("arc"),gv=document.getElementById("gv"),gs=document.getElementById("gs");let ph=0;
 setInterval(()=>{ph+=.18;const s=Math.max(.05,Math.min(.98,.2+.18*Math.sin(ph)+(Math.sin(ph/7)>.8?.55:0)));gv.textContent=s.toFixed(2);arc.style.strokeDashoffset=251*(1-s);const bad=s>.6;gs.textContent=bad?"ANOMALY":s>.4?"WARNING":"HEALTHY";gs.style.color=bad?"#ff6b6b":"#ffd400"},700);
-/* posts */
-fetch("../blog/posts.json").then(r=>r.json()).then(d=>{const a=(Array.isArray(d)?d:d.posts||[]).filter(p=>!p.placeholder).slice(0,3);document.getElementById("posts").innerHTML=a.map(p=>`<a class="post" href="../blog/posts/${p.slug}/"><small>${(p.themeName||"").toUpperCase()}</small>${p.title.replace(/&/g,"&amp;").replace(/</g,"&lt;")}</a>`).join("")}).catch(()=>{});
 </script></body></html>
