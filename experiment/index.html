@@ -372,7 +372,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <p class="role">I architect platforms where devices, data and AI agents work together.</p>
   <div class="chips"><span class="chip">Platform architect</span><span class="chip">IoT</span><span class="chip">Data engineering</span><span class="chip">Agentic AI</span></div>
   <div class="btns"><button class="btn p" data-copy>Copy email</button><a class="btn" href="https://github.com/capt-jack-21">GitHub</a><a class="btn" href="../blog/">Read the blog</a></div>
-  <div class="meta"><span id="clk">--:--</span></div>
  </div>
  <div class="c ph s5"><img src="assets/me-pro.jpg" alt="Adithya Venkatesh in a dark blazer and glasses" width="484" height="480" fetchpriority="high"></div>
  </div>
@@ -605,6 +604,6 @@ pp.onclick=()=>{if(wv.paused){wv.play();pp.textContent="❚❚";pp.setAttribute(
 let io;function obs(){if(!io)io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const el=e.target;setTimeout(()=>{el.classList.add("in");const n=el.querySelector("[data-n]");if(n)count(n)},(+el.dataset.i||0)*110);io.unobserve(el)}}),{threshold:.12});document.querySelectorAll(".c:not([data-o])").forEach((c,i)=>{c.dataset.o=1;c.dataset.i=i%4;io.observe(c)})}
 obs();
 function count(n){const t=+n.dataset.n,s=n.querySelector("small").outerHTML,st=performance.now();(function f(now){const p=Math.min(1,(now-st)/1100);n.innerHTML=Math.round(t*(1-Math.pow(1-p,3)))+s;if(p<1)requestAnimationFrame(f)})(st)}
-function tick(){document.getElementById("clk").textContent=new Date().toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit",timeZone:"Asia/Kolkata"})+" IST"}tick();setInterval(tick,20000);
+
 
 </script></body></html>
