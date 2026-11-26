@@ -50,26 +50,6 @@
   "placeholder": true
  },
  {
-  "slug": "timescaledb-compression-decisions",
-  "title": "TimescaleDB compression: the decisions that actually mattered",
-  "theme": "iiot",
-  "themeName": "IIoT",
-  "color": "#ffd400",
-  "type": "Decision record",
-  "mins": 1,
-  "placeholder": true
- },
- {
-  "slug": "protocol-normalisation-is-the-real-iiot-problem",
-  "title": "Protocol normalisation is the real IIoT problem",
-  "theme": "iiot",
-  "themeName": "IIoT",
-  "color": "#ffd400",
-  "type": "Opinion",
-  "mins": 1,
-  "placeholder": true
- },
- {
   "slug": "lab-notes-putting-an-ai-agent-on-ros2",
   "title": "Lab notes: putting an AI agent on ROS2",
   "theme": "robotics",
