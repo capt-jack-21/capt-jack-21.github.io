@@ -1,5 +1,15 @@
 [
  {
+  "slug": "giving-a-claude-agent-the-keys-to-a-building",
+  "title": "Giving a Claude agent the keys to a building, safely",
+  "theme": "ai",
+  "themeName": "Agentic AI",
+  "color": "#ffd400",
+  "type": "Teardown",
+  "mins": 5,
+  "placeholder": false
+ },
+ {
   "slug": "where-did-my-iot-data-go",
   "title": "Where did my IoT data go? Tracking it without tracking everything",
   "theme": "iiot",

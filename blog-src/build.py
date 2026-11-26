@@ -262,6 +262,17 @@ COVERS = {
         '<rect x="156" y="78" width="60" height="64" rx="8"/><rect x="236" y="78" width="60" height="64" rx="8"/><rect x="316" y="78" width="60" height="64" rx="8"/>'
         '<path d="M216 110H236M296 110H316"/><path d="M170 100H202M170 118H190M250 100H282M250 118H270M330 100H362M330 118H350"/>'
         '<path d="M156 176H376"/><path d="M156 168V184M196 168V184M236 168V184M276 168V184M316 168V184M356 168V184"/></g></svg>'),
+    # an agent holding a key, a building with a lock
+    "giving-a-claude-agent-the-keys-to-a-building": (f'<svg viewBox="0 0 400 220" aria-hidden="true"><g {SW}>'
+        '<path d="M10 202H390"/>'
+        '<circle cx="74" cy="92" r="30"/><path d="M74 62V40"/><circle cx="74" cy="34" r="6" fill="currentColor"/><path d="M58 86H66M82 86H90"/><path d="M60 104Q74 116 88 104"/>'
+        '<path d="M74 122V150"/><circle cx="74" cy="170" r="16"/><path d="M90 170H150M132 170V186M114 170V182"/>'
+        '<path d="M166 170H238" stroke-dasharray="1 13"/>'
+        '<rect x="252" y="62" width="120" height="140"/><path d="M312 62V34"/><path d="M290 26Q312 8 334 26"/>'
+        '<rect x="284" y="150" width="56" height="52"/><rect x="298" y="162" width="28" height="22" rx="4"/><path d="M304 162V154Q304 146 312 146Q320 146 320 154V162"/></g>'
+        '<g fill="currentColor"><circle cx="312" cy="32" r="6"/><circle cx="312" cy="173" r="4"/>'
+        '<rect x="268" y="82" width="20" height="16"/><rect x="302" y="82" width="20" height="16"/><rect x="336" y="82" width="20" height="16"/>'
+        '<rect x="268" y="112" width="20" height="16"/><rect x="302" y="112" width="20" height="16"/><rect x="336" y="112" width="20" height="16"/></g></svg>'),
     # a wallet versus an ID badge
     "wallet-sign-in-vs-conventional-iam": (f'<svg viewBox="0 0 400 220" aria-hidden="true"><g {SW}>'
         '<rect x="24" y="70" width="140" height="106" rx="14"/><path d="M24 104H164"/><rect x="120" y="124" width="44" height="30" rx="8"/><circle cx="138" cy="139" r="5" fill="currentColor"/>'
