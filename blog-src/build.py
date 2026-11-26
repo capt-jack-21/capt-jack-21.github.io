@@ -351,8 +351,13 @@ def parse(path):
     if meta["type"] not in TYPES:
         sys.exit(f"{path.name}: unknown type {meta['type']}")
     from datetime import date as _d
-    _dt = _d.fromisoformat(meta["date"])
-    meta["date_h"] = f"{_dt.day} {_dt.strftime('%B %Y')}"
+    if re.fullmatch(r"\d{4}-\d{2}", meta["date"]):      # month only, e.g. 2024-02
+        _dt = _d.fromisoformat(meta["date"] + "-01")
+        meta["date_h"] = _dt.strftime("%B %Y")
+        meta["date"] = meta["date"] + "-01"                # sort key
+    else:
+        _dt = _d.fromisoformat(meta["date"])
+        meta["date_h"] = f"{_dt.day} {_dt.strftime('%B %Y')}"
     meta["slug"] = path.stem
     meta["tags"] = [t.strip() for t in meta.get("tags", "").split(",") if t.strip()]
     meta["placeholder"] = meta.get("status", "") == "placeholder"

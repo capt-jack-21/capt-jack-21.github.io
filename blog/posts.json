@@ -1,5 +1,15 @@
 [
  {
+  "slug": "where-did-my-iot-data-go",
+  "title": "Where did my IoT data go? Tracking it without tracking everything",
+  "theme": "iiot",
+  "themeName": "IIoT",
+  "color": "#ffd400",
+  "type": "Teardown",
+  "mins": 4,
+  "placeholder": false
+ },
+ {
   "slug": "out-of-order-events-and-the-digital-twin",
   "title": "Out-of-order events quietly corrupt your digital twin",
   "theme": "iiot",
