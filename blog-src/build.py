@@ -235,7 +235,7 @@ def card(p, i=0, feature=True):
             f'<div class="cov">{MOTIFS[p["theme"]]}</div><div class="txt">'
             f'<div class="tags"><span class="tg">{THEMES[p["theme"]]["name"]}</span><span>{TYPES[p["type"]]}</span>{ph}</div>'
             f'<h3 class="d">{esc(p["title"])}</h3><p>{esc(p["summary"])}</p>'
-            f'<div class="mr"><span>{p["date"]}</span><span>{p["mins"]} min read</span></div>'
+            f'<div class="mr"><span>{p["date_h"]}</span><span>{p["mins"]} min read</span></div>'
             f'<div class="btn"><b>Read post</b><s>↑</s></div></div></a>')
 
 
@@ -290,7 +290,7 @@ def post_page(p, posts):
     tags = "".join(f'<span>#{esc(x)}</span>' for x in p["tags"])
     h += (f'<div class="wrap"><article class="art"><div class="crumb"><a href="/blog/">Blog</a> / <a href="/blog/{p["theme"]}/">{t["name"]}</a></div>'
           f'<div class="tags"><span class="tg">{t["name"]}</span><span>{TYPES[p["type"]]}</span></div>'
-          f'<h1 class="d">{esc(p["title"])}</h1><div class="byline">Adithya Venkatesh · {p["date"]} · {p["mins"]} min read</div>'
+          f'<h1 class="d">{esc(p["title"])}</h1><div class="byline">Adithya Venkatesh · {p["date_h"]} · {p["mins"]} min read</div>'
           f'<div class="tags">{tags}</div>{ban}<div class="body">{p["html"]}</div></article>')
     rel = [x for x in posts if x["theme"] == p["theme"] and x["slug"] != p["slug"]]
     if len(rel) < 2:
@@ -350,6 +350,9 @@ def parse(path):
         sys.exit(f"{path.name}: unknown theme {meta['theme']}")
     if meta["type"] not in TYPES:
         sys.exit(f"{path.name}: unknown type {meta['type']}")
+    from datetime import date as _d
+    _dt = _d.fromisoformat(meta["date"])
+    meta["date_h"] = f"{_dt.day} {_dt.strftime('%B %Y')}"
     meta["slug"] = path.stem
     meta["tags"] = [t.strip() for t in meta.get("tags", "").split(",") if t.strip()]
     meta["placeholder"] = meta.get("status", "") == "placeholder"

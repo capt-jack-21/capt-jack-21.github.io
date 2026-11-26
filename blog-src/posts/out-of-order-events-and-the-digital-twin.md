@@ -2,7 +2,7 @@
 title: Out-of-order events quietly corrupt your digital twin
 theme: iiot
 type: problem
-date: 2026-11-26
+date: 2019-05-05
 summary: In an autoclave or a telematics unit, the order of events is part of what they mean. A counter beside the timestamp is how the platform knows what really happened.
 tags: digital twin, event ordering, sequence numbers, MQTT, telematics, autoclave
 ---
