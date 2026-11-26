@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Adithya Venkatesh · Experiment</title><meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<style>
+:root{--y:#ffd400;--k:#0a0a0a;--disp:"Anton",Impact,"Arial Narrow Bold",sans-serif;--mono:ui-monospace,"Cascadia Code",Consolas,monospace;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--k);background:linear-gradient(rgba(10,10,10,.06) 1px,transparent 1px) 0 0/44px 44px,linear-gradient(90deg,rgba(10,10,10,.06) 1px,transparent 1px) 0 0/44px 44px,#ececec;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:3px solid var(--k)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:58px}
+.logo{display:flex;align-items:center;gap:10px;font:700 13px var(--mono);letter-spacing:.14em}
+.logo i{font:400 15px var(--disp);font-style:normal;background:var(--y);border:3px solid var(--k);border-radius:10px;width:32px;height:32px;display:grid;place-items:center;letter-spacing:0}
+nav ul{display:flex;gap:20px;list-style:none;font:700 12px var(--mono);letter-spacing:.06em;align-items:center}
+nav .bl{background:var(--y);border:3px solid var(--k);border-radius:999px;padding:3px 14px}
+@media(max-width:700px){nav li:not(:last-child){display:none}}
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:34px 0 20px}
+.c{position:relative;border:3px solid var(--k);border-radius:22px;padding:22px;background:#fff;overflow:hidden;opacity:0;transform:translateY(26px) scale(.97);transition:opacity .6s,transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.c.in{opacity:1;transform:none;animation:halo 1.6s ease-out .15s 1}
+.c:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--k)}
+.c.dk:hover{box-shadow:0 0 0 2px var(--y),0 0 34px rgba(255,212,0,.55)}
+@keyframes halo{0%{box-shadow:0 0 0 0 rgba(255,212,0,0)}30%{box-shadow:0 0 0 8px rgba(255,212,0,.55),0 0 44px 10px rgba(255,212,0,.5)}100%{box-shadow:0 0 0 0 rgba(255,212,0,0)}}
+.c.dk.in{animation:haloDk 1.8s ease-out .15s 1}
+@keyframes haloDk{0%{box-shadow:0 0 0 0 rgba(255,212,0,0)}30%{box-shadow:0 0 0 2px var(--y),0 0 60px 8px rgba(255,212,0,.65)}100%{box-shadow:0 0 0 0 rgba(255,212,0,0)}}
+.y{background:var(--y)}.dk{background:#0b0b0b;color:#f2f2f2}
+.s5{grid-column:span 5}.s7{grid-column:span 7}.s4{grid-column:span 4}.s3{grid-column:span 3}.s6{grid-column:span 6}.s12{grid-column:span 12}
+@media(max-width:900px){.s5,.s7,.s4,.s3,.s6{grid-column:span 12}.s3{grid-column:span 6}}
+.hi{font:700 12px var(--mono);letter-spacing:.18em}
+h1{font:400 clamp(50px,7vw,88px)/.95 var(--disp);text-transform:uppercase;margin:10px 0 12px}
+.role{font-size:17px;max-width:420px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}
+.chip{font:700 11.5px var(--mono);border:2px solid var(--k);border-radius:999px;padding:3px 11px;background:#fff}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.btn{font:700 13px var(--mono);border:3px solid var(--k);border-radius:999px;padding:9px 18px;background:#fff;cursor:pointer;color:var(--k);transition:transform .15s,box-shadow .15s}
+.btn.p{background:var(--k);color:var(--y)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--k)}
+.meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px;font:700 12px var(--mono)}
+.meta span:before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:#16a34a;border:2px solid var(--k);margin-right:7px;vertical-align:-1px}
+.lab{font:700 11px var(--mono);letter-spacing:.18em;display:flex;justify-content:space-between;align-items:center}
+.dk .lab{color:var(--y)}
+.live{display:inline-flex;gap:6px;align-items:center}.live:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--y);animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.25}}
+.feed{font:12.5px/1.9 var(--mono);margin-top:12px;height:196px;overflow:hidden;color:#cfcfcf}
+.feed div{white-space:nowrap;animation:slide .4s ease-out}
+.feed b{color:var(--y);font-weight:600}.feed i{color:#777;font-style:normal}
+@keyframes slide{from{opacity:0;transform:translateX(-12px)}}
+.big{font:400 clamp(60px,8vw,96px)/1 var(--disp)}
+.big small{font-size:.45em}
+.cap{font:700 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
+.gauge{width:100%;max-width:230px;display:block;margin:10px auto 0}
+.gv{font:400 54px var(--disp);text-align:center;color:var(--y);line-height:1}
+.st{text-align:center;font:700 11px var(--mono);letter-spacing:.14em;margin-top:6px}
+h3{font:400 28px/1 var(--disp);text-transform:uppercase;margin:10px 0 10px}
+.post{display:block;border:2px solid var(--k);border-radius:12px;padding:9px 12px;margin-top:8px;background:#fff;font-size:14px;font-weight:600;transition:transform .15s,box-shadow .15s}
+.post:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--k)}
+.post small{display:block;font:700 10px var(--mono);letter-spacing:.14em;color:#555}
+.work h3{font-size:30px}.work p{font-size:15px;max-width:34ch}
+.work .go{display:inline-block;margin-top:14px;font:700 12px var(--mono);border-bottom:3px solid var(--k)}
+.dk .go{border-color:var(--y);color:var(--y)}
+.sec{font:400 clamp(34px,5vw,52px)/1 var(--disp);text-transform:uppercase;display:inline-block;background:var(--y);border:3px solid var(--k);border-radius:6px;box-shadow:5px 5px 0 var(--k);padding:0 12px;margin:36px 0 6px}
+footer{margin-top:40px;background:var(--y);border-top:3px solid var(--k);padding:22px 0;font:700 12px var(--mono)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.note{font:700 12px var(--mono);background:var(--k);color:var(--y);padding:8px 0;text-align:center;letter-spacing:.06em}
+@media(prefers-reduced-motion:reduce){.c{opacity:1;transform:none;transition:none;animation:none!important}.feed div,.live:before{animation:none}}
+</style></head><body>
+<div class="note">EXPERIMENT · fewer words, more motion · <a href="../" style="border-bottom:2px solid var(--y)">back to the main site</a></div>
+<nav><div class="wrap"><a class="logo" href="../"><i>AV</i>CONNECTED</a><ul><li><a href="#work">Work</a></li><li><a href="#proof">Proof</a></li><li><a href="../blog/" class="bl">Blog</a></li><li><a href="#contact">Contact</a></li></ul></div></nav>
+<main class="wrap">
+<section class="bento">
+ <div class="c y s5" style="--d:0">
+  <div class="hi">HI, I'M</div><h1>Adithya<br>Venkatesh</h1>
+  <p class="role">I connect things that sense to software that decides.</p>
+  <div class="chips"><span class="chip">IoT &amp; data platform architect</span><span class="chip">Embedded</span><span class="chip">Applied AI</span></div>
+  <div class="btns"><button class="btn p" id="cp">Copy email</button><a class="btn" href="https://github.com/capt-jack-21">GitHub</a><a class="btn" href="../blog/">Read the blog</a></div>
+  <div class="meta"><span>Coimbatore, India</span><span id="clk">--:--</span></div>
+ </div>
+ <div class="c dk s7" style="--d:1">
+  <div class="lab"><span class="live">LIVE FEED · SIMULATED</span><span>mqtt://demo</span></div>
+  <div class="feed" id="feed"></div>
+ </div>
+
+ <div class="c s3" id="proof"><div class="big" data-n="15">0<small>+</small></div><div class="cap">Years connecting things</div></div>
+ <div class="c y s3"><div class="big" data-n="450">0<small>k</small></div><div class="cap">Sensor points on one platform</div></div>
+ <div class="c s3"><div class="big">2<small>→</small>100<small>+</small></div><div class="cap">Buildings, as the platform grew</div></div>
+ <div class="c dk s3"><div class="lab"><span class="live">PUMP · DEMO</span></div>
+  <svg class="gauge" viewBox="0 0 200 120"><path d="M20 105A80 80 0 0 1 180 105" fill="none" stroke="#333" stroke-width="14" stroke-linecap="round"/><path id="arc" d="M20 105A80 80 0 0 1 180 105" fill="none" stroke="#ffd400" stroke-width="14" stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="220"/></svg>
+  <div class="gv" id="gv">0.12</div><div class="st" id="gs">HEALTHY</div></div>
+
+ <div class="c y s4"><div class="lab"><span>LATEST WRITING</span></div><h3>From the blog</h3><div id="posts"></div></div>
+ <div class="c s4"><div class="lab"><span>STACK</span></div><h3>What I build with</h3><div class="chips"><span class="chip">MQTT</span><span class="chip">BACnet</span><span class="chip">Modbus</span><span class="chip">TimescaleDB</span><span class="chip">AWS</span><span class="chip">Azure</span><span class="chip">Node.js</span><span class="chip">Python</span><span class="chip">ESP32</span><span class="chip">Claude</span><span class="chip">ROS2</span></div></div>
+ <div class="c dk s4"><div class="lab"><span>BUILDING NOW</span></div><h3 style="color:var(--y)">PumpSentinel</h3><p style="font-size:15px;color:#ddd">An ESP32 that listens to a motor, names the fault and raises its own work order.</p><a class="go work" href="../blog/posts/lab-notes-esp32-pump-health-monitor/" style="display:inline-block;margin-top:14px;font:700 12px var(--mono);border-bottom:3px solid var(--y);color:var(--y)">Read the build →</a></div>
+</section>
+
+<span class="sec" id="work">Selected work</span>
+<section class="bento work" style="padding-top:18px">
+ <a class="c s6" href="../#cases"><div class="lab"><span>A-101</span></div><h3>Smart building platform</h3><p>One platform, many buildings, many vendors.</p><span class="go">Open case study →</span></a>
+ <a class="c y s6" href="../#cases"><div class="lab"><span>A-102</span></div><h3>Telemetry at scale</h3><p>Event streaming for connected vehicles.</p><span class="go">Open case study →</span></a>
+ <a class="c s6" href="../#cases"><div class="lab"><span>A-104</span></div><h3>Industry 4.0 + digital twin</h3><p>From plant floor to a twin you can trust.</p><span class="go">Open case study →</span></a>
+ <a class="c dk s6" href="../#projects"><div class="lab"><span>PROJECTS</span></div><h3 style="color:var(--y)">Agents, edge and ops</h3><p style="color:#ddd">Building Ops Copilot, Smart Building AI, PumpSentinel.</p><span class="go">See all builds →</span></a>
+</section>
+<span class="sec" id="contact">Let's talk</span>
+<section class="bento" style="padding-top:18px"><div class="c y s12" style="text-align:center"><h3 style="font-size:40px">Looking for a platform or IoT architect?</h3><div class="btns" style="justify-content:center;margin-top:14px"><button class="btn p" id="cp2">Copy email</button><a class="btn" href="https://github.com/capt-jack-21">GitHub</a></div></div></section>
+</main>
+<footer><div class="wrap"><span>© 2026 Adithya Venkatesh</span><span>AV CONNECTED · Sense • Connect • Solve</span></div></footer>
+<script>
+const EM="captjacksparrow1109@gmail.com";
+["cp","cp2"].forEach(id=>{const b=document.getElementById(id);b.onclick=async()=>{try{await navigator.clipboard.writeText(EM);b.textContent="Copied!"}catch(e){b.textContent=EM}setTimeout(()=>b.textContent="Copy email",2200)}});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const el=e.target;setTimeout(()=>{el.classList.add("in");const n=el.querySelector("[data-n]");if(n)count(n)},(+el.dataset.i||0)*110);io.unobserve(el)}}),{threshold:.15});
+document.querySelectorAll(".c").forEach((c,i)=>{c.dataset.i=i%4;io.observe(c)});
+function count(n){const t=+n.dataset.n,s=n.querySelector("small").outerHTML;let v=0;const st=performance.now();(function f(now){const p=Math.min(1,(now-st)/1100);v=Math.round(t*(1-Math.pow(1-p,3)));n.innerHTML=v+s;if(p<1)requestAnimationFrame(f)})(st)}
+function tick(){document.getElementById("clk").textContent=new Date().toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit",timeZone:"Asia/Kolkata"})+" IST"}tick();setInterval(tick,20000);
+/* simulated feed */
+const feed=document.getElementById("feed");let seq=10420;
+const T=[["bldg-07/ahu-2/supply_temp",()=>(17+Math.random()*3).toFixed(1)+" °C"],["plant-3/autoclave/pressure",()=>(6.5+Math.random()*.4).toFixed(2)+" bar"],["veh-418/gps/speed",()=>Math.round(30+Math.random()*40)+" km/h"],["pump-1/motor/current",()=>(5.6+Math.random()*.5).toFixed(2)+" A"],["bldg-12/meter-4/power",()=>(40+Math.random()*9).toFixed(1)+" kW"]];
+function line(){const [k,f]=T[Math.floor(Math.random()*T.length)];const d=document.createElement("div");d.innerHTML=`<i>${new Date().toLocaleTimeString("en-GB")}</i> <b>${k}</b> ${f()} <i>seq=${++seq}</i>`;feed.appendChild(d);while(feed.children.length>9)feed.removeChild(feed.firstChild)}
+for(let i=0;i<7;i++)line();setInterval(line,1100);
+/* gauge demo */
+const arc=document.getElementById("arc"),gv=document.getElementById("gv"),gs=document.getElementById("gs");let ph=0;
+setInterval(()=>{ph+=.18;const s=Math.max(.05,Math.min(.98,.2+.18*Math.sin(ph)+(Math.sin(ph/7)>.8?.55:0)));gv.textContent=s.toFixed(2);arc.style.strokeDashoffset=251*(1-s);const bad=s>.6;gs.textContent=bad?"ANOMALY":s>.4?"WARNING":"HEALTHY";gs.style.color=bad?"#ff6b6b":"#ffd400"},700);
+/* posts */
+fetch("../blog/posts.json").then(r=>r.json()).then(d=>{const a=(Array.isArray(d)?d:d.posts||[]).filter(p=>!p.placeholder).slice(0,3);document.getElementById("posts").innerHTML=a.map(p=>`<a class="post" href="../blog/posts/${p.slug}/"><small>${(p.themeName||"").toUpperCase()}</small>${p.title.replace(/&/g,"&amp;").replace(/</g,"&lt;")}</a>`).join("")}).catch(()=>{});
+</script></body></html>
