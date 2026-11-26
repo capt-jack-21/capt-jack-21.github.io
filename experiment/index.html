@@ -173,6 +173,49 @@ p.sm{font-size:15px;color:#222}.dk p.sm{color:#ddd}
 .filters button{font:700 12px var(--mono);border:3px solid var(--k);border-radius:999px;padding:5px 14px;background:#fff;cursor:pointer}
 .filters button.on,.filters button:hover{background:var(--y)}
 .proj.hide{display:none}
+/* project zones */
+.zone{border:3px solid var(--k);border-radius:26px;overflow:hidden;margin-bottom:28px;background:#fff}
+.zh{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 26px;border-bottom:3px solid var(--k)}
+.zt{display:flex;align-items:center;gap:16px}
+.zi{width:54px;height:54px;border-radius:50%;border:3px solid var(--k);display:grid;place-items:center;font:700 24px var(--mono);background:#fff;color:var(--k);flex:none}
+.zh h3{font:400 clamp(34px,4.4vw,52px)/1 var(--disp);text-transform:uppercase;margin:0}
+.zh p{font:700 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;margin:4px 0 0}
+.zn{font:400 clamp(60px,8vw,96px)/1 var(--disp);opacity:.9}
+.zb{padding:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media(max-width:980px){.zb{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.zb{grid-template-columns:1fr}.zh{padding:12px 12px;gap:8px}.zi{width:38px;height:38px;font-size:17px}.zt{gap:10px;min-width:0}.zh h3{font-size:28px}.zh p{font-size:10px;letter-spacing:.08em}.zn{font-size:44px!important}.z-wip .zt{padding:6px 12px 6px 6px}}
+.zb .c{padding:20px}
+.zb .c h3{font:400 28px/1.02 var(--disp);text-transform:uppercase;margin:12px 0 8px}
+/* shipped: green */
+.z-ship{border-color:var(--k);box-shadow:8px 8px 0 #0c8f55}
+.z-ship .zh{background:#22d17f}.z-ship .zn{color:#0a5c37}
+.z-ship .zb{background-color:#e6fbf0;background-image:radial-gradient(rgba(12,143,85,.18) 1.3px,transparent 1.5px);background-size:18px 18px}
+.z-ship .c{background:#fff}.z-ship .c.in:hover{box-shadow:6px 6px 0 #0c8f55}
+.z-ship .pill{background:#22d17f}
+.pill.lv:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--k);margin-right:6px;animation:nbp 1.4s ease-in-out infinite}
+/* under construction: hazard tape */
+.z-wip{box-shadow:8px 8px 0 var(--k)}
+.z-wip .zh{background:repeating-linear-gradient(-45deg,#ffd400 0 16px,#0a0a0a 16px 32px)}
+.z-wip .zt,.z-wip .zn{background:#0a0a0a;color:var(--y);padding:6px 18px 6px 8px;border-radius:14px}.z-wip .zn{opacity:1;padding:2px 16px}
+.z-wip .zi{background:var(--y);border-color:var(--y)}
+.z-wip .zh p{color:#fff}
+.z-wip .zb{background:#fff4b8}
+.z-wip .c{background:var(--y)}.z-wip .pill{background:#fff}
+.bar{height:9px;border:2px solid var(--k);border-radius:6px;margin-top:12px;background:repeating-linear-gradient(-45deg,var(--k) 0 7px,var(--y) 7px 14px);background-size:20px 20px;animation:barmove 1s linear infinite}
+@keyframes barmove{to{background-position:20px 0}}
+.z-wip .c .chips{margin-top:auto}
+/* blueprint */
+.z-plan{border-color:var(--k);box-shadow:8px 8px 0 #1230a8}
+.z-plan .zh{background:#2552f5;color:#fff;border-bottom-color:#fff}
+.z-plan .zi{background:transparent;color:#fff;border-color:#fff}
+.z-plan .zb{background-color:#1a3fd1;background-image:linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.14) 1px,transparent 1px);background-size:22px 22px}
+.z-plan .c{background:transparent;color:#fff;border:3px dashed #fff}
+.z-plan .c.in:hover{box-shadow:6px 6px 0 #0b1d78}
+.z-plan .proj .pill{background:transparent;color:#fff;border-color:#fff}
+.z-plan .c .sm{color:#e6ecff}.z-plan .c h3{color:#fff}
+.z-plan .chip{background:transparent;color:#fff;border-color:#fff}
+.z-plan .go{color:#fff}
+
 /* stack floors */
 .floor{display:grid;grid-template-columns:90px 1fr;gap:20px;align-items:start}
 .floor .no{font:400 64px/1 var(--disp)}
@@ -244,7 +287,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 
 <section class="bento" style="padding-top:2px">
- <div class="c y mot s8" id="cases"><div class="lab"><span>WHAT I MAKE</span><span class="note">CASE STUDIES · TAP A ROW TO READ THE STORY</span></div><h3>Make dope stuff every day.</h3><div class="mks" id="mks"></div><div class="now"><em>NOW BUILDING</em><span class="nb"><i></i>Live ADS-B + AgentCore</span><span class="nb"><i></i>Smart Building AI</span><span class="nb"><i></i>ROS2 AI-Agent Robot</span><span class="nb"><i></i>Haystack Ontology Engine</span></div></div>
+ <div class="c y mot s8" id="cases"><div class="lab"><span>WHAT I MAKE</span><span class="note">CASE STUDIES · TAP A ROW TO READ THE STORY</span></div><h3>Make dope stuff every day.</h3><div class="mks" id="mks"></div></div>
  <div class="c vid s4"><video id="walk" muted loop playsinline autoplay preload="metadata" poster="assets/walk-poster.jpg" aria-label="Short clip of Adithya walking toward the camera outdoors"><source src="assets/walk.mp4" type="video/mp4"></video><span class="tag"><span class="live"></span>OFF THE CLOCK</span><button class="pp" id="pp" aria-label="Pause video">❚❚</button></div>
 </section>
 
@@ -254,9 +297,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <ul class="wl2" id="rows"></ul>
  </div></section>
 
-<div class="sec" id="builds"><span class="n">02</span><h2>Projects &amp; builds</h2><p>Grouped by how far along they are. Tap a card for the detail.</p></div>
-<div class="filters" id="filters"></div>
-<section class="bento" id="projGrid"></section>
+<div class="sec" id="builds"><span class="n">02</span><h2>Projects &amp; builds</h2><p>Three zones, by how far along each build is. Tap a card for the detail.</p></div>
+<div id="zones"></div>
 
 <div class="sec" id="stack"><span class="n">03</span><h2>Tech stack</h2><p>A building of floors. I work on all of them, from the plant room up to the roof.</p></div>
 <section class="bento" id="floorGrid"></section>
@@ -404,12 +446,12 @@ const li=a=>a.map(x=>`<li>${E(x)}</li>`).join("");
 function openCase(i){const c=CASES[i];D(`<div class="mh"><div class="k">${E(c.k)}</div><h3>${E(c.t)}</h3><button class="x" aria-label="Close">×</button></div><div class="mb"><h4>The problem</h4><p>${E(c.pr)}</p><h4>Constraints</h4><ul>${li(c.co)}</ul><h4>Flow</h4><div class="flow">${c.fl.map(x=>`<span>${E(x)}</span>`).join("<em>→</em>")}</div><h4>Decisions</h4><ul>${li(c.de)}</ul><h4>Trade-offs</h4>${c.tr.map(t=>`<div class="tr"><b>${E(t.q)}</b><span>${E(t.a)}</span></div>`).join("")}<h4>Outcomes</h4><ul>${li(c.out)}</ul><h4>Tech</h4><div class="chips">${chips(c.tech)}</div></div>`)}
 
 /* projects */
-const GROUPS=[["all","All",["live","built","wip","plan"]],["live","Live & built",["live","built"]],["wip","In progress",["wip"]],["plan","Planned",["plan"]]];
-const PV={live:"y",built:"",wip:"dk",plan:""};
-const pg=document.getElementById("projGrid");
-pg.innerHTML=PROJECTS.map((p,i)=>`<article class="c proj s4 st-${p.st} ${PV[p.st]}" tabindex="0" role="button" data-proj="${i}" data-st="${p.st}"><div class="lab"><span class="pill">${STATUS[p.st]}</span></div><h3>${E(p.n)}</h3><p class="sm">${E(p.d)}</p><div class="chips">${chips(p.tags.slice(0,3))}</div><span class="go">Details →</span></article>`).join("");
-document.getElementById("filters").innerHTML=GROUPS.map((g,i)=>`<button class="${i?"":"on"}" data-g="${g[0]}">${g[1]}</button>`).join("");
-document.getElementById("filters").onclick=e=>{const b=e.target.closest("button");if(!b)return;const g=GROUPS.find(x=>x[0]===b.dataset.g);document.querySelectorAll("#filters button").forEach(x=>x.classList.toggle("on",x===b));document.querySelectorAll(".proj").forEach(c=>c.classList.toggle("hide",!g[2].includes(c.dataset.st)))};
+const ZONES=[
+ ["ship","Shipped","Running, or built end to end",["live","built"],"✓"],
+ ["wip","Under construction","Being built right now",["wip"],"⚙"],
+ ["plan","On the blueprint","Designed, not yet started",["plan"],"✎"]];
+document.getElementById("zones").innerHTML=ZONES.map(z=>{const items=PROJECTS.map((p,i)=>[p,i]).filter(x=>z[3].includes(x[0].st));
+ return `<section class="zone z-${z[0]}"><div class="zh"><div class="zt"><span class="zi">${z[4]}</span><div><h3>${z[1]}</h3><p>${z[2]}</p></div></div><div class="zn">${String(items.length).padStart(2,"0")}</div></div><div class="zb">${items.map(([p,i])=>`<article class="c proj st-${p.st}" tabindex="0" role="button" data-proj="${i}" data-st="${p.st}"><div class="lab"><span class="pill ${p.st==="live"?"lv":""}">${STATUS[p.st]}</span></div><h3>${E(p.n)}</h3><p class="sm">${E(p.d)}</p><div class="chips">${chips(p.tags.slice(0,3))}</div>${p.st==="wip"?'<div class="bar"></div>':""}<span class="go">Details →</span></article>`).join("")}</div></section>`}).join("");
 function openProj(i){const p=PROJECTS[i];D(`<div class="mh"><div class="k">${STATUS[p.st]}</div><h3>${E(p.n)}</h3><button class="x" aria-label="Close">×</button></div><div class="mb"><p style="margin-top:16px">${E(p.d)}</p>${p.facts?`<h4>At a glance</h4><div class="fx">${p.facts.map(f=>`<b>${E(f[0])}</b><span>${E(f[1])}</span>`).join("")}</div>`:""}<h4>Built with</h4><div class="chips">${chips(p.tags)}</div>${p.link?`<p style="margin-top:18px"><a class="btn p" href="${E(p.link)}">GitHub repo →</a></p>`:""}</div>`)}
 
 /* stack floors */
