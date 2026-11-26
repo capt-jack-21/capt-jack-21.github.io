@@ -267,7 +267,7 @@ p.sm{font-size:15px;color:#222}.dk p.sm{color:#ddd}
 .board-on .part{opacity:1;filter:none}
 .part .ds{font:700 9px var(--mono);color:#777;min-width:24px}
 .part .sy{font:400 17px/1 var(--disp);color:var(--c);min-width:24px;letter-spacing:.02em}
-.part:hover{background:var(--y);color:#0a0a0a;border-color:var(--y);transform:translateX(4px);box-shadow:0 0 22px rgba(255,212,0,.6);transition-delay:0s}
+.part:hover{background:var(--y);color:#0a0a0a;border-color:var(--y);transform:translateX(4px);transition-delay:0s}
 .part:hover .sy,.part:hover .ds{color:#0a0a0a}
 .silk{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:4px 18px 4px;font:700 10px var(--mono);letter-spacing:.24em;color:#6f6f6f;border-top:1px dashed #333;margin-top:6px;padding-top:12px}
 @media(max-width:900px){.pst-row{grid-template-columns:1fr;gap:44px}.pst:before,.pst:after{display:none}.pst .lk{top:auto;right:50%;bottom:-44px;width:5px;height:36px;margin:0 -2px 0 0}.pst .lk:after{top:0;left:-3px;animation:pktv 1.5s ease-in-out infinite}@keyframes pktv{0%{top:-4px;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:28px;opacity:0}}}
@@ -288,8 +288,6 @@ p.sm{font-size:15px;color:#222}.dk p.sm{color:#ddd}
 .pst h4 span{display:flex;align-items:center}
 .pst .lk+.lk2{display:none}
 .pst .lk:before{content:"";position:absolute;top:-3px;left:0;width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 10px 2px var(--y);animation:pkt 1.5s ease-in-out .75s infinite}
-.part.ping{background:#2b2600;border-color:var(--c);box-shadow:0 0 18px var(--c);transform:translateX(3px);transition-delay:0s}
-.part.ping .sy{text-shadow:0 0 10px var(--c)}
 .bus .bl{animation:blp 2.4s ease-in-out infinite}
 @keyframes blp{50%{box-shadow:0 0 28px var(--bg),0 0 4px var(--bc)}}
 .silk span:nth-child(2):after{content:"";display:inline-block;width:7px;height:12px;background:var(--y);margin-left:6px;vertical-align:-2px;animation:led 1s steps(1) infinite}
@@ -550,12 +548,9 @@ const bd=document.getElementById('board');new IntersectionObserver((en,o)=>en.fo
 (function(){const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
 bd.querySelectorAll("u[data-n]").forEach(u=>{const n=+u.dataset.n;u.textContent=String(n).padStart(2,"0")});
 if(rm)return;
-let vis=false;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(bd);
-const ps=[...bd.querySelectorAll(".part")];
-setInterval(()=>{if(!vis||document.hidden)return;const a=ps[Math.random()*ps.length|0];a.classList.add("ping");setTimeout(()=>a.classList.remove("ping"),520)},650);
 bd.addEventListener("pointermove",e=>{const r=bd.getBoundingClientRect();bd.style.setProperty("--mx",(e.clientX-r.left)+"px");bd.style.setProperty("--my",(e.clientY-r.top)+"px")});
 bd.addEventListener("pointerleave",()=>{bd.style.setProperty("--my","-40%")});
-bd.querySelectorAll(".pst").forEach(c=>c.addEventListener("pointerenter",()=>{c.querySelectorAll(".part").forEach((p,i)=>setTimeout(()=>{p.classList.add("ping");setTimeout(()=>p.classList.remove("ping"),360)},i*60))}));
+
 })();
 
 /* pipeline stages */
