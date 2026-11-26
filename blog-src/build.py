@@ -25,7 +25,7 @@ BLOG_ACCENT = "#ffd400"   # the blog is all yellow; change here to recolour ever
 
 THEMES = {
     "iiot": dict(name="IIoT", color=BLOG_ACCENT,
-                 blurb="Protocols, time-series and data platforms, digital twins and edge gateways."),
+                 blurb="Industry 4.0, Smart Buildings and Connected Vehicles."),
     "ai": dict(name="Agentic AI", color=BLOG_ACCENT,
                blurb="Agents on operational data: tool design, grounding, guardrails and evals."),
     "robotics": dict(name="Robotics / Embedded", color=BLOG_ACCENT,
@@ -217,6 +217,59 @@ MOTIFS = {
     "web3": f'<svg viewBox="0 0 400 220" aria-hidden="true"><g {SW}><rect x="14" y="70" width="100" height="80" rx="10"/><rect x="150" y="70" width="100" height="80" rx="10"/><rect x="286" y="70" width="100" height="80" rx="10"/>'
             f'<path d="M114 110H150M250 110H286"/><path d="M34 96H94M34 124H72M170 96H230M170 124H208M306 96H366M306 124H344"/></g></svg>',
 }
+
+TX = 'font-family="Anton,Impact,sans-serif" font-weight="700" fill="currentColor" stroke="none" text-anchor="middle"'
+COVERS = {
+    # packets 1,3,2,4 arriving out of order, a swap arrow, and a twin below
+    "out-of-order-events-and-the-digital-twin": (f'<svg viewBox="0 0 400 220" aria-hidden="true"><g {SW}>'
+        '<rect x="30" y="44" width="70" height="66" rx="8"/><rect x="120" y="44" width="70" height="66" rx="8"/><rect x="210" y="44" width="70" height="66" rx="8"/><rect x="300" y="44" width="70" height="66" rx="8"/>'
+        '<path d="M160 30Q205 2 250 30"/><path d="M238 14L252 30L234 36"/>'
+        '<path d="M200 120V150"/><path d="M188 138L200 150L212 138"/>'
+        '<rect x="150" y="156" width="100" height="46" rx="8"/><rect x="164" y="168" width="100" height="46" rx="8" stroke-dasharray="1 12"/></g>'
+        f'<g {TX} font-size="46"><text x="65" y="94">1</text><text x="155" y="94">3</text><text x="245" y="94">2</text><text x="335" y="94">4</text></g></svg>'),
+    # sensor -> broker -> two paths -> database, with a magnifier and tally marks
+    "where-did-my-iot-data-go": (f'<svg viewBox="0 0 400 220" aria-hidden="true"><g {SW}>'
+        '<rect x="14" y="84" width="44" height="44" rx="6"/><path d="M58 106H86"/><circle cx="108" cy="106" r="22"/>'
+        '<path d="M130 106L172 60H200M130 106L172 152H200"/><rect x="200" y="46" width="54" height="30" rx="5"/><rect x="200" y="138" width="54" height="30" rx="5"/>'
+        '<path d="M254 61H282V106M254 153H282V106"/>'
+        '<ellipse cx="338" cy="70" rx="36" ry="12"/><path d="M302 70V138C302 154 374 154 374 138V70"/><path d="M302 104C302 120 374 120 374 104"/>'
+        '<circle cx="176" cy="108" r="30"/><path d="M198 130L222 156"/>'
+        '<path d="M20 190V206M44 190V206M68 190V206M92 190V206M116 190V206M164 190V206M188 190V206M212 190V206M236 190V206M260 190V206"/></g></svg>'),
+    # an agent giving a confident number with no unit
+    "what-an-ai-agent-gets-wrong-about-building-telemetry": (f'<svg viewBox="0 0 400 220" aria-hidden="true"><g {SW}>'
+        '<circle cx="86" cy="104" r="34"/><path d="M86 70V48"/><circle cx="86" cy="42" r="6" fill="currentColor"/><path d="M64 98H72M100 98H108"/><path d="M70 118Q86 130 102 118"/>'
+        '<path d="M130 70H356Q368 70 368 82V132Q368 144 356 144H196L160 176V144H142Q130 144 130 132Z"/>'
+        '<rect x="66" y="156" width="14" height="42" rx="7"/><circle cx="73" cy="204" r="10"/></g>'
+        f'<g {TX} font-size="50"><text x="250" y="124">21 ?</text></g></svg>'),
+    # a toolbox with tools, as the controlled set an agent may use
+    "designing-tools-for-an-ops-agent": (f'<svg viewBox="0 0 400 220" aria-hidden="true"><g {SW}>'
+        '<rect x="80" y="104" width="240" height="94" rx="12"/><path d="M80 138H320"/><path d="M160 104V84H240V104"/><rect x="186" y="128" width="28" height="22" rx="4" fill="currentColor"/>'
+        '<path d="M120 104L142 58"/><circle cx="148" cy="46" r="14"/><path d="M270 104V52"/><rect x="262" y="30" width="16" height="22" rx="3"/>'
+        '<path d="M206 104V74"/></g></svg>'),
+    # a pump, a chip and a waveform
+    "lab-notes-esp32-pump-health-monitor": (f'<svg viewBox="0 0 400 220" aria-hidden="true"><g {SW}>'
+        '<circle cx="104" cy="130" r="46"/><circle cx="104" cy="130" r="14"/><path d="M104 84V50H146M58 130H24M24 118V142"/><path d="M60 176H148"/>'
+        '<rect x="250" y="106" width="76" height="76" rx="8"/><path d="M266 106V90M288 106V90M310 106V90M266 182V198M288 182V198M310 182V198M250 124H234M250 146H234M250 168H234M326 124H342M326 146H342M326 168H342"/>'
+        '<path d="M154 130H234" stroke-dasharray="1 13"/><path d="M200 40H230L242 18L256 62L268 30L280 40H372"/></g></svg>'),
+    # a robot arm taking orders from an agent node
+    "lab-notes-putting-an-ai-agent-on-ros2": (f'<svg viewBox="0 0 400 220" aria-hidden="true"><g {SW}>'
+        '<path d="M24 200H150M60 200V172H116V200"/><circle cx="88" cy="154" r="16"/><path d="M88 138L66 92"/><circle cx="62" cy="82" r="13"/><path d="M74 74L154 56"/><circle cx="166" cy="54" r="12"/><path d="M174 62L204 92M204 92L192 116M204 92L224 108"/>'
+        '<circle cx="320" cy="76" r="30"/><circle cx="320" cy="76" r="8" fill="currentColor"/><path d="M296 58L272 40M344 58L368 40M320 106V138"/><circle cx="266" cy="36" r="12"/><rect x="356" y="26" width="24" height="24"/><circle cx="320" cy="150" r="12"/>'
+        '<path d="M226 112Q270 130 296 100" stroke-dasharray="1 13"/></g></svg>'),
+    # an event stream flowing into a chain
+    "treating-on-chain-events-like-device-telemetry": (f'<svg viewBox="0 0 400 220" aria-hidden="true"><g {SW}>'
+        '<path d="M10 110H44L58 70L78 152L94 92L108 110H138"/><path d="M130 100L144 110L130 120"/>'
+        '<rect x="156" y="78" width="60" height="64" rx="8"/><rect x="236" y="78" width="60" height="64" rx="8"/><rect x="316" y="78" width="60" height="64" rx="8"/>'
+        '<path d="M216 110H236M296 110H316"/><path d="M170 100H202M170 118H190M250 100H282M250 118H270M330 100H362M330 118H350"/>'
+        '<path d="M156 176H376"/><path d="M156 168V184M196 168V184M236 168V184M276 168V184M316 168V184M356 168V184"/></g></svg>'),
+    # a wallet versus an ID badge
+    "wallet-sign-in-vs-conventional-iam": (f'<svg viewBox="0 0 400 220" aria-hidden="true"><g {SW}>'
+        '<rect x="24" y="70" width="140" height="106" rx="14"/><path d="M24 104H164"/><rect x="120" y="124" width="44" height="30" rx="8"/><circle cx="138" cy="139" r="5" fill="currentColor"/>'
+        '<path d="M50 70L78 40H128"/>'
+        '<rect x="248" y="52" width="124" height="148" rx="12"/><rect x="288" y="36" width="44" height="22" rx="6"/>'
+        '<circle cx="310" cy="106" r="18"/><path d="M272 170Q310 126 348 170"/></g>'
+        f'<g {TX} font-size="38"><text x="206" y="124">VS</text></g></svg>'),
+}
 WAVE = ('<svg class="wave" viewBox="0 0 200 60" aria-hidden="true"><path d="M2 30H40L52 8L70 52L84 18L96 40L106 30H198" fill="none" '
         'stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>')
 SQUIG = ('<svg viewBox="0 0 70 20" aria-hidden="true"><path d="M2 10C10 -2 16 22 24 10S38 -2 46 10S60 22 68 10" fill="none" '
@@ -270,7 +323,7 @@ def card(p, i=0, feature=True):
     ph = '<span class="ph">PLACEHOLDER</span>' if p["placeholder"] else ""
     return (f'<a class="post {v}" href="/blog/posts/{p["slug"]}/" data-theme="{p["theme"]}" data-type="{p["type"]}" '
             f'data-q="{esc((p["title"] + " " + p["summary"] + " " + " ".join(p["tags"])).lower())}">'
-            f'<div class="cov">{MOTIFS[p["theme"]]}</div><div class="txt">'
+            f'<div class="cov">{COVERS.get(p["slug"], MOTIFS[p["theme"]])}</div><div class="txt">'
             f'<div class="tags"><span class="tg">{THEMES[p["theme"]]["name"]}</span><span>{TYPES[p["type"]]}</span>{ph}</div>'
             f'<h3 class="d">{esc(p["title"])}</h3><p>{esc(p["summary"])}</p>'
             f'<div class="mr"><span>{p["date_h"]}</span><span>{p["mins"]} min read</span></div>'
