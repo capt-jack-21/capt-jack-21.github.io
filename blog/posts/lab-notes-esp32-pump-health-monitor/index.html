@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lab notes: an ESP32-S3 pump health monitor · Adithya Venkatesh</title>
-<meta name="description" content="Notes from building a pump health monitor on an ESP32-S3: sensing, firmware structure and what the data looks like at the edge.">
+<title>PumpSentinel: an ESP32 that watches a pump and raises its own work order · Adithya Venkatesh</title>
+<meta name="description" content="A pump&#x27;s motor current tells you when it is sick. An ESP32-S3 learns what normal looks like, names the fault, and opens a maintenance job without the cloud or an engineer.">
 <link rel="canonical" href="https://capt-jack-21.github.io/blog/posts/lab-notes-esp32-pump-health-monitor/">
 <meta property="og:type" content="article"><meta property="og:site_name" content="AV Connected · Blog">
-<meta property="og:title" content="Lab notes: an ESP32-S3 pump health monitor · Adithya Venkatesh"><meta property="og:description" content="Notes from building a pump health monitor on an ESP32-S3: sensing, firmware structure and what the data looks like at the edge.">
+<meta property="og:title" content="PumpSentinel: an ESP32 that watches a pump and raises its own work order · Adithya Venkatesh"><meta property="og:description" content="A pump&#x27;s motor current tells you when it is sick. An ESP32-S3 learns what normal looks like, names the fault, and opens a maintenance job without the cloud or an engineer.">
 <meta property="og:url" content="https://capt-jack-21.github.io/blog/posts/lab-notes-esp32-pump-health-monitor/"><meta property="og:image" content="https://capt-jack-21.github.io/blog/og/lab-notes-esp32-pump-health-monitor.png">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://capt-jack-21.github.io/blog/og/lab-notes-esp32-pump-health-monitor.png">
 <meta name="theme-color" content="#ffde00">
@@ -150,13 +150,63 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 footer a:hover{text-decoration:underline}
 @media(max-width:720px){.top ul li.hide{display:none}.top ul{gap:14px;font-size:18px}.logo span{font-size:28px}.search{margin-left:0;width:100%}.sep{display:none}.art{padding:22px 18px;box-shadow:5px 5px 0 var(--k)}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
-</style></head><body><div class="strip"><div class="wrap"><b>Log</b><a href="/blog/iiot/">IIoT</a><a href="/blog/ai/">Agentic AI</a><a href="/blog/robotics/">Robotics / Embedded</a><a href="/blog/web3/">Web3 / Blockchain</a></div></div><div class="wrap"><nav class="top"><a class="logo" href="/blog/"><i>AV</i><span>Blog</span></a><ul><li class="hide"><a href="/#cases">Case studies</a></li><li class="hide"><a href="/#projects">Projects</a></li><li><a href="/blog/" class="on">Blog</a></li><li><a href="/">Portfolio</a></li></ul></nav></div><div class="wrap"><article class="art"><div class="crumb"><a href="/blog/">Blog</a> / <a href="/blog/robotics/">Robotics / Embedded</a></div><div class="tags"><span class="tg">Robotics / Embedded</span><span>Lab notes</span></div><h1 class="d">Lab notes: an ESP32-S3 pump health monitor</h1><div class="byline">Adithya Venkatesh · 26 November 2026 · 1 min read</div><div class="tags"><span>#ESP32-S3</span><span>#firmware</span><span>#sensing</span><span>#edge</span></div><div class="banner"><span>PLACEHOLDER</span> This is an outline with the structure of the final post. The real write-up will replace it.</div><div class="body"><p>Short, informal notes from the bench. Not a tutorial.</p>
-<h2>What I was trying to do</h2>
-<p><em>[To be written.]</em></p>
-<h2>Hardware and firmware shape</h2>
-<p><em>[To be written.]</em></p>
-<h2>What surprised me</h2>
-<p><em>[To be written.]</em></p>
-<h2>Next</h2>
-<p><em>[To be written.]</em></p></div></article><div class="more"><div class="sh"><h2 class="d">Keep reading</h2><svg viewBox="0 0 70 20" aria-hidden="true"><path d="M2 10C10 -2 16 22 24 10S38 -2 46 10S60 22 68 10" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></div><div class="list"><a class="post v-k" href="/blog/posts/lab-notes-putting-an-ai-agent-on-ros2/" data-theme="robotics" data-type="lab" data-q="lab notes: putting an ai agent on ros2 first lessons from letting an agent reason over a ros2 system: what to expose, what to keep out of its reach. ros2 agents robotics safety"><div class="cov"><svg viewBox="0 0 400 220" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M24 200H150M60 200V172H116V200"/><circle cx="88" cy="154" r="16"/><path d="M88 138L66 92"/><circle cx="62" cy="82" r="13"/><path d="M74 74L154 56"/><circle cx="166" cy="54" r="12"/><path d="M174 62L204 92M204 92L192 116M204 92L224 108"/><circle cx="320" cy="76" r="30"/><circle cx="320" cy="76" r="8" fill="currentColor"/><path d="M296 58L272 40M344 58L368 40M320 106V138"/><circle cx="266" cy="36" r="12"/><rect x="356" y="26" width="24" height="24"/><circle cx="320" cy="150" r="12"/><path d="M226 112Q270 130 296 100" stroke-dasharray="1 13"/></g></svg></div><div class="txt"><div class="tags"><span class="tg">Robotics / Embedded</span><span>Lab notes</span><span class="ph">PLACEHOLDER</span></div><h3 class="d">Lab notes: putting an AI agent on ROS2</h3><p>First lessons from letting an agent reason over a ROS2 system: what to expose, what to keep out of its reach.</p><div class="mr"><span>26 November 2026</span><span>1 min read</span></div><div class="btn"><b>Read post</b><s>↑</s></div></div></a><a class="post " href="/blog/posts/giving-a-claude-agent-the-keys-to-a-building/" data-theme="ai" data-type="teardown" data-q="giving a claude agent the keys to a building, safely how to let an ai agent answer real questions about a building without letting it guess, break things or make numbers up. claude tool use mcp building automation haystack agents evals"><div class="cov"><svg viewBox="0 0 400 220" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 202H390"/><circle cx="74" cy="92" r="30"/><path d="M74 62V40"/><circle cx="74" cy="34" r="6" fill="currentColor"/><path d="M58 86H66M82 86H90"/><path d="M60 104Q74 116 88 104"/><path d="M74 122V150"/><circle cx="74" cy="170" r="16"/><path d="M90 170H150M132 170V186M114 170V182"/><path d="M166 170H238" stroke-dasharray="1 13"/><rect x="252" y="62" width="120" height="140"/><path d="M312 62V34"/><path d="M290 26Q312 8 334 26"/><rect x="284" y="150" width="56" height="52"/><rect x="298" y="162" width="28" height="22" rx="4"/><path d="M304 162V154Q304 146 312 146Q320 146 320 154V162"/></g><g fill="currentColor"><circle cx="312" cy="32" r="6"/><circle cx="312" cy="173" r="4"/><rect x="268" y="82" width="20" height="16"/><rect x="302" y="82" width="20" height="16"/><rect x="336" y="82" width="20" height="16"/><rect x="268" y="112" width="20" height="16"/><rect x="302" y="112" width="20" height="16"/><rect x="336" y="112" width="20" height="16"/></g></svg></div><div class="txt"><div class="tags"><span class="tg">Agentic AI</span><span>Teardown</span></div><h3 class="d">Giving a Claude agent the keys to a building, safely</h3><p>How to let an AI agent answer real questions about a building without letting it guess, break things or make numbers up.</p><div class="mr"><span>25 March 2026</span><span>5 min read</span></div><div class="btn"><b>Read post</b><s>↑</s></div></div></a></div></div></div><footer><div class="wrap"><span>Adithya Venkatesh · AV Connected · Sense • Connect • Solve</span>
+</style></head><body><div class="strip"><div class="wrap"><b>Log</b><a href="/blog/iiot/">IIoT</a><a href="/blog/ai/">Agentic AI</a><a href="/blog/robotics/">Robotics / Embedded</a><a href="/blog/web3/">Web3 / Blockchain</a></div></div><div class="wrap"><nav class="top"><a class="logo" href="/blog/"><i>AV</i><span>Blog</span></a><ul><li class="hide"><a href="/#cases">Case studies</a></li><li class="hide"><a href="/#projects">Projects</a></li><li><a href="/blog/" class="on">Blog</a></li><li><a href="/">Portfolio</a></li></ul></nav></div><div class="wrap"><article class="art"><div class="crumb"><a href="/blog/">Blog</a> / <a href="/blog/robotics/">Robotics / Embedded</a></div><div class="tags"><span class="tg">Robotics / Embedded</span><span>Lab notes</span></div><h1 class="d">PumpSentinel: an ESP32 that watches a pump and raises its own work order</h1><div class="byline">Adithya Venkatesh · 10 June 2026 · 3 min read</div><div class="tags"><span>#ESP32-S3</span><span>#Isolation Forest</span><span>#ESP-NOW</span><span>#LVGL</span><span>#edge AI</span><span>#condition monitoring</span></div><div class="body"><p>A pump rarely fails without warning. Before it goes, the motor works harder or differently, and you can see that in the electric current it draws. PumpSentinel is my bench build that listens to that current, decides whether the pump looks healthy, and, if it does not, asks for a maintenance job to be created. It runs on an ESP32-S3.</p>
+<h2>Listen to the motor, not the pump</h2>
+<p>One clamp-on current sensor goes around the supply line. Nothing is cut and nothing goes inside the pump. The idea is simple: the load tells the story. A pump running dry, one swallowing mud and one with a locked rotor each change how much current the motor draws.</p>
+<p>The sensor is sampled 1,000 times a second. Every 400 samples form a window, and windows overlap by half. Each window is boiled down to five numbers: RMS current (the average strength), peak current, crest factor (how spiky the wave is), rate of change, and zero-crossing rate.</p>
+<h2>Three layers on one chip</h2>
+<p>No single check catches everything, so there are three, and each covers what the others miss.</p>
+<ul>
+<li><strong>Self-calibration at boot.</strong> The first 32 samples at normal load build the model in memory. There is nothing to configure.</li>
+<li><strong>Layer 1, Z-score.</strong> Flags a sudden jump away from the baseline the pump set at boot.</li>
+<li><strong>Layer 2, Isolation Forest.</strong> This is the machine learning part. It is unsupervised, with 10 small trees of depth 8, reading RMS, crest factor and rate of change. It gives an anomaly score from 0.0 to 1.0. It needs no labelled faults and no rules to write.</li>
+<li><strong>Layer 3, signature match.</strong> Current zones put a name on the problem.</li>
+</ul>
+<p>All of it runs on the one ESP32-S3, spread across both cores with FreeRTOS tasks.</p>
+<h2>Current zones, named faults</h2>
+<table>
+<thead>
+<tr>
+<th>Current</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.5 A or less</td>
+<td>Dry run. No load, flagged at once.</td>
+</tr>
+<tr>
+<td>5.0 to 6.6 A</td>
+<td>Normal for this pump.</td>
+</tr>
+<tr>
+<td>6.7 to 7.0 A</td>
+<td>Warning. Load is climbing.</td>
+</tr>
+<tr>
+<td>7.1 to 7.5 A</td>
+<td>Mud ingestion. Heavy, gritty load.</td>
+</tr>
+<tr>
+<td>7.6 A or more</td>
+<td>Rotor stall. Confirmed fault.</td>
+</tr>
+</tbody>
+</table>
+<p>These zones were calibrated on a bench load bank with one pump. For your own motor, recalibrate for its current range. The numbers mean something only against how that pump behaves when healthy.</p>
+<h2>From stall to work order</h2>
+<p>The sensor node and the touchscreen talk over ESP-NOW, a direct ESP32-to-ESP32 link with no router in between. The screen is a 4.3 inch touch HMI drawn with LVGL, showing health score, RMS current, crest factor, rate of change and anomaly score live.</p>
+<p>When a rotor stall is confirmed and held past its debounce window:</p>
+<ol>
+<li>The node joins WiFi and posts an alert to a webhook (an n8n workflow in this build).</li>
+<li>The workflow opens a reactive maintenance job in the CAFM system.</li>
+<li>The job id and number come back over ESP-NOW to the HMI.</li>
+<li>The operator sees the job on the HMI's CAFM tab.</li>
+</ol>
+<p>A 30 minute cooldown stops duplicate jobs. Everything before the stall runs with no router and no internet, which is the point of doing the thinking at the edge.</p>
+<h2>Caveats</h2>
+<p>This is a working prototype, not a certified safety system. It was tested on a bench with one pump.</p>
+<h2>Read the code</h2>
+<p>Firmware for both nodes, the ESP-NOW protocol and the HMI are open source under the MIT licence at github.com/capt-jack-21/pumpsentinel. Built with ESP-IDF, FreeRTOS, ESP-NOW, LVGL v8, an Isolation Forest and an n8n webhook.</p></div></article><div class="more"><div class="sh"><h2 class="d">Keep reading</h2><svg viewBox="0 0 70 20" aria-hidden="true"><path d="M2 10C10 -2 16 22 24 10S38 -2 46 10S60 22 68 10" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></div><div class="list"><a class="post v-k" href="/blog/posts/lab-notes-putting-an-ai-agent-on-ros2/" data-theme="robotics" data-type="lab" data-q="lab notes: putting an ai agent on ros2 first lessons from letting an agent reason over a ros2 system: what to expose, what to keep out of its reach. ros2 agents robotics safety"><div class="cov"><svg viewBox="0 0 400 220" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M24 200H150M60 200V172H116V200"/><circle cx="88" cy="154" r="16"/><path d="M88 138L66 92"/><circle cx="62" cy="82" r="13"/><path d="M74 74L154 56"/><circle cx="166" cy="54" r="12"/><path d="M174 62L204 92M204 92L192 116M204 92L224 108"/><circle cx="320" cy="76" r="30"/><circle cx="320" cy="76" r="8" fill="currentColor"/><path d="M296 58L272 40M344 58L368 40M320 106V138"/><circle cx="266" cy="36" r="12"/><rect x="356" y="26" width="24" height="24"/><circle cx="320" cy="150" r="12"/><path d="M226 112Q270 130 296 100" stroke-dasharray="1 13"/></g></svg></div><div class="txt"><div class="tags"><span class="tg">Robotics / Embedded</span><span>Lab notes</span><span class="ph">PLACEHOLDER</span></div><h3 class="d">Lab notes: putting an AI agent on ROS2</h3><p>First lessons from letting an agent reason over a ROS2 system: what to expose, what to keep out of its reach.</p><div class="mr"><span>26 November 2026</span><span>1 min read</span></div><div class="btn"><b>Read post</b><s>↑</s></div></div></a><a class="post " href="/blog/posts/giving-a-claude-agent-the-keys-to-a-building/" data-theme="ai" data-type="teardown" data-q="giving a claude agent the keys to a building, safely how to let an ai agent answer real questions about a building without letting it guess, break things or make numbers up. claude tool use mcp building automation haystack agents evals"><div class="cov"><svg viewBox="0 0 400 220" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 202H390"/><circle cx="74" cy="92" r="30"/><path d="M74 62V40"/><circle cx="74" cy="34" r="6" fill="currentColor"/><path d="M58 86H66M82 86H90"/><path d="M60 104Q74 116 88 104"/><path d="M74 122V150"/><circle cx="74" cy="170" r="16"/><path d="M90 170H150M132 170V186M114 170V182"/><path d="M166 170H238" stroke-dasharray="1 13"/><rect x="252" y="62" width="120" height="140"/><path d="M312 62V34"/><path d="M290 26Q312 8 334 26"/><rect x="284" y="150" width="56" height="52"/><rect x="298" y="162" width="28" height="22" rx="4"/><path d="M304 162V154Q304 146 312 146Q320 146 320 154V162"/></g><g fill="currentColor"><circle cx="312" cy="32" r="6"/><circle cx="312" cy="173" r="4"/><rect x="268" y="82" width="20" height="16"/><rect x="302" y="82" width="20" height="16"/><rect x="336" y="82" width="20" height="16"/><rect x="268" y="112" width="20" height="16"/><rect x="302" y="112" width="20" height="16"/><rect x="336" y="112" width="20" height="16"/></g></svg></div><div class="txt"><div class="tags"><span class="tg">Agentic AI</span><span>Teardown</span></div><h3 class="d">Giving a Claude agent the keys to a building, safely</h3><p>How to let an AI agent answer real questions about a building without letting it guess, break things or make numbers up.</p><div class="mr"><span>25 March 2026</span><span>5 min read</span></div><div class="btn"><b>Read post</b><s>↑</s></div></div></a></div></div></div><footer><div class="wrap"><span>Adithya Venkatesh · AV Connected · Sense • Connect • Solve</span>
 <span><a href="/">Portfolio</a> · <a href="/blog/">Blog</a> · <a href="https://github.com/capt-jack-21" rel="noopener">GitHub</a></span></div></footer></body></html>

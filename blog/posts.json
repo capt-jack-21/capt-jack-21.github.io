@@ -1,5 +1,15 @@
 [
  {
+  "slug": "lab-notes-esp32-pump-health-monitor",
+  "title": "PumpSentinel: an ESP32 that watches a pump and raises its own work order",
+  "theme": "robotics",
+  "themeName": "Robotics / Embedded",
+  "color": "#ffd400",
+  "type": "Lab notes",
+  "mins": 3,
+  "placeholder": false
+ },
+ {
   "slug": "giving-a-claude-agent-the-keys-to-a-building",
   "title": "Giving a Claude agent the keys to a building, safely",
   "theme": "ai",
@@ -52,16 +62,6 @@
  {
   "slug": "lab-notes-putting-an-ai-agent-on-ros2",
   "title": "Lab notes: putting an AI agent on ROS2",
-  "theme": "robotics",
-  "themeName": "Robotics / Embedded",
-  "color": "#ffd400",
-  "type": "Lab notes",
-  "mins": 1,
-  "placeholder": true
- },
- {
-  "slug": "lab-notes-esp32-pump-health-monitor",
-  "title": "Lab notes: an ESP32-S3 pump health monitor",
   "theme": "robotics",
   "themeName": "Robotics / Embedded",
   "color": "#ffd400",
