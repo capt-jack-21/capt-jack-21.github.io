@@ -153,6 +153,30 @@ a{color:inherit;text-decoration:none}
 .more .sh h2{font-size:44px}
 .more .list{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));margin-bottom:0}
 .more .v-f{grid-column:auto;flex-direction:column}.more .v-f .cov{flex:none;aspect-ratio:16/9;min-height:0}.more .v-f .txt{padding:14px 4px 2px}.more .v-f h3{font-size:30px}
+/* theme view + page transition */
+@view-transition{navigation:auto}
+::view-transition-group(*){animation-duration:.42s;animation-timing-function:cubic-bezier(.2,.8,.2,1)}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.th-hero{display:flex;align-items:stretch;gap:24px;border:2px solid var(--k);border-radius:22px;padding:28px;margin-top:34px;box-shadow:8px 8px 0 var(--k)}
+.th-hero .l{flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.th-hero h1{font-size:clamp(54px,10vw,120px);line-height:.95}
+.th-hero p{max-width:46ch;font-size:17px}
+.th-hero .r{flex:0 0 260px;display:grid;place-items:center}
+.th-hero .r svg{width:100%;height:auto;color:inherit}
+.pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--disp);font-size:18px;letter-spacing:.04em;text-transform:uppercase;border:2px solid currentColor;border-radius:999px;padding:5px 16px;background:transparent;color:inherit}
+.pill:hover{background:var(--k);color:var(--y);border-color:var(--k)}
+.t-k .pill:hover{background:var(--y);color:var(--k);border-color:var(--y)}
+.cntp{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:2px solid currentColor;border-radius:999px;padding:3px 12px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-bottom:46px}
+.tiles .post{animation:rise .45s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0) * 70ms + 120ms)}
+.soon{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:6px;border:3px dashed var(--k);border-radius:18px;padding:30px 18px;min-height:260px;font-family:var(--disp);font-size:30px;text-transform:uppercase;letter-spacing:.03em;background:rgba(255,255,255,.5)}
+.soon small{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:none}
+.others{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:70px}
+.others .tcard{min-height:104px;padding:14px}
+.others .tcard h3{font-size:26px;margin-bottom:0}
+.others .tcard .ic{width:56px;height:36px;margin-bottom:6px}
+@media(max-width:760px){.th-hero{flex-direction:column;padding:20px;box-shadow:5px 5px 0 var(--k)}.th-hero .r{flex:none;width:170px}}
+@media(prefers-reduced-motion:reduce){@view-transition{navigation:none}.tiles .post{animation:none}}
 /* footer */
 footer{background:var(--k);color:var(--y);border-top:2px solid var(--k);padding:26px 0 34px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
@@ -258,7 +282,7 @@ def index_page(posts, preset=None):
     for n, (key, t) in enumerate(THEMES.items()):
         cnt = sum(1 for p in posts if p["theme"] == key)
         cls = ["t-y", "t-k", "t-w", "t-y"][n]
-        cards += (f'<a class="tcard {cls}" href="/blog/{key}/">{ICONS[key]}<h3 class="d">{t["name"]}</h3><p>{esc(t["blurb"])}</p>'
+        cards += (f'<a class="tcard {cls}" href="/blog/{key}/" style="view-transition-name:t-{key}">{ICONS[key]}<h3 class="d">{t["name"]}</h3><p>{esc(t["blurb"])}</p>'
                   f'<div class="cnt"><span>{cnt} post{"s" if cnt != 1 else ""}</span><span>Open →</span></div></a>')
     h += f'<div class="themes">{cards}</div></div></header><main class="wrap">'
     tchips = '<button class="chip on" data-t="">All themes</button>' + "".join(
@@ -298,6 +322,62 @@ def post_page(p, posts):
     h += ('<div class="more"><div class="sh"><h2 class="d">Keep reading</h2>' + SQUIG + '</div><div class="list">'
           + "".join(card(x, 2 + i, feature=False) for i, x in enumerate(rel[:2])) + "</div></div></div>")
     h += FOOT + "</body></html>"
+    return h
+
+
+
+THEME_CLS = {"iiot": "t-y", "ai": "t-k", "robotics": "t-w", "web3": "t-y"}
+
+
+def theme_page(posts, key):
+    t = THEMES[key]
+    mine = [p for p in posts if p["theme"] == key]
+    cls = THEME_CLS[key]
+    title = f"{t['name']} · Blog · Adithya Venkatesh"
+    url = f"{SITE}/blog/{key}/"
+    h = head(title, t["blurb"], url, f"{SITE}/blog/og/_index.png") + strip() + nav()
+    big = MOTIFS[key]
+    n = len(mine)
+    h += (f'<div class="wrap"><section class="th-hero {cls}" style="view-transition-name:t-{key}">'
+          f'<div class="l"><div class="kick"><i></i> Blog / {esc(t["name"])}</div><h1 class="d">{esc(t["name"])}</h1>'
+          f'<p>{esc(t["blurb"])}</p><span class="cntp">{n} post{"s" if n != 1 else ""}</span>'
+          f'<a class="pill" href="/blog/">← All themes</a></div><div class="r">{big}</div></section>')
+    types_here = [k for k in TYPES if any(p["type"] == k for p in mine)]
+    if len(mine) > 1:
+        ychips = '<button class="chip on" data-y="">All types</button>' + "".join(
+            f'<button class="chip" data-y="{k}">{TYPES[k]}</button>' for k in types_here)
+        h += f'<div class="bar">{ychips}<input class="search" id="q" type="search" placeholder="search {esc(t["name"])}" aria-label="Search posts"></div>'
+    else:
+        h += '<div class="bar"></div>'
+    tiles = ""
+    for i, p in enumerate(mine):
+        v = "v-f" if (len(mine) >= 3 and i == 0) else ["v-y", "", "v-k", ""][i % 4]
+        c = card(p, 0, feature=True)
+        # card() chooses its own variant; swap in the one this layout wants
+        for old in ("post v-f", "post v-k", "post v-y", "post "):
+            if c.startswith(f'<a class="{old}"'):
+                c = c.replace(f'<a class="{old}"', f'<a class="post {v}" style="--i:{i}"', 1)
+                break
+        tiles += c
+    if n < 3:
+        tiles += (f'<div class="soon"><span>More {esc(t["name"])} posts</span><small>On the way. Check back soon.</small></div>')
+    h += f'<div class="tiles" id="list">{tiles}</div><p class="empty" id="none">No posts match.</p>'
+    h += '<div class="sh"><h2 class="d">Other themes</h2>' + SQUIG + '</div><div class="others">'
+    for k, v in THEMES.items():
+        if k == key:
+            continue
+        h += (f'<a class="tcard {THEME_CLS[k]}" href="/blog/{k}/" style="view-transition-name:t-{k}">{ICONS[k]}'
+              f'<h3 class="d">{v["name"]}</h3></a>')
+    h += "</div></div>" + FOOT
+    h += """<script>
+(function(){var Y="",Q="";var cs=[].slice.call(document.querySelectorAll('.chip'));var q=document.getElementById('q');
+function run(){var n=0;[].forEach.call(document.querySelectorAll('.post'),function(p){
+var ok=(!Y||p.dataset.type===Y)&&(!Q||p.dataset.q.indexOf(Q)>-1);p.style.display=ok?'':'none';if(ok)n++});
+document.getElementById('none').style.display=n?'none':'block';
+cs.forEach(function(c){c.classList.toggle('on',c.dataset.y===Y)})}
+cs.forEach(function(c){c.addEventListener('click',function(){Y=c.dataset.y;run()})});
+if(q)q.addEventListener('input',function(e){Q=e.target.value.toLowerCase().trim();run()})})();
+</script></body></html>"""
     return h
 
 
@@ -376,7 +456,7 @@ def main():
     (OUT / "index.html").write_text(index_page(posts), encoding="utf-8")
     for key in THEMES:
         (OUT / key).mkdir()
-        (OUT / key / "index.html").write_text(index_page(posts, key), encoding="utf-8")
+        (OUT / key / "index.html").write_text(theme_page(posts, key), encoding="utf-8")
     for p in posts:
         d = OUT / "posts" / p["slug"]
         d.mkdir(parents=True)
