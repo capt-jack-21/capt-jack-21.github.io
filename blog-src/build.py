@@ -147,6 +147,8 @@ a{color:inherit;text-decoration:none}
 .body th,.body td{border-bottom:2px solid var(--k);border-right:2px solid var(--k);padding:8px 12px;text-align:left}
 .body th:last-child,.body td:last-child{border-right:0}.body tr:last-child td{border-bottom:0}
 .body th{background:var(--y);font-family:var(--disp);font-weight:400;font-size:18px;letter-spacing:.04em;text-transform:uppercase}
+.diagram{margin:22px 0;border:2px solid var(--k);border-radius:12px;padding:14px 14px 10px;background:#fafafa}
+.diagram figcaption{font-family:var(--mono);font-size:12px;letter-spacing:.04em;margin-top:8px;color:#333}
 .more{max-width:800px;margin:44px auto 70px}
 .more .sh h2{font-size:44px}
 .more .list{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));margin-bottom:0}
@@ -352,7 +354,7 @@ def parse(path):
     meta["tags"] = [t.strip() for t in meta.get("tags", "").split(",") if t.strip()]
     meta["placeholder"] = meta.get("status", "") == "placeholder"
     body = m.group(2).strip()
-    meta["words"] = len(re.findall(r"\w+", body))
+    meta["words"] = len(re.findall(r"\w+", re.sub(r"<[^>]+>", " ", body)))
     meta["mins"] = max(1, round(meta["words"] / 200))
     meta["html"] = markdown.markdown(body, extensions=["fenced_code", "tables", "sane_lists"])
     return meta

@@ -50,6 +50,16 @@
   "placeholder": true
  },
  {
+  "slug": "out-of-order-events-and-the-digital-twin",
+  "title": "Out-of-order events quietly corrupt your digital twin",
+  "theme": "iiot",
+  "themeName": "IIoT",
+  "color": "#ffd400",
+  "type": "Problem solved",
+  "mins": 4,
+  "placeholder": false
+ },
+ {
   "slug": "lab-notes-putting-an-ai-agent-on-ros2",
   "title": "Lab notes: putting an AI agent on ROS2",
   "theme": "robotics",
