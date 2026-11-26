@@ -234,15 +234,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
  
 </section>
 
-<section class="bento" style="padding-top:2px">
- <div class="c ds s8"><div class="hd"><b>AV-15Y</b><span>PLATFORM ARCHITECT · IOT · DATA · AGENTIC AI · DATASHEET · REV 2026</span></div>
-  <div class="bd"><svg class="ic" viewBox="-28 0 262 220" role="img" aria-label="Chip pinout showing protocols on the left and platforms on the right"><rect class="pn" x="34" y="40" width="22" height="12"/><text x="30" y="50" text-anchor="end">MQTT</text><rect class="pn" x="34" y="74" width="22" height="12"/><text x="30" y="84" text-anchor="end">BACNET</text><rect class="pn" x="34" y="108" width="22" height="12"/><text x="30" y="118" text-anchor="end">MODBUS</text><rect class="pn" x="34" y="142" width="22" height="12"/><text x="30" y="152" text-anchor="end">OPC UA</text><rect class="pn" x="34" y="176" width="22" height="12"/><text x="30" y="186" text-anchor="end">REST</text><rect class="pn" x="164" y="40" width="22" height="12"/><text x="190" y="50">AWS</text><rect class="pn" x="164" y="74" width="22" height="12"/><text x="190" y="84">AZURE</text><rect class="pn" x="164" y="108" width="22" height="12"/><text x="190" y="118">CLAUDE</text><rect class="pn" x="164" y="142" width="22" height="12"/><text x="190" y="152">SQL</text><rect class="pn" x="164" y="176" width="22" height="12"/><text x="190" y="186">EDGE</text><rect class="body" x="56" y="22" width="108" height="176" rx="6"/><path d="M98 22a12 12 0 0 0 24 0" fill="#ffd400" stroke="#0a0a0a" stroke-width="2"/><text class="ctr" x="110" y="108" text-anchor="middle">AV-15Y</text><text class="sub" x="110" y="128" text-anchor="middle">CONNECTED</text><text class="sub" x="110" y="184" text-anchor="middle">REV 2026</text></svg><div><h4>Features</h4><ul class="ft"><li>15+ years, sensor to cloud to agent</li><li>Platforms up to 450k sensor points</li><li>Multi-tenant SaaS, 2 to 100+ buildings</li><li>Agents that act on validated data</li></ul>
-  <h4>Operating conditions</h4><table><tr><td>Domain</td><td>Smart buildings · IIoT · Telematics</td></tr><tr><td>Cloud</td><td>AWS · Azure · on-prem</td></tr><tr><td>Code</td><td>Node.js · Python · TypeScript · SQL</td></tr><tr><td>Package</td><td>Coimbatore, India</td></tr><tr><td>Status</td><td>Open to roles</td></tr></table>
-  <div class="ord">ORDERING INFO <button class="btn p" data-copy>Copy email</button></div></div></div></div>
- <div class="c dk s4" style="display:flex;flex-direction:column;justify-content:center"><div class="lab"><span class="live">PUMP · DEMO</span></div>
-  <svg class="gauge" viewBox="0 0 200 120"><path d="M20 105A80 80 0 0 1 180 105" fill="none" stroke="#333" stroke-width="14" stroke-linecap="round"/><path id="arc" d="M20 105A80 80 0 0 1 180 105" fill="none" stroke="#ffd400" stroke-width="14" stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="220"/></svg>
-  <div class="gv" id="gv">0.12</div><div class="st" id="gs">HEALTHY</div></div>
-</section>
 
 <section class="bento" style="padding-top:2px">
  <div class="c y mot s8"><div class="lab"><span>ON MY SHIRT</span></div><h3>Make dope stuff every day.</h3><p class="sm">Sensors, platforms, agents and the odd pump. That's the plan.</p><a class="go" href="../blog/">See what I've been making →</a></div>
@@ -452,7 +443,4 @@ obs();
 function count(n){const t=+n.dataset.n,s=n.querySelector("small").outerHTML,st=performance.now();(function f(now){const p=Math.min(1,(now-st)/1100);n.innerHTML=Math.round(t*(1-Math.pow(1-p,3)))+s;if(p<1)requestAnimationFrame(f)})(st)}
 function tick(){document.getElementById("clk").textContent=new Date().toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit",timeZone:"Asia/Kolkata"})+" IST"}tick();setInterval(tick,20000);
 
-/* gauge */
-const arc=document.getElementById("arc"),gv=document.getElementById("gv"),gs=document.getElementById("gs");let ph=0;
-setInterval(()=>{ph+=.18;const s=Math.max(.05,Math.min(.98,.2+.18*Math.sin(ph)+(Math.sin(ph/7)>.8?.55:0)));gv.textContent=s.toFixed(2);arc.style.strokeDashoffset=251*(1-s);const bad=s>.6;gs.textContent=bad?"ANOMALY":s>.4?"WARNING":"HEALTHY";gs.style.color=bad?"#ff6b6b":"#ffd400"},700);
 </script></body></html>
