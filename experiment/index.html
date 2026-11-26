@@ -173,6 +173,11 @@ p.sm{font-size:15px;color:#222}.dk p.sm{color:#ddd}
 .filters button{font:700 12px var(--mono);border:3px solid var(--k);border-radius:999px;padding:5px 14px;background:#fff;cursor:pointer}
 .filters button.on,.filters button:hover{background:var(--y)}
 .proj.hide{display:none}
+/* punch line */
+.punch{text-align:center;padding:44px 24px;background-image:radial-gradient(rgba(255,212,0,.2) 1.2px,transparent 1.4px);background-size:16px 16px}
+.punch .lab{justify-content:center;margin-bottom:12px}
+.punch h3{font:400 clamp(40px,7.4vw,96px)/1.02 var(--disp);text-transform:uppercase;color:#fff;margin:0}
+.punch mark{background:var(--y);color:var(--k);padding:0 .14em;border-radius:8px;display:inline-block;transform:rotate(-2deg)}
 /* project zones */
 .zone{border:3px solid var(--k);border-radius:26px;overflow:hidden;margin-bottom:28px;background:#fff}
 .zh{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 26px;border-bottom:3px solid var(--k)}
@@ -310,6 +315,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <div class="sec" id="builds"><h2>Projects &amp; builds</h2><p>Three zones, by how far along each build is. Tap a card for the detail.</p></div>
 <div id="zones"></div>
+<section class="bento" style="padding-top:6px"><div class="c dk s12 punch"><div class="lab"><span>NOTE TO SELF</span></div><h3>Building is <mark>addictive</mark>.<br>I'm not looking for a cure.</h3></div></section>
 
 <div class="sec" id="stack"><h2>Tech stack</h2><p>A building of floors. I work on all of them, from the plant room up to the roof.</p></div>
 <section class="bento" id="floorGrid"></section>
