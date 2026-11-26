@@ -42,7 +42,12 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:5
 nav ul{display:flex;gap:22px;list-style:none;font-family:var(--mono);font-size:12px;letter-spacing:.06em}
 nav ul a{color:var(--muted);transition:color .15s}
 nav ul a:hover{color:var(--accent)}
-@media(max-width:720px){nav ul li:not(:last-child){display:none}}
+@media(max-width:720px){nav ul li:not(:last-child):not(.blogli){display:none}}
+/* blog link + strip: yellow */
+nav ul a.blogl{background:#ffd400;color:#07090d;font-weight:700;padding:4px 11px;border-radius:6px;transition:box-shadow .15s,transform .15s}
+nav ul a.blogl:hover{color:#07090d;box-shadow:0 0 0 3px rgba(255,212,0,.28);transform:translateY(-1px)}
+#writing .sec-h .n{color:#ffd400}
+#writing .sec-h h2{display:inline-block;background:#ffd400;color:#07090d;padding:0 10px;border-radius:4px;box-shadow:4px 4px 0 rgba(255,212,0,.22)}
 /* writing strip */
 .wr{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
 .wr a.wt{display:block;background:rgba(13,18,25,.88);border:1px solid var(--line);border-top:2px solid var(--c);border-radius:12px;padding:16px;transition:border-color .2s,transform .2s}
@@ -54,7 +59,7 @@ nav ul a:hover{color:var(--accent)}
 .wrl a i{font-style:normal;font-family:var(--mono);font-size:11.5px;color:var(--c);letter-spacing:.08em;text-transform:uppercase}
 .wrl a:hover{border-color:var(--c)}
 .wrm{margin-top:18px;font-family:var(--mono);font-size:13px}
-.wrm a{color:var(--accent)}
+.wrm a{color:#ffd400;border-bottom:2px solid #ffd400}
 /* hero */
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
 .hero{background:radial-gradient(ellipse 60% 70% at 15% 20%,rgba(56,232,198,.07),transparent 70%),radial-gradient(ellipse 50% 60% at 90% 80%,rgba(90,169,255,.06),transparent 70%),linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px) 0 0/48px 48px,linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px) 0 0/48px 48px,var(--bg)}
@@ -614,7 +619,7 @@ body{padding-bottom:116px}
       <li><a href="#projects">Projects</a></li>
       <li><a href="#about">Tech stack</a></li>
       <li><a href="#pipeline">Pipeline</a></li>
-      <li><a href="blog/">Writing</a></li>
+      <li class="blogli"><a class="blogl" href="blog/">Blog</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -690,16 +695,16 @@ body{padding-bottom:116px}
 
 <section id="writing">
   <div class="wrap">
-    <div class="sec-h reveal"><span class="n">05</span><h2>Writing</h2></div>
-    <p class="sec-sub reveal">Problems I have solved, decisions I have made and things I build on the bench, in four themes. It lives in its own corner of the site.</p>
+    <div class="sec-h reveal"><span class="n">05</span><h2>Blog</h2></div>
+    <p class="sec-sub reveal">Problems I have solved, decisions I have made and things I build on the bench, in four themes. The blog lives in its own corner of the site.</p>
     <div class="wr reveal">
-      <a class="wt" href="blog/iiot/" style="--c:#5aa9ff"><b>IIoT</b><span>Protocols, time-series, digital twins, edge.</span></a>
-      <a class="wt" href="blog/ai/" style="--c:#c084fc"><b>Agentic AI</b><span>Agents on operational data, tools, guardrails.</span></a>
-      <a class="wt" href="blog/robotics/" style="--c:#ffb454"><b>Robotics / Embedded</b><span>ROS2, ESP32, lab notes.</span></a>
-      <a class="wt" href="blog/web3/" style="--c:#4ade80"><b>Web3 / Blockchain</b><span>Chains through an architect's eyes.</span></a>
+      <a class="wt" href="blog/iiot/" style="--c:#ffd400"><b>IIoT</b><span>Protocols, time-series, digital twins, edge.</span></a>
+      <a class="wt" href="blog/ai/" style="--c:#ffd400"><b>Agentic AI</b><span>Agents on operational data, tools, guardrails.</span></a>
+      <a class="wt" href="blog/robotics/" style="--c:#ffd400"><b>Robotics / Embedded</b><span>ROS2, ESP32, lab notes.</span></a>
+      <a class="wt" href="blog/web3/" style="--c:#ffd400"><b>Web3 / Blockchain</b><span>Chains through an architect's eyes.</span></a>
     </div>
     <div class="wrl" id="wrLatest"></div>
-    <p class="wrm reveal"><a href="blog/">Open the writing section →</a></p>
+    <p class="wrm reveal"><a href="blog/">Open the blog →</a></p>
   </div>
 </section>
 
@@ -1196,7 +1201,7 @@ const FLOORS = [
   hl.onclick=e=>{e.preventDefault(); try{sessionStorage.setItem("pipHide",hidden?"0":"1")}catch(x){} location.reload()};
   if(hidden) return;
   const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const SEC=[["top","Home","Ahoy! I'm Pip. Sail down the site with me.","hero"],["cases","Case studies","Port ahoy: five real problems he solved.","cases"],["projects","Projects","Treasure chests: built, in progress, planned.","projects"],["about","Tech stack","Eyes on the crow's nest: the stack, floor by floor.","about"],["pipeline","Pipelines","Cannons ready: the pipelines he delivers for organisations.","pipeline"],["writing","Writing","The captain's log: notes on IIoT, agents, robots and chains.","pipeline"],["contact","Contact","Land ahoy! Send a message in a bottle.","contact"]];
+  const SEC=[["top","Home","Ahoy! I'm Pip. Sail down the site with me.","hero"],["cases","Case studies","Port ahoy: five real problems he solved.","cases"],["projects","Projects","Treasure chests: built, in progress, planned.","projects"],["about","Tech stack","Eyes on the crow's nest: the stack, floor by floor.","about"],["pipeline","Pipelines","Cannons ready: the pipelines he delivers for organisations.","pipeline"],["writing","Blog","The captain's log: notes on IIoT, agents, robots and chains.","pipeline"],["contact","Contact","Land ahoy! Send a message in a bottle.","contact"]];
   const v=document.createElement("div"); v.id="voyage"; v.dataset.sec="hero";
   const ship=`<svg viewBox="0 0 120 84" role="img" aria-label="Pip the pirate sailing down the page"><g class="tilt" style="transform-origin:60px 74px"><path class="hull" d="M8 54H106Q102 72 84 74H30Q12 72 8 54Z"/><circle class="port" cx="30" cy="64" r="3"/><circle class="port" cx="46" cy="64" r="3"/><path class="mast" d="M58 6V54"/><path class="sail" d="M60 12Q94 28 60 46Z"/><text class="av" x="64" y="34">AV</text><path class="flag" d="M58 6L44 10L58 14Z"/><g transform="translate(34 40) scale(.7)">${window.__pipBody("idle")}</g>
    <g class="pr pr-hero" transform="translate(46 46)"><g class="arm"><path d="M0 0q12 0 16-12" stroke="#38e8c6" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="16" cy="-14" r="3.4" fill="#38e8c6"/></g></g>

@@ -4,7 +4,7 @@
   "title": "What an AI agent gets wrong about building telemetry",
   "theme": "ai",
   "themeName": "Agentic AI",
-  "color": "#c084fc",
+  "color": "#ffd400",
   "type": "Problem solved",
   "mins": 1,
   "placeholder": true
@@ -14,7 +14,7 @@
   "title": "Wallet sign-in vs conventional IAM: a decision record",
   "theme": "web3",
   "themeName": "Web3 / Blockchain",
-  "color": "#4ade80",
+  "color": "#ffd400",
   "type": "Decision record",
   "mins": 1,
   "placeholder": true
@@ -24,7 +24,7 @@
   "title": "Treating on-chain events like device telemetry",
   "theme": "web3",
   "themeName": "Web3 / Blockchain",
-  "color": "#4ade80",
+  "color": "#ffd400",
   "type": "Opinion",
   "mins": 1,
   "placeholder": true
@@ -34,7 +34,7 @@
   "title": "TimescaleDB compression: the decisions that actually mattered",
   "theme": "iiot",
   "themeName": "IIoT",
-  "color": "#5aa9ff",
+  "color": "#ffd400",
   "type": "Decision record",
   "mins": 1,
   "placeholder": true
@@ -44,7 +44,7 @@
   "title": "Protocol normalisation is the real IIoT problem",
   "theme": "iiot",
   "themeName": "IIoT",
-  "color": "#5aa9ff",
+  "color": "#ffd400",
   "type": "Opinion",
   "mins": 1,
   "placeholder": true
@@ -54,7 +54,7 @@
   "title": "Lab notes: putting an AI agent on ROS2",
   "theme": "robotics",
   "themeName": "Robotics / Embedded",
-  "color": "#ffb454",
+  "color": "#ffd400",
   "type": "Lab notes",
   "mins": 1,
   "placeholder": true
@@ -64,7 +64,7 @@
   "title": "Lab notes: an ESP32-S3 pump health monitor",
   "theme": "robotics",
   "themeName": "Robotics / Embedded",
-  "color": "#ffb454",
+  "color": "#ffd400",
   "type": "Lab notes",
   "mins": 1,
   "placeholder": true
@@ -74,7 +74,7 @@
   "title": "Designing tools for an ops agent",
   "theme": "ai",
   "themeName": "Agentic AI",
-  "color": "#c084fc",
+  "color": "#ffd400",
   "type": "Teardown",
   "mins": 1,
   "placeholder": true

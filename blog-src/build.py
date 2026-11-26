@@ -20,17 +20,17 @@ OUT = ROOT / "blog"
 SITE = "https://capt-jack-21.github.io"
 
 # ---- the one place to change the blog's own accent colour -------------------
-BLOG_ACCENT = "#ff8a65"   # placeholder, swap when the colour is chosen
+BLOG_ACCENT = "#ffd400"   # the blog is all yellow; change here to recolour everything
 # -----------------------------------------------------------------------------
 
 THEMES = {
-    "iiot": dict(name="IIoT", color="#5aa9ff",
+    "iiot": dict(name="IIoT", color=BLOG_ACCENT,
                  blurb="Protocols, time-series and data platforms, digital twins and edge gateways."),
-    "ai": dict(name="Agentic AI", color="#c084fc",
+    "ai": dict(name="Agentic AI", color=BLOG_ACCENT,
                blurb="Agents on operational data: tool design, grounding, guardrails and evals."),
-    "robotics": dict(name="Robotics / Embedded", color="#ffb454",
+    "robotics": dict(name="Robotics / Embedded", color=BLOG_ACCENT,
                      blurb="ROS2, ESP32 and firmware: lab notes from the bench."),
-    "web3": dict(name="Web3 / Blockchain", color="#4ade80",
+    "web3": dict(name="Web3 / Blockchain", color=BLOG_ACCENT,
                  blurb="Crypto and blockchain seen through an architect's eyes."),
 }
 TYPES = {
@@ -147,24 +147,24 @@ def head(title, desc, url, image, extra_css=""):
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="{url}">
-<meta property="og:type" content="article"><meta property="og:site_name" content="AV Connected · Writing">
+<meta property="og:type" content="article"><meta property="og:site_name" content="AV Connected · Blog">
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{url}"><meta property="og:image" content="{image}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{image}">
 <meta name="theme-color" content="#07090d">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2307090d'/%3E%3Cpath d='M12 50 28 14l8 18' fill='none' stroke='%23ff8a65' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M32 14l16 36' fill='none' stroke='%23e6edf3' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2307090d'/%3E%3Cpath d='M12 50 28 14l8 18' fill='none' stroke='%23ffd400' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M32 14l16 36' fill='none' stroke='%23e6edf3' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>{CSS}{extra_css}</style></head><body>"""
 
 
 def nav(on_blog=True):
     return """<nav><div class="wrap">
-<a class="mark" href="/blog/"><b>AV</b>WRITING</a>
+<a class="mark" href="/blog/"><b>AV</b>BLOG</a>
 <ul><li class="hide"><a href="/#cases">Case studies</a></li><li class="hide"><a href="/#projects">Projects</a></li>
-<li><a href="/blog/" class="on">Writing</a></li><li><a href="/">← Portfolio</a></li></ul></div></nav>"""
+<li><a href="/blog/" class="on">Blog</a></li><li><a href="/">← Portfolio</a></li></ul></div></nav>"""
 
 
 FOOT = """<footer><div class="wrap"><span>Adithya Venkatesh · AV Connected</span>
-<span><a href="/">Portfolio</a> · <a href="/blog/">Writing</a> · <a href="https://github.com/capt-jack-21" rel="noopener">GitHub</a></span></div></footer></body></html>"""
+<span><a href="/">Portfolio</a> · <a href="/blog/">Blog</a> · <a href="https://github.com/capt-jack-21" rel="noopener">GitHub</a></span></div></footer></body></html>"""
 
 
 def card(p):
@@ -181,16 +181,16 @@ def card(p):
 def index_page(posts, preset=None):
     if preset:
         t = THEMES[preset]
-        title = f"{t['name']} · Writing · Adithya Venkatesh"
+        title = f"{t['name']} · Blog · Adithya Venkatesh"
         desc = t["blurb"]
         url = f"{SITE}/blog/{preset}/"
     else:
-        title = "Writing · Adithya Venkatesh · AV Connected"
+        title = "Blog · Adithya Venkatesh · AV Connected"
         desc = "Problems solved, decisions and lab notes across IIoT, agentic AI, robotics and embedded, and Web3."
         url = f"{SITE}/blog/"
     h = head(title, desc, url, f"{SITE}/blog/og/_index.png")
     h += nav()
-    h1 = (f'<span>{esc(THEMES[preset]["name"])}</span>' if preset else "Writing")
+    h1 = (f'<span>{esc(THEMES[preset]["name"])}</span>' if preset else "Blog")
     sub = (THEMES[preset]["blurb"] if preset else
            "Problems I have solved, decisions I have made and things I build on the bench. Four themes, written plainly.")
     h += f'<header class="hero"><div class="wrap"><div class="eyebrow"><i></i> Notes from the field</div><h1>{h1}</h1><p class="lede">{esc(sub)}</p>'
@@ -229,7 +229,7 @@ def post_page(p, posts):
     ban = ('<div class="banner">PLACEHOLDER: this is an outline with the structure of the final post. '
            'The real write-up will replace it.</div>') if p["placeholder"] else ""
     tags = "".join(f"<span>#{esc(x)}</span>" for x in p["tags"])
-    h += (f'<article><div class="crumb"><a href="/blog/">Writing</a> / <a href="/blog/{p["theme"]}/">{t["name"]}</a></div>'
+    h += (f'<article><div class="crumb"><a href="/blog/">Blog</a> / <a href="/blog/{p["theme"]}/">{t["name"]}</a></div>'
           f'<div class="tags"><span class="th">{t["name"]}</span><span>·</span><span>{TYPES[p["type"]]}</span>'
           f'<span>·</span><span>{p["mins"]} min read</span></div>'
           f'<h1>{esc(p["title"])}</h1><p class="byline">Adithya Venkatesh · {p["date"]}</p>'
@@ -268,7 +268,7 @@ def share_card(path, title, label, color):
     for ln in lines[:4]:
         d.text((70, y), ln, font=f_title, fill="#e6edf3")
         y += 78
-    d.text((70, H - 80), "ADITHYA VENKATESH  ·  AV CONNECTED  ·  WRITING", font=f_small, fill="#8b98a9")
+    d.text((70, H - 80), "ADITHYA VENKATESH  ·  AV CONNECTED  ·  BLOG", font=f_small, fill="#8b98a9")
     im.save(path, optimize=True)
 
 
@@ -288,7 +288,7 @@ def main():
         share_card(OUT / "og" / f"{p['slug']}.png", p["title"],
                    f"{THEMES[p['theme']]['name']} · {TYPES[p['type']]}", THEMES[p["theme"]]["color"])
     share_card(OUT / "og" / "_index.png", "Problems solved, decisions made, things built on the bench.",
-               "Writing", BLOG_ACCENT)
+               "Blog", BLOG_ACCENT)
     # data for the portfolio's home strip
     import json
     (OUT / "posts.json").write_text(json.dumps([
