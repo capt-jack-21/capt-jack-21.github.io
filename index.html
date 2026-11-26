@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Adithya Venkatesh — Software &amp; Platform Architect | AV Connected</title>
-<meta name="description" content="Software and platform architect: web apps, APIs, identity and security, observability, cloud, IoT and data platforms. Node.js, React, AWS. Case studies and open projects.">
-<meta property="og:title" content="Adithya Venkatesh — Software & Platform Architect">
-<meta property="og:description" content="Secure web apps, APIs, observability and IoT data platforms.">
+<title>Adithya Venkatesh — Platform Architect: IoT, Data &amp; Agentic AI | AV Connected</title>
+<meta name="description" content="Platform architect across IoT, data engineering and agentic AI: telemetry platforms, time-series data, cloud, identity and observability. Case studies and open projects.">
+<meta property="og:title" content="Adithya Venkatesh — Platform Architect: IoT, Data & Agentic AI">
+<meta property="og:description" content="IoT platforms, data engineering and agentic AI, built to run in production.">
 <meta name="theme-color" content="#e9e9e9">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2307090d'/%3E%3Cpath d='M12 50 28 14l8 18' fill='none' stroke='%2338e8c6' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M30 50 46 14 54 32' fill='none' stroke='%23e6edf3' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' opacity='.0'/%3E%3Cpath d='M32 14l16 36' fill='none' stroke='%23e6edf3' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>
@@ -766,7 +766,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--k);outline-offset:2
 
 <header class="hero" id="top">
   <div class="wrap">
-    <div class="eyebrow"><i></i> Software &amp; Platform Architect</div>
+    <div class="eyebrow"><i></i> Platform Architect · IoT · Data Engineering · Agentic AI</div>
     <h1>Adithya <span>Venkatesh</span></h1>
     <p class="lead">Not a CV. Ask me anything below, or tap a command, and I'll answer the way I would across a table.</p>
     <div class="hero-grid2">
@@ -850,7 +850,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--k);outline-offset:2
 <section class="contact" id="contact">
   <div class="wrap">
     <h2 class="reveal">Let's build something that connects.</h2>
-    <p class="reveal">Open to architecture roles and engagements: secure web apps and APIs, identity and observability, cloud platforms, IoT and data pipelines.</p>
+    <p class="reveal">Open to architecture roles and engagements: platform architecture, IoT and data engineering, agentic AI, identity and observability, cloud.</p>
     <div class="roles reveal" id="contactRoles"></div>
     <div class="cta reveal">
       <a class="btn primary" href="mailto:captjacksparrow1109@gmail.com">Email me</a>
@@ -875,7 +875,7 @@ const LINKEDIN_URL = "";   // e.g. "https://www.linkedin.com/in/your-handle"  (b
 const GITHUB = "https://github.com/capt-jack-21";
 const RESUME_URL = "resume.pdf";   // put your PDF next to index.html; the button only appears if the file exists
 const DEMO_URLS = {copilot:"", sbai:"", bench:""};   // paste YouTube / Loom / site URLs; "Watch demo" appears when set
-const ROLES = ["Platform Architect","IoT Architect","Cloud Architect","Technical Architect"];   // edit freely
+const ROLES = ["Platform Architect","IoT Architect","Data Architect","Agentic AI Architect"];   // edit freely
 
 const CASES = [
  {m:"building", k:"Platform | Multi-Tenancy | Building Systems", t:"Smart Building Platform Architecture",
@@ -1104,7 +1104,7 @@ const FLOORS = [
 (function(){
   const out=document.getElementById("tout"); if(!out) return;
   const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const SHEET=[["PART","Adithya Venkatesh"],["FUNCTION","Software &amp; platform architect"],["EXPERIENCE","15+ years"],["INTERFACES","Modbus · BACnet · Profinet · MQTT · REST · SQL"],["CLOUD","AWS · Azure · On-prem"],["LANGUAGES","Node.js · Python · TypeScript · SQL"],["SECURITY","Cognito · Okta · IAM"],["OBSERVE","Datadog · CloudWatch"],["AI","Claude · Ollama · Bedrock AgentCore"],["LAB","ESP32 · ROS2 · SDR"]];
+  const SHEET=[["PART","Adithya Venkatesh"],["FUNCTION","Platform architect: IoT, data, agentic AI"],["EXPERIENCE","15+ years"],["INTERFACES","Modbus · BACnet · Profinet · MQTT · REST · SQL"],["CLOUD","AWS · Azure · On-prem"],["LANGUAGES","Node.js · Python · TypeScript · SQL"],["SECURITY","Cognito · Okta · IAM"],["OBSERVE","Datadog · CloudWatch"],["AI","Claude · Ollama · Bedrock AgentCore"],["LAB","ESP32 · ROS2 · SDR"]];
   document.getElementById("sheetRows").innerHTML=SHEET.map(r=>`<div class="srow" data-k="${r[0]}"><small>${r[0]}</small><span>${r[1]}</span></div>`).join("");
   const rows=[...document.querySelectorAll(".srow")];
   const hl=keys=>rows.forEach(r=>r.classList.toggle("hl",keys.includes(r.dataset.k)));
@@ -1118,7 +1118,7 @@ const FLOORS = [
     `Raw-to-curated ingestion for MQTT, API, webhook and SFTP sources: land the original record, map and validate it, curate to Parquet, serve from TimescaleDB. Bad records are held and replayable, never lost.`,
     `<div>${btn("Try the pipeline","pipeline")}</div>`]},
    whoami:{hl:["PART","FUNCTION","EXPERIENCE"],l:[
-    `<b class="h">Adithya Venkatesh</b> · software &amp; platform architect`,
+    `<b class="h">Adithya Venkatesh</b> · platform architect: IoT, data engineering, agentic AI`,
     `I've spent 15+ years connecting physical things to software: smart buildings and districts, industrial plants, vehicle telematics and medical robots.`,
     `My work covers the whole path, from a sensor's register to the screen or agent that acts on it, so I work across firmware, protocols, cloud, data, APIs, identity and AI instead of one layer.`,
     `<span class="c">try: think · build · proof · lab</span>`]},
@@ -1179,7 +1179,7 @@ const FLOORS = [
     `<div>${btn("Building Ops Copilot","proj-1")}${btn("Smart Building AI","proj-3")}${btn("ROS2 robot","proj-4")}</div>`]},
    hire:{hl:["PART","FUNCTION"],l:[
     `<b class="h">Let's talk</b>`,
-    `I'm open to software and platform architecture roles and engagements.`,
+    `I'm open to platform architecture roles and engagements across IoT, data engineering and agentic AI.`,
     `<a href="mailto:captjacksparrow1109@gmail.com">captjacksparrow1109@gmail.com</a> · <a href="https://github.com/capt-jack-21" target="_blank" rel="noopener">GitHub</a>${li_url}`]}
   };
   const ROUTES=[
