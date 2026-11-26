@@ -40,26 +40,6 @@
   "placeholder": false
  },
  {
-  "slug": "wallet-sign-in-vs-conventional-iam",
-  "title": "Wallet sign-in vs conventional IAM: a decision record",
-  "theme": "web3",
-  "themeName": "Web3 / Blockchain",
-  "color": "#ffd400",
-  "type": "Decision record",
-  "mins": 1,
-  "placeholder": true
- },
- {
-  "slug": "treating-on-chain-events-like-device-telemetry",
-  "title": "Treating on-chain events like device telemetry",
-  "theme": "web3",
-  "themeName": "Web3 / Blockchain",
-  "color": "#ffd400",
-  "type": "Opinion",
-  "mins": 1,
-  "placeholder": true
- },
- {
   "slug": "lab-notes-putting-an-ai-agent-on-ros2",
   "title": "Lab notes: putting an AI agent on ROS2",
   "theme": "robotics",

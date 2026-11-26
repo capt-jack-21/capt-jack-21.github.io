@@ -30,8 +30,8 @@ THEMES = {
                blurb="Agents on operational data: tool design, grounding, guardrails and evals."),
     "robotics": dict(name="Robotics / Embedded", color=BLOG_ACCENT,
                      blurb="ROS2, ESP32 and firmware: lab notes from the bench."),
-    "web3": dict(name="Web3 / Blockchain", color=BLOG_ACCENT,
-                 blurb="Crypto and blockchain seen through an architect's eyes."),
+    "arch": dict(name="Software Architecture", color=BLOG_ACCENT,
+                 blurb="Design decisions, trade-offs and patterns for platforms that have to last."),
 }
 TYPES = {
     "problem": "Problem solved",
@@ -214,8 +214,7 @@ MOTIFS = {
     "robotics": f'<svg viewBox="0 0 400 220" aria-hidden="true"><g {SW}><path d="M60 196H200M110 196V168H170V196"/><circle cx="140" cy="150" r="18"/><path d="M140 132L108 74"/><circle cx="108" cy="66" r="16"/>'
                 f'<path d="M122 56L226 32"/><circle cx="240" cy="30" r="14"/><path d="M250 38L300 86M300 86L282 118M300 86L330 108"/><path d="M290 170H350M320 170V196" /></g></svg>',
     # chained blocks
-    "web3": f'<svg viewBox="0 0 400 220" aria-hidden="true"><g {SW}><rect x="14" y="70" width="100" height="80" rx="10"/><rect x="150" y="70" width="100" height="80" rx="10"/><rect x="286" y="70" width="100" height="80" rx="10"/>'
-            f'<path d="M114 110H150M250 110H286"/><path d="M34 96H94M34 124H72M170 96H230M170 124H208M306 96H366M306 124H344"/></g></svg>',
+    "arch": f'<svg viewBox="0 0 400 220" aria-hidden="true"><g {SW}><rect x="120" y="14" width="160" height="40" rx="8"/><rect x="120" y="90" width="160" height="40" rx="8"/><rect x="120" y="166" width="160" height="40" rx="8"/><path d="M200 54V90M200 130V166"/><rect x="14" y="90" width="64" height="40" rx="8"/><rect x="322" y="90" width="64" height="40" rx="8"/><path d="M78 110H120M280 110H322" stroke-dasharray="1 13"/></g></svg>',
 }
 
 TX = 'font-family="Anton,Impact,sans-serif" font-weight="700" fill="currentColor" stroke="none" text-anchor="middle"'
@@ -349,7 +348,7 @@ def index_page(posts, preset=None):
         url = f"{SITE}/blog/{preset}/"
     else:
         title = "Blog · Adithya Venkatesh · AV Connected"
-        desc = "Problems solved, decisions and lab notes across IIoT, agentic AI, robotics and embedded, and Web3."
+        desc = "Problems solved, decisions and lab notes across IIoT, agentic AI, robotics and embedded, and software architecture."
         url = f"{SITE}/blog/"
     h = head(title, desc, url, f"{SITE}/blog/og/_index.png") + strip() + nav()
     big = esc(THEMES[preset]["name"]) if preset else "Blog"
@@ -404,7 +403,7 @@ def post_page(p, posts):
 
 
 
-THEME_CLS = {"iiot": "t-y", "ai": "t-k", "robotics": "t-w", "web3": "t-y"}
+THEME_CLS = {"iiot": "t-y", "ai": "t-k", "robotics": "t-w", "arch": "t-y"}
 
 
 def theme_page(posts, key):
