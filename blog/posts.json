@@ -30,16 +30,6 @@
   "placeholder": false
  },
  {
-  "slug": "what-an-ai-agent-gets-wrong-about-building-telemetry",
-  "title": "What an AI agent gets wrong about building telemetry",
-  "theme": "ai",
-  "themeName": "Agentic AI",
-  "color": "#ffd400",
-  "type": "Problem solved",
-  "mins": 1,
-  "placeholder": true
- },
- {
   "slug": "wallet-sign-in-vs-conventional-iam",
   "title": "Wallet sign-in vs conventional IAM: a decision record",
   "theme": "web3",
@@ -76,16 +66,6 @@
   "themeName": "Robotics / Embedded",
   "color": "#ffd400",
   "type": "Lab notes",
-  "mins": 1,
-  "placeholder": true
- },
- {
-  "slug": "designing-tools-for-an-ops-agent",
-  "title": "Designing tools for an ops agent",
-  "theme": "ai",
-  "themeName": "Agentic AI",
-  "color": "#ffd400",
-  "type": "Teardown",
   "mins": 1,
   "placeholder": true
  }
