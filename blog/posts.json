@@ -1,0 +1,82 @@
+[
+ {
+  "slug": "what-an-ai-agent-gets-wrong-about-building-telemetry",
+  "title": "What an AI agent gets wrong about building telemetry",
+  "theme": "ai",
+  "themeName": "Agentic AI",
+  "color": "#c084fc",
+  "type": "Problem solved",
+  "mins": 1,
+  "placeholder": true
+ },
+ {
+  "slug": "wallet-sign-in-vs-conventional-iam",
+  "title": "Wallet sign-in vs conventional IAM: a decision record",
+  "theme": "web3",
+  "themeName": "Web3 / Blockchain",
+  "color": "#4ade80",
+  "type": "Decision record",
+  "mins": 1,
+  "placeholder": true
+ },
+ {
+  "slug": "treating-on-chain-events-like-device-telemetry",
+  "title": "Treating on-chain events like device telemetry",
+  "theme": "web3",
+  "themeName": "Web3 / Blockchain",
+  "color": "#4ade80",
+  "type": "Opinion",
+  "mins": 1,
+  "placeholder": true
+ },
+ {
+  "slug": "timescaledb-compression-decisions",
+  "title": "TimescaleDB compression: the decisions that actually mattered",
+  "theme": "iiot",
+  "themeName": "IIoT",
+  "color": "#5aa9ff",
+  "type": "Decision record",
+  "mins": 1,
+  "placeholder": true
+ },
+ {
+  "slug": "protocol-normalisation-is-the-real-iiot-problem",
+  "title": "Protocol normalisation is the real IIoT problem",
+  "theme": "iiot",
+  "themeName": "IIoT",
+  "color": "#5aa9ff",
+  "type": "Opinion",
+  "mins": 1,
+  "placeholder": true
+ },
+ {
+  "slug": "lab-notes-putting-an-ai-agent-on-ros2",
+  "title": "Lab notes: putting an AI agent on ROS2",
+  "theme": "robotics",
+  "themeName": "Robotics / Embedded",
+  "color": "#ffb454",
+  "type": "Lab notes",
+  "mins": 1,
+  "placeholder": true
+ },
+ {
+  "slug": "lab-notes-esp32-pump-health-monitor",
+  "title": "Lab notes: an ESP32-S3 pump health monitor",
+  "theme": "robotics",
+  "themeName": "Robotics / Embedded",
+  "color": "#ffb454",
+  "type": "Lab notes",
+  "mins": 1,
+  "placeholder": true
+ },
+ {
+  "slug": "designing-tools-for-an-ops-agent",
+  "title": "Designing tools for an ops agent",
+  "theme": "ai",
+  "themeName": "Agentic AI",
+  "color": "#c084fc",
+  "type": "Teardown",
+  "mins": 1,
+  "placeholder": true
+ }
+]

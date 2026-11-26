@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web3 / Blockchain · Writing · Adithya Venkatesh</title>
+<meta name="description" content="Crypto and blockchain seen through an architect&#x27;s eyes.">
+<link rel="canonical" href="https://capt-jack-21.github.io/blog/web3/">
+<meta property="og:type" content="article"><meta property="og:site_name" content="AV Connected · Writing">
+<meta property="og:title" content="Web3 / Blockchain · Writing · Adithya Venkatesh"><meta property="og:description" content="Crypto and blockchain seen through an architect&#x27;s eyes.">
+<meta property="og:url" content="https://capt-jack-21.github.io/blog/web3/"><meta property="og:image" content="https://capt-jack-21.github.io/blog/og/_index.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://capt-jack-21.github.io/blog/og/_index.png">
+<meta name="theme-color" content="#07090d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2307090d'/%3E%3Cpath d='M12 50 28 14l8 18' fill='none' stroke='%23ff8a65' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M32 14l16 36' fill='none' stroke='%23e6edf3' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#07090d;--panel:#0d1219;--panel2:#111826;--line:#1c2635;--text:#e6edf3;--muted:#8b98a9;
+--b:#ff8a65;--mono:ui-monospace,"Cascadia Code","SFMono-Regular",Consolas,"Liberation Mono",monospace;
+--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1.2px) 0 0/26px 26px,var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+nav{position:sticky;top:0;z-index:20;background:rgba(7,9,13,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.mark{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--muted)}
+.mark b{display:inline-grid;place-items:center;width:28px;height:28px;border:1px solid var(--b);color:var(--b);border-radius:6px;font-size:12px;letter-spacing:0}
+nav ul{display:flex;gap:22px;list-style:none;font-family:var(--mono);font-size:12px;letter-spacing:.06em}
+nav ul a{color:var(--muted);transition:color .15s}nav ul a:hover,nav ul a.on{color:var(--b)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--b);text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--b)}
+.hero{padding:64px 0 36px;border-bottom:1px solid var(--line)}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.15;margin:14px 0 12px;letter-spacing:-.01em}
+h1 span{color:var(--b)}
+.lede{color:var(--muted);max-width:660px;font-size:17px}
+.themes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:34px 0 8px}
+.tcard{display:block;background:rgba(13,18,25,.88);border:1px solid var(--line);border-top:2px solid var(--c);border-radius:12px;padding:18px;transition:border-color .2s,transform .2s}
+.tcard:hover{border-color:var(--c);transform:translateY(-2px)}
+.tcard h3{font-size:17px;margin-bottom:6px;color:var(--c)}
+.tcard p{color:var(--muted);font-size:13.5px;min-height:62px}
+.tcard .meta{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:12px;letter-spacing:.04em}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:30px 0 18px}
+.chip{font-family:var(--mono);font-size:12px;letter-spacing:.04em;padding:7px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:transparent;cursor:pointer;transition:all .15s}
+.chip:hover{color:var(--text);border-color:var(--muted)}
+.chip.on{color:#07090d;background:var(--b);border-color:var(--b);font-weight:700}
+.sep{width:1px;height:22px;background:var(--line);margin:0 4px}
+.search{margin-left:auto;font-family:var(--mono);font-size:12px;background:var(--panel);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:8px 12px;min-width:190px}
+.search:focus{outline:none;border-color:var(--b)}
+.list{display:grid;gap:12px;margin-bottom:60px}
+.post{display:block;background:rgba(13,18,25,.88);border:1px solid var(--line);border-left:3px solid var(--c);border-radius:10px;padding:16px 18px;transition:border-color .2s,transform .2s}
+.post:hover{border-color:var(--c);transform:translateY(-1px)}
+.post h3{font-size:18px;line-height:1.3;margin:6px 0}
+.post p{color:var(--muted);font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--muted)}
+.th{color:var(--c);font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+.ph{border:1px dashed #6b7686;border-radius:4px;padding:0 6px;color:#aab4c2;text-transform:uppercase;letter-spacing:.1em}
+.empty{color:var(--muted);font-family:var(--mono);font-size:13px;padding:20px 0;display:none}
+article{max-width:720px;margin:0 auto;padding:44px 22px 20px}
+article .crumb{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em;margin-bottom:22px}
+article .crumb a{color:var(--c)}
+article h1{font-size:clamp(28px,4.6vw,40px);margin:12px 0 10px}
+.byline{color:var(--muted);font-size:14px;margin-bottom:6px}
+.banner{margin:22px 0;padding:12px 14px;border:1px dashed #6b7686;border-radius:8px;color:#aab4c2;font-family:var(--mono);font-size:12.5px}
+.body h2{font-size:22px;margin:34px 0 10px;padding-top:6px;border-top:1px solid var(--line)}
+.body p,.body ul,.body ol,.body table{margin:12px 0}
+.body ul,.body ol{padding-left:22px}
+.body li{margin:5px 0}
+.body em{color:#aab4c2}
+.body code{font-family:var(--mono);font-size:.9em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;padding:1px 5px}
+.body pre{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;margin:14px 0}
+.body pre code{background:none;border:0;padding:0}
+.body blockquote{border-left:3px solid var(--c);padding:4px 14px;color:var(--muted);margin:14px 0}
+.body table{border-collapse:collapse;width:100%;font-size:14px}
+.body th,.body td{border:1px solid var(--line);padding:8px 10px;text-align:left}
+.body th{background:var(--panel2);font-family:var(--mono);font-size:12px;letter-spacing:.04em}
+.more{max-width:720px;margin:34px auto 70px;padding:0 22px}
+.more h4{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-family:var(--mono);font-size:12px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer a:hover{color:var(--b)}
+@media(max-width:720px){nav ul li.hide{display:none}.search{margin-left:0;width:100%}.sep{display:none}}
+</style></head><body><nav><div class="wrap">
+<a class="mark" href="/blog/"><b>AV</b>WRITING</a>
+<ul><li class="hide"><a href="/#cases">Case studies</a></li><li class="hide"><a href="/#projects">Projects</a></li>
+<li><a href="/blog/" class="on">Writing</a></li><li><a href="/">← Portfolio</a></li></ul></div></nav><header class="hero"><div class="wrap"><div class="eyebrow"><i></i> Notes from the field</div><h1><span>Web3 / Blockchain</span></h1><p class="lede">Crypto and blockchain seen through an architect&#x27;s eyes.</p><div class="themes"><a class="tcard" href="/blog/iiot/" style="--c:#5aa9ff"><h3>IIoT</h3><p>Protocols, time-series and data platforms, digital twins and edge gateways.</p><div class="meta">2 posts</div></a><a class="tcard" href="/blog/ai/" style="--c:#c084fc"><h3>Agentic AI</h3><p>Agents on operational data: tool design, grounding, guardrails and evals.</p><div class="meta">2 posts</div></a><a class="tcard" href="/blog/robotics/" style="--c:#ffb454"><h3>Robotics / Embedded</h3><p>ROS2, ESP32 and firmware: lab notes from the bench.</p><div class="meta">2 posts</div></a><a class="tcard" href="/blog/web3/" style="--c:#4ade80"><h3>Web3 / Blockchain</h3><p>Crypto and blockchain seen through an architect&#x27;s eyes.</p><div class="meta">2 posts</div></a></div></div></header><main class="wrap"><div class="bar"><button class="chip on" data-t="">All themes</button><button class="chip" data-t="iiot">IIoT</button><button class="chip" data-t="ai">Agentic AI</button><button class="chip" data-t="robotics">Robotics / Embedded</button><button class="chip" data-t="web3">Web3 / Blockchain</button><span class="sep"></span><button class="chip on" data-y="">All types</button><button class="chip" data-y="problem">Problem solved</button><button class="chip" data-y="decision">Decision record</button><button class="chip" data-y="teardown">Teardown</button><button class="chip" data-y="lab">Lab notes</button><button class="chip" data-y="opinion">Opinion</button><input class="search" id="q" type="search" placeholder="search posts" aria-label="Search posts"></div><div class="list" id="list"><a class="post" href="/blog/posts/what-an-ai-agent-gets-wrong-about-building-telemetry/" style="--c:#c084fc" data-theme="ai" data-type="problem" data-q="what an ai agent gets wrong about building telemetry agents are fluent about data they do not understand. units, point naming and stale readings are where they fail first. agents grounding haystack tool use evals"><div class="tags"><span class="th">Agentic AI</span><span>·</span><span>Problem solved</span><span>·</span><span>1 min</span><span class="ph">placeholder</span></div><h3>What an AI agent gets wrong about building telemetry</h3><p>Agents are fluent about data they do not understand. Units, point naming and stale readings are where they fail first.</p></a><a class="post" href="/blog/posts/wallet-sign-in-vs-conventional-iam/" style="--c:#4ade80" data-theme="web3" data-type="decision" data-q="wallet sign-in vs conventional iam: a decision record when does signing in with a wallet make sense, and when does a conventional identity provider remain the better answer? wallet auth iam identity web3"><div class="tags"><span class="th">Web3 / Blockchain</span><span>·</span><span>Decision record</span><span>·</span><span>1 min</span><span class="ph">placeholder</span></div><h3>Wallet sign-in vs conventional IAM: a decision record</h3><p>When does signing in with a wallet make sense, and when does a conventional identity provider remain the better answer?</p></a><a class="post" href="/blog/posts/treating-on-chain-events-like-device-telemetry/" style="--c:#4ade80" data-theme="web3" data-type="opinion" data-q="treating on-chain events like device telemetry a blockchain emits an ordered stream of events. an iot architect already knows how to ingest, normalise and query that. blockchain event streams ingestion indexing"><div class="tags"><span class="th">Web3 / Blockchain</span><span>·</span><span>Opinion</span><span>·</span><span>1 min</span><span class="ph">placeholder</span></div><h3>Treating on-chain events like device telemetry</h3><p>A blockchain emits an ordered stream of events. An IoT architect already knows how to ingest, normalise and query that.</p></a><a class="post" href="/blog/posts/timescaledb-compression-decisions/" style="--c:#5aa9ff" data-theme="iiot" data-type="decision" data-q="timescaledb compression: the decisions that actually mattered a decision record on chunking, segmenting and retention for telemetry that is written constantly and read in bursts. timescaledb time-series compression retention"><div class="tags"><span class="th">IIoT</span><span>·</span><span>Decision record</span><span>·</span><span>1 min</span><span class="ph">placeholder</span></div><h3>TimescaleDB compression: the decisions that actually mattered</h3><p>A decision record on chunking, segmenting and retention for telemetry that is written constantly and read in bursts.</p></a><a class="post" href="/blog/posts/protocol-normalisation-is-the-real-iiot-problem/" style="--c:#5aa9ff" data-theme="iiot" data-type="opinion" data-q="protocol normalisation is the real iiot problem getting data off a device is easy. making a hundred different devices mean the same thing to the platform is the hard part. opc ua mqtt bacnet modbus data modelling"><div class="tags"><span class="th">IIoT</span><span>·</span><span>Opinion</span><span>·</span><span>1 min</span><span class="ph">placeholder</span></div><h3>Protocol normalisation is the real IIoT problem</h3><p>Getting data off a device is easy. Making a hundred different devices mean the same thing to the platform is the hard part.</p></a><a class="post" href="/blog/posts/lab-notes-putting-an-ai-agent-on-ros2/" style="--c:#ffb454" data-theme="robotics" data-type="lab" data-q="lab notes: putting an ai agent on ros2 first lessons from letting an agent reason over a ros2 system: what to expose, what to keep out of its reach. ros2 agents robotics safety"><div class="tags"><span class="th">Robotics / Embedded</span><span>·</span><span>Lab notes</span><span>·</span><span>1 min</span><span class="ph">placeholder</span></div><h3>Lab notes: putting an AI agent on ROS2</h3><p>First lessons from letting an agent reason over a ROS2 system: what to expose, what to keep out of its reach.</p></a><a class="post" href="/blog/posts/lab-notes-esp32-pump-health-monitor/" style="--c:#ffb454" data-theme="robotics" data-type="lab" data-q="lab notes: an esp32-s3 pump health monitor notes from building a pump health monitor on an esp32-s3: sensing, firmware structure and what the data looks like at the edge. esp32-s3 firmware sensing edge"><div class="tags"><span class="th">Robotics / Embedded</span><span>·</span><span>Lab notes</span><span>·</span><span>1 min</span><span class="ph">placeholder</span></div><h3>Lab notes: an ESP32-S3 pump health monitor</h3><p>Notes from building a pump health monitor on an ESP32-S3: sensing, firmware structure and what the data looks like at the edge.</p></a><a class="post" href="/blog/posts/designing-tools-for-an-ops-agent/" style="--c:#c084fc" data-theme="ai" data-type="teardown" data-q="designing tools for an ops agent the model is rarely the limit. the shape of the tools you give it decides whether it answers well or flounders. tool design mcp guardrails agents"><div class="tags"><span class="th">Agentic AI</span><span>·</span><span>Teardown</span><span>·</span><span>1 min</span><span class="ph">placeholder</span></div><h3>Designing tools for an ops agent</h3><p>The model is rarely the limit. The shape of the tools you give it decides whether it answers well or flounders.</p></a></div><p class="empty" id="none">No posts match yet.</p></main><footer><div class="wrap"><span>Adithya Venkatesh · AV Connected</span>
+<span><a href="/">Portfolio</a> · <a href="/blog/">Writing</a> · <a href="https://github.com/capt-jack-21" rel="noopener">GitHub</a></span></div></footer><script>
+(function(){var T="web3",Y="",Q="";var cs=[].slice.call(document.querySelectorAll('.chip'));
+function run(){var n=0;[].forEach.call(document.querySelectorAll('.post'),function(p){
+var ok=(!T||p.dataset.theme===T)&&(!Y||p.dataset.type===Y)&&(!Q||p.dataset.q.indexOf(Q)>-1);p.style.display=ok?'':'none';if(ok)n++});
+document.getElementById('none').style.display=n?'none':'block';
+cs.forEach(function(c){if(c.dataset.t!==undefined)c.classList.toggle('on',c.dataset.t===T);if(c.dataset.y!==undefined)c.classList.toggle('on',c.dataset.y===Y)})}
+cs.forEach(function(c){c.addEventListener('click',function(){if(c.dataset.t!==undefined)T=c.dataset.t;else Y=c.dataset.y;run()})});
+document.getElementById('q').addEventListener('input',function(e){Q=e.target.value.toLowerCase().trim();run()});run()})();
+</script></body></html>
