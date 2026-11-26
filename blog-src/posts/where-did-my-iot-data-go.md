@@ -2,7 +2,7 @@
 title: Where did my IoT data go? Tracking it without tracking everything
 theme: iiot
 type: teardown
-date: 2024-02
+date: 2024-02-14
 summary: You cannot follow every message from a sensor to a database. You do not need to. Here is a simple way to know where data goes missing.
 tags: observability, MQTT, TimescaleDB, OpenTelemetry, data lineage
 ---
